@@ -1,0 +1,63 @@
+/*
+Specific styles for storybook
+*/
+
+.sb-show-main {
+    padding: 20px;
+}
+
+.storybook-new-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.storybook-component-wrapper {
+    margin: 10px;
+}
+
+.storybook-component-info {
+    display: block;
+    text-align: left;
+    margin: 10px 0;
+}
+
+.storybook-icons-showcase {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    .storybook-component-wrapper {
+        width: 150px;
+        text-align: center;
+        width: 150px;
+        border: solid 1px #eeeeee;
+        border-radius: 5px;
+    }
+
+    .storybook-component-info {
+        text-align: center;
+        font-size: 11px;
+        user-select: text;
+    }
+
+    .storybook-debug-icon {
+        border: solid 1px #000000;
+    }
+}
+
+/*
+Specific styles for storybook components sample
+*/
+.sdc-accordion-custom-class .sdc-accordion-header,
+.sdc-accordion-custom-class .sdc-accordion-body.open {
+    padding: 10px;
+    border-radius: 3px;
+}
+.sdc-accordion-custom-class .sdc-accordion-header {
+    background-color: #d2d2d2;
+}
+.sdc-accordion-custom-class .sdc-accordion-body.open {
+    border: 1px solid #d2d2d2;
+    margin-top: 1px;
+ }

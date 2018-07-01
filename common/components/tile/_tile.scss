@@ -1,0 +1,172 @@
+.sdc-tile {
+	$tile-full-width: 204px;
+	$tile-full-height: 204px;
+	$tile-padding: 10px;
+
+	$header-height: $body-font-1;
+	$footer-height: 23px;
+	$content-height: 100%;
+
+	width: $tile-full-width;
+	height: $tile-full-height;
+
+	padding: $tile-padding;
+	border: 1px solid $silver;
+	@include border-radius(2px);
+	@include box-sizing;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	position: relative;
+	cursor: pointer;
+	user-select: none;
+
+	background: $white;
+	color: $text-black;
+	fill: $dark-gray;
+	transition: box-shadow 0.3s ease-in-out;
+	@include body-3;
+	@include box-shadow(0 1px 4px 0 rgba($text-black, 0.06));
+
+	&:hover {
+		border-color: $light-gray;
+		@include box-shadow( 0 10px 30px 0 rgba($text-black, 0.25));
+	}
+
+	.blue {
+		color: $blue;
+		fill: $blue;
+	}
+
+	.purple {
+		color: $purple;
+		fill: $purple;
+	}
+
+	.centered {
+		&.sdc-tile-footer, .sdc-tile-info-line {
+			text-align: center;
+		}
+	}
+
+	.sdc-tile-header {
+		height: 1.1em;
+		line-height: 1em;
+		@include ellipsis($display: block);
+
+		font-size: $body-font-1;
+		text-transform: uppercase;
+	}
+
+	.sdc-tile-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: $content-height;
+
+		.sdc-tile-content-icon {
+			margin-top: 27px;
+			text-align: center;
+
+			svg {
+				width: 50px;
+				height: 50px;
+
+				&.__vsp {
+					width: 60px;
+					height: 40px;
+				}
+				&.__vlm {
+					width: 45px;
+					height: 53px;
+				}
+				&.__vendor {
+					width: 53px;
+					height: 47px;
+				}
+			}
+		}
+
+		.sdc-tile-content-info {
+			display: flex;
+			flex-direction: column;
+
+			.sdc-tile-info-line {
+				text-transform: capitalize;
+				@include ellipsis($display: inline-block);
+
+				button {
+					height: 1.67em;
+					width: initial;
+					margin-bottom: 5px;
+					margin-top: 1px;
+					padding: 0 8px;
+					font-size: inherit;
+				}
+				&.supertitle {
+					height: 1.1em;
+					line-height: 1.2;
+					color: $gray;
+				}
+				&.title {
+					height: 1.6em;
+					line-height: 1.8;
+					color: $text-black;
+					@include heading-5;
+				}
+				&.subtitle {
+					height: 1.5em;
+					line-height: 1.6;
+					color: $dark-gray;
+				}
+				&:last-child {
+					margin-bottom: 4px;
+				}
+			}
+		}
+	}
+
+	.sdc-tile-footer {
+		height: $footer-height;
+		@include box-sizing;
+
+		border-top: 1px solid $silver;
+		padding-top: 8px;
+
+		color: $dark-gray;
+		fill: $dark-gray;
+		text-transform: capitalize;
+
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.sdc-tile-footer-cell {
+			&:first-child {
+				@include ellipsis;
+			}
+			svg{
+				width: 20px;
+				height: 12px;
+			}
+			button {
+				width: initial;
+				height: initial;
+				@include body-2;
+
+				.svg-icon-wrapper {
+					.svg-icon-label {
+						font-size: inherit;
+					}
+					svg {
+						width: 9px;
+						height: 9px;
+					}
+				}
+			}
+		}
+
+	}
+}

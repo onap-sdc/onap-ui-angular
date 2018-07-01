@@ -1,0 +1,68 @@
+.sdc-menu-list {
+    position: static;
+    @include box-sizing;
+    @include box-shadow(0 2px 4px 0 rgba($black, 0.3));
+    @include border-radius(2px);
+    border: 1px solid $light-gray;
+    border-top: solid 3px $blue;
+    background: $white;
+    min-width: 150px;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+
+    .sdc-menu-item:not(.separator) {
+        @include body-1;
+        height: 40px;
+        color: $dark-gray;
+        padding: 0 12px;
+        display: flex;
+        align-items: center;
+
+        svg {
+            margin-right: 16px;
+            g, path {
+                fill: $dark-gray;
+            }
+        }
+
+        &:hover {
+            &:not(.disabled) {
+                cursor: pointer;
+                &:not(.selected) {
+                    background: $light-silver;
+                    color: $text-black;
+                    g, path {
+                        fill: $dark-gray;
+                    }
+                }
+            }
+        }
+
+        &.disabled {
+            color: $gray;
+            g, path {
+                fill: $light-gray;
+            }
+        }
+
+        &.selected {
+            background: $lighter-blue;
+            color: $light-blue;
+            g, path {
+                fill: $dark-gray;
+            }
+        }
+    }
+
+    &.relative {
+        position: relative;
+    }
+
+    .separator {
+        cursor: default;
+        border-top: 1px solid $silver;
+        margin: 0 0;
+        height: 0;
+    }
+}

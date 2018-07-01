@@ -1,0 +1,116 @@
+.sdc-tag-cloud-new-item-field{
+    display: flex;
+    align-items: flex-end;
+  sdc-input{
+    flex-grow: 1;
+    .sdc-input{
+      margin-bottom: 0;
+      .sdc-input__input{
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+  }
+  .not-empty{
+    .sdc-input__input {
+      border-color: $blue;
+    }
+   
+  }
+  .error{
+    .sdc-input__input {
+      border: solid 1px $red;
+      color: $red;
+      outline: none;
+    }
+  }
+  .add-button{
+    cursor: pointer;
+    height: 36px;
+    width: 36px;
+    text-align: center;
+    background-color: $lighter-blue;
+    border: solid 1px $blue;
+    border-left: none;
+    border-top-right-radius: 2px;
+    &.disabled{
+      cursor: default;
+      background-color: $light-silver;
+      border-color: $light-gray;
+      .plus-icon svg g{
+        fill: $gray;
+      }
+    }
+    .plus-icon{
+      line-height: 46px;
+      svg{
+        height: 20px;
+        width: 20px;
+        g{
+          fill: $blue;
+        }
+      }
+    }
+  }
+
+  &.not-empty{
+    .add-button:hover{
+      background-color: $light-blue;
+      svg{
+        g{
+          fill: $white;
+        }
+      }
+    }
+  }
+}
+
+.sdc-list-container{
+  height: 120px;
+  overflow-y: auto;
+  border: solid 1px $light-gray;
+  border-top: none;
+  border-radius: 2px;
+  background-color: $white;
+  padding: 10px 10px 0 0;
+  .sdc-tag-item{
+    padding: 0 0 10px 10px;
+    display: inline-block;
+    .tag-item{
+      min-width: 100px;
+      background-color: $white;
+      border: solid 1px $light-gray;
+      border-radius: 20px;
+      height: 28px;
+      line-height: 28px;
+      padding: 0 10px;
+      color: $text-black;
+      @include body-3;
+      &.view-only{
+        border-color: $silver;
+      }
+      .delete-item{
+        cursor: pointer;
+        padding-left: 10px;
+        float: right;
+        svg{
+          height: 12px;
+          width: 12px;
+          margin-top: 8px;
+          g{
+            fill: $dark-gray;
+          }
+        }
+      }
+      &:hover:not(.view-only){
+        background-color: $lighter-blue;
+        border-color: $lighter-blue;
+        .delete-item{
+          svg g{
+            fill: $blue;
+          }
+        }
+      }
+    }
+  }
+}

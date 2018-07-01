@@ -1,0 +1,20 @@
+.sdc-radio-group {
+  .sdc-radio-group__radios {
+	display: flex;
+  }
+  .sdc-radio-group__legend {
+	@include body-2-emphasis;
+	display: inline-block;
+	margin-bottom: 5px;
+  }
+  .sdc-radio__label {
+	@include body-1;
+	margin-right: 20px;
+  }
+  .vertical{
+    flex-direction: column;
+    .sdc-radio{
+      margin-bottom: 15px;
+    }
+  }
+}
