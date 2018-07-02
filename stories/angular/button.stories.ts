@@ -22,7 +22,7 @@ const storiesNames = {
   withSpinner: 'Button with spinner'
 }
 
-let stories = storiesOf('Buttons', module)
+let stories = storiesOf('Form elements|Buttons', module)
 .addDecorator(withKnobs)
 .addDecorator(withNotes)
 .addDecorator(

@@ -35,9 +35,7 @@ storiesOf('AutoComplete', module)
 
       return {
         props: {
-            itemSelected: (value: string) => {
-                action(`Item ${value} was selected`)
-            },
+            itemSelected: action('Item was selected '),
             _label, _placeholder, _data, _event
         },
         template: `
@@ -77,9 +75,7 @@ storiesOf('AutoComplete', module)
 
       return {
         props: {
-            itemSelected: (value: string) => {
-                action(`Item ${value} was selected`)
-            },
+            itemSelected: action('Item was selected '),
             _label, _placeholder, _data, _dataSchema, _event
         },
         template: `
@@ -109,9 +105,7 @@ storiesOf('AutoComplete', module)
 
       return {
         props: {
-            itemSelected: (value: string) => {
-                action(`Item ${value} was selected`)
-            },
+            itemSelected: action('Item was selected '),
             _label, _placeholder, _dataSchema, _dataUrl, _event
         },
         template: `

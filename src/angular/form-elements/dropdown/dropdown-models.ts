@@ -1,14 +1,14 @@
 export enum DropDownTypes {
-    Regular,
-    Headless,
-    Auto
+    Regular = "Regular",
+    Headless = "Headless",
+    Auto = "Auto"
 }
 
 export enum DropDownOptionType {
-    Simple, // default
-    Header,
-    Disable,
-    HorizontalLine
+    Simple = "Simple", // default
+    Header = "Header",
+    Disable = "Disable",
+    HorizontalLine = "HorizontalLine"
 }
 
 export interface IDropDownOption {

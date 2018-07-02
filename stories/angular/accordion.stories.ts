@@ -130,7 +130,7 @@ storiesOf('Accordion', module)
 
       return {
         props: {
-          accordionChanged: action('Accordion changed event'),
+          accordionChanged: action('Accordion changed event '),
           _title, _arrow_direction, _css_class, _open
         },
         template: `
@@ -139,7 +139,7 @@ storiesOf('Accordion', module)
           [arrow-direction]="_arrow_direction"
           [css-class]="_css_class"
           [open]="_open"
-          (accordionChanged)="accordionChanged()"
+          (accordionChanged)="accordionChanged($event)"
           >
           <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce consequat dictum porttitor. 
