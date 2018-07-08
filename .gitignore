@@ -4,6 +4,7 @@
 /dist
 /tmp
 /out-tsc
+/.storybook-out
 
 # dependencies
 /node_modules
