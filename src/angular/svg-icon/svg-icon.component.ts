@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges, HostBinding } from "@angular/core";
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import { Mode, Size, BackgroundShape, BackgroundColor } from "../common/enums";
-import { iconsMap } from '../../../common/icons-map/icons-map.js';
+import { iconsMap } from 'onap-ui-common';
 import { template } from './svg-icon.component.html';
 
 @Component({

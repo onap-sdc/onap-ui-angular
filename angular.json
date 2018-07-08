@@ -23,7 +23,7 @@
               "src/angular/assets"
             ],
             "styles": [
-              "src/styles/style.scss"
+              "src/assets/styles/style.scss"
             ],
             "scripts": []
           },
