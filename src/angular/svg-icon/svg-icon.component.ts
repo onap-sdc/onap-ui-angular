@@ -16,6 +16,7 @@ import { template } from './svg-icon.component.html';
 export class SvgIconComponent implements OnChanges {
 
     @Input() public name: string;
+    @Input() public category: string;
     @Input() public mode: Mode;
     @Input() public size: Size;
     @Input() public backgroundShape: BackgroundShape;
@@ -23,18 +24,19 @@ export class SvgIconComponent implements OnChanges {
     @Input() public disabled: boolean;
     @Input() public clickable: boolean;
     @Input() public className: any;
-
+    
     public svgIconContent: string;
     public svgIconContentSafeHtml: SafeHtml;
     public svgIconCustomClassName: string;
-    private classes: string;
+    public classes: string;
 
     constructor(protected domSanitizer: DomSanitizer) {
         this.size = Size.medium;
         this.disabled = false;
+        this.category = this.category || "common";
     }
 
-    static get Icons(): { [key: string]: string } {
+    static Icons(): { [key: string]: string } {
         return iconsMap;
     }
 
@@ -44,7 +46,7 @@ export class SvgIconComponent implements OnChanges {
     }
 
     protected updateSvgIconByName() {
-        this.svgIconContent = iconsMap[this.name] || null;
+        this.svgIconContent = iconsMap[this.category][this.name] || null;    
         if (this.svgIconContent) {
             this.svgIconContentSafeHtml = this.domSanitizer.bypassSecurityTrustHtml(this.svgIconContent);
             this.svgIconCustomClassName = '__' + this.name.replace(/\s+/g, '_');

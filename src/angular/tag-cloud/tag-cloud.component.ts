@@ -13,16 +13,16 @@ export class TagCloudComponent {
     @Input() public label: string;
     @Input() public placeholder: string;
     @Output() public listChanged: EventEmitter<string[]> = new EventEmitter<string[]>();
-    private newTagItem: string;
-    private uniqueError: boolean;
+    public newTagItem: string;
+    public uniqueError: boolean;
 
-    private onKeyup = (e): void => {
+    public onKeyup = (e): void => {
         if (e.keyCode === 13) {
             this.insertItemToList();
         }
     }
 
-    private insertItemToList = (): void => {
+    public insertItemToList = (): void => {
         this.validateTag();
         if (!this.uniqueError && this.newTagItem.length) {
             this.list.push(this.newTagItem);

@@ -22,7 +22,7 @@ export class ButtonComponent implements OnInit, IButtonComponent {
 
     public placement = Placement;
     private lastClick: Date;
-    private iconPositionClass: string;
+    public iconPositionClass: string;
 
     @HostBinding('class.sdc-button__wrapper') true;
 

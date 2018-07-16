@@ -18,7 +18,7 @@ export class BaseTextElementComponent extends ValidatableComponent implements On
     @Input() public debounceTime: number;
     @Input() public testId: string;
 
-    protected control: FormControl;
+    public control: FormControl;
 
     constructor() {
         super();

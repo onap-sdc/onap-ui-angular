@@ -3,9 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "onap-ui": {
+    "onap-ui-angular": {
       "root": "",
-      "sourceRoot": "src/angular",
+      "sourceRoot": "src",
       "projectType": "application",
       "prefix": "",
       "schematics": {},
@@ -13,14 +13,14 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/onap-ui",
+            "outputPath": "dist/onap-ui-angular",
             "index": "src/angular/index.html",
             "main": "src/angular/index.ts",
             "polyfills": "src/angular/polyfills.ts",
             "tsConfig": "src/angular/tsconfig.app.json",
             "assets": [
               "src/angular/favicon.ico",
-              "src/angular/assets"
+              "src/assets"
             ],
             "styles": [
               "src/assets/styles/style.scss"
@@ -37,7 +37,7 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": false,
+              "sourceMap": true,
               "extractCss": true,
               "namedChunks": false,
               "aot": true,
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "onap-ui:build"
+            "browserTarget": "onap-ui-angular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "onap-ui:build:production"
+              "browserTarget": "onap-ui-angular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "onap-ui:build"
+            "browserTarget": "onap-ui-angular:build"
           }
         },
         "lint": {
@@ -78,7 +78,7 @@
         }
       }
     },
-    "onap-ui-e2e": {
+    "onap-ui-angular-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -86,7 +86,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "onap-ui:serve"
+            "devServerTarget": "onap-ui-angular:serve"
           }
         },
         "lint": {
@@ -101,5 +101,5 @@
       }
     }
   },
-  "defaultProject": "onap-ui"
+  "defaultProject": "onap-ui-angular"
 }

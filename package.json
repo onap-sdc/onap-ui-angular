@@ -1,21 +1,28 @@
 {
-  "name": "onap-ui",
-  "version": "4.0.0-alpha.9",
-  "private": true,
+  "name": "onap-ui-angular",
+  "version": "5.1.0",
+  "author": "d2",
+  "private": false,
+  "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "ng build",
-    "build-storybook": "build-storybook -c .storybook -o .storybook-out ",
-    "e2e": "ng e2e",
+    "prebuild": "node src/utils/delete-folders.js",
+    "build-origin": "npm run prebuild && ng build",
+    "e2e": "ng e2e --no-webdriver-update",
     "ng": "ng",
     "start": "ng serve",
+    "build": "npm run build:ngc && npm run build:umd",
+    "build:ngc": "node_modules/.bin/ngc -p tsconfig-aot.json",
+    "build:umd": "webpack --config webpack-umd.config.ts --mode production",
+    "build:umd-dev": "webpack --config webpack-umd.config.ts --mode development",
     "storybook": "start-storybook -p 6007",
-    "storybook:prebuild": "npm run test:generate-output"
+    "storybook:prebuild": "npm run test:generate-output",
+    "storybook:build": "build-storybook -c .storybook -o .storybook-out "
   },
   "dependencies": {
+    "@angular/animations": "^6.0.3",
     "@angular/common": "^6.0.3",
     "@angular/compiler": "^6.0.3",
-    "@angular/animations": "^6.0.3",
     "@angular/core": "^6.0.3",
     "@angular/forms": "^6.0.3",
     "@angular/platform-browser": "^6.0.3",
@@ -42,17 +49,25 @@
     "@storybook/addon-storysource": "4.0.0-alpha.9",
     "@storybook/addons": "4.0.0-alpha.9",
     "@storybook/angular": "4.0.0-alpha.9",
-    "@types/jasmine": "~2.8.8",
-    "@types/jasminewd2": "^2.0.3",
     "@types/jest": "^22.2.3",
     "@types/node": "~9.6.20",
+    "awesome-typescript-loader": "^3.1.3",
     "babel-core": "^6.26.3",
     "css-loader": "^0.28.11",
+    "delete": "^1.1.0",
     "global": "^4.3.2",
-    "onap-ui-common": "^1.0.49",
+    "onap-ui-common": "^1.0.51",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
-    "ts-node": "~6.1.0",
-    "typescript": "2.7.2"
+    "ts-node": "7.0.0",
+    "typescript": "2.7.2",
+    "webpack": "4.12.0",
+    "webpack-angular-externals": "^1.0.2",
+    "webpack-cli": "^3.0.8",
+    "webpack-rxjs-externals": "^1.0.0"
+  },
+  "peerDependencies": {
+    "@angular/common": "^6.0.3",
+    "@angular/core": "^6.0.3"
   }
 }

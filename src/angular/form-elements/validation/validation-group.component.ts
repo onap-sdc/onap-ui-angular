@@ -1,7 +1,7 @@
 import { Input, Component, ContentChildren, EventEmitter, Output, QueryList, SimpleChanges, HostBinding, AfterContentInit } from "@angular/core";
 import { ValidatorComponent } from './validators/base.validator.component';
 import { ValidationComponent } from './validation.component';
-import { template } from "./validation.component.html";
+import { template } from "./validation-group.component.html";
 
 @Component({
     selector: 'sdc-validation-group',

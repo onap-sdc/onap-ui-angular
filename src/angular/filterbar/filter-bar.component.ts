@@ -19,7 +19,7 @@ export class FilterBarComponent {
         this.debounceTime = 200;
     }
 
-    private searchTextChange = ($event): void => {
+    public searchTextChange = ($event): void => {
         this.searchQueryChange.emit($event);
     }
 

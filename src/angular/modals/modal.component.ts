@@ -45,7 +45,7 @@ export class ModalComponent implements OnInit {
     public calculatedTestId: string;
     public modalCloseButton: ModalCloseButtonComponent;
     public svgIconContentSafeHtml: SafeHtml;
-    private isDisabled: boolean;
+    public isDisabled: boolean;
 
     private infoSvg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 24 24">
     <defs><path fill="#000" id="info-a" d="M11,20 C6,20 2,16 2,11 C2,6 6,2 11,2 C16,2 20,6 20,11 C20,16 16,20 11,20 M11,0 C4.9,0 0,4.9 0,11 C0,17.101 4.9,22 11,22 C17.1,22 22,17.101 22,11 C22,4.9 17.1,0 11,0 M11,10 C10.4,
@@ -120,9 +120,11 @@ export class ModalComponent implements OnInit {
     }
 
     public getButtonById = (id: string): ModalButtonComponent => {
-        return this.buttons.find((button) => {
+        // Support ES5
+        // return this.buttons.find((button) => {
+        return this.buttons.filter((button) => {
             return button.id && button.id === id;
-        });
+        })[0];
     }
 
     public getButtons = (): ModalButtonComponent[] => {

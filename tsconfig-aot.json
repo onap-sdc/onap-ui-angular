@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "declaration": true,
+    "removeComments": false,
+    "noImplicitAny": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "pretty": true,
+    "stripInternal": true,
+    "skipLibCheck": true,
+    "outDir": "dist/components",
+    "rootDir": "./src/angular"
+  },
+  "files": [
+    "./src/angular/index.ts"
+  ],
+  "angularCompilerOptions": {
+    "genDir": "dist/components",
+    "debug": false,
+    "skipTemplateCodegen": true,
+    "skipMetadataEmit": false,
+    "strictMetadataEmit": true
+  }
+}

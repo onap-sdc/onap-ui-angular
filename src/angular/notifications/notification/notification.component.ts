@@ -13,7 +13,7 @@ export class NotificationComponent implements OnInit {
     @Input() notificationSetting: NotificationSettings;
     @Output() destroyComponent = new EventEmitter<any>();
     @ViewChild("dynamicContentContainer", { read: ViewContainerRef }) contentContainer: ViewContainerRef;
-    private fade: boolean = false;
+    public fade: boolean = false;
 
     constructor(private createDynamicComponentService: CreateDynamicComponentService) {
     }
@@ -28,11 +28,11 @@ export class NotificationComponent implements OnInit {
         }
     }
 
-    private fadeOut = (): void => {
+    public fadeOut = (): void => {
         this.fade = true;
     }
 
-    private destroyMe() {
+    public destroyMe() {
         /*Only destroy on fade out, not on entry animation */
         if (this.fade) {
             this.destroyComponent.emit(this.notificationSetting);

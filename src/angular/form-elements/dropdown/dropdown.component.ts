@@ -24,7 +24,7 @@ export class DropDownComponent extends ValidatableComponent implements OnChanges
         this.onClickDocument(e);
     }
 
-    private bottomVisible = true;
+    public bottomVisible = true;
     private myRenderer: Renderer;
 
     // Drop-down show/hide flag. default is false (closed)
@@ -57,7 +57,9 @@ export class DropDownComponent extends ValidatableComponent implements OnChanges
     ngOnInit(): void {
         if (this.options) {
             this.allOptions = this.options;
-            if (this.options.find(option => option.type === DropDownOptionType.Header)) {
+            // To support ES5
+            if (this.options.filter(option => option.type === DropDownOptionType.Header).length>0) {
+            // if (this.options.find(option => option.type === DropDownOptionType.Header)) {
                 this.isGroupDesign = true;
             }
         }
@@ -114,14 +116,20 @@ export class DropDownComponent extends ValidatableComponent implements OnChanges
     }
 
     private isSelectable = (value: string): boolean => {
-        const option: IDropDownOption = this.options.find(o => o.value === value);
+        // Support ES5
+        // const option: IDropDownOption = this.options.find(o => o.value === value);
+        const option: IDropDownOption = this.options.filter(o => o.value === value)[0];
         if (!option) { return false; }
         if (!option.type) { return true; }
-        return !this.unselectableOptions.find(optionType => optionType === option.type);
+        // Support ES5
+        // return !this.unselectableOptions.find(optionType => optionType === option.type);
+        return !this.unselectableOptions.filter(optionType => optionType === option.type)[0];
     }
 
     private setSelected = (value: string): void => {
-        this.selectedOption = this.options.find(o => o.value === value);
+        // Support ES5
+        // this.selectedOption = this.options.find(o => o.value === value);
+        this.selectedOption = this.options.filter(o => o.value === value)[0];
         if (this.type === DropDownTypes.Auto) { this.filterValue = value; }
         this.show = false;
         this.changeEmitter.next(this.selectedOption);

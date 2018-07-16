@@ -33,7 +33,8 @@ export enum Mode {
     success = 'success',
     error = 'error',
     warning = 'warning',
-    info = 'info'
+    info = 'info',
+    white = 'white'
 }
 
 export enum ButtonType {

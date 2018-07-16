@@ -11,7 +11,7 @@ import { template } from "./tabs.component.html";
 export class TabsComponent implements AfterContentInit {
 
     @HostBinding('class') classes = 'sdc-tabs sdc-tabs-header';
-    @ContentChildren(TabComponent) private tabs: QueryList<TabComponent>;
+    @ContentChildren(TabComponent) public tabs: QueryList<TabComponent>;
 
     public _size = Size.medium;
 

@@ -30,9 +30,9 @@ export class AutoCompleteComponent implements OnInit {
     @Input() public placeholder: string;
     @Output() public itemSelected: EventEmitter<any> = new EventEmitter<any>();
 
-    private searchQuery: string;
+    public searchQuery: string;
     private complexData: any[] = [];
-    private autoCompleteResults: any[] = [];
+    public autoCompleteResults: any[] = [];
     private isItemSelected: boolean = false;
 
     public constructor(private http: HttpClient, private autocompletePipe: AutocompletePipe) {
@@ -76,7 +76,7 @@ export class AutoCompleteComponent implements OnInit {
         this.itemSelected.emit(selectedItem.key);
     }
 
-    private onSearchQueryChanged = (searchText: string): void => {
+    public onSearchQueryChanged = (searchText: string): void => {
         if (searchText !== this.searchQuery) {
             this.searchQuery = searchText;
             if (!this.searchQuery) {

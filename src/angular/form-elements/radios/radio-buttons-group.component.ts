@@ -43,9 +43,11 @@ export class RadioGroupComponent {
     }
 
     private isOptionExists(value) {
-        const exist = this.options.items.find((item: IRadioButtonModel) => {
+        // Support ES5
+        // const exist = this.options.items.find((item: IRadioButtonModel) => {
+        const exist = this.options.items.filter((item: IRadioButtonModel) => {
             return item.value === value;
-        });
+        })[0];
         return exist !== undefined;
     }
 

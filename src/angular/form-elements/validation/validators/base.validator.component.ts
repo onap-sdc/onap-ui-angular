@@ -6,7 +6,7 @@ export abstract class ValidatorComponent {
     @Input() public disabled: boolean;
     @HostBinding('class') classes;
 
-    protected isValid: boolean;
+    public isValid: boolean;
 
     constructor() {
         this.disabled = false;
