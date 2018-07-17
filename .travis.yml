@@ -4,6 +4,7 @@ node_js:
 install: npm install
 script:
 - npm run build
+- npm run storybook:build
 deploy:
   - provider: npm
     email: onap.sdc@gmail.com
@@ -12,3 +13,10 @@ deploy:
     on:
       tags: true
       repo: onap-sdc/onap-ui-angular
+  - provider: pages
+    repo: onap-sdc/onap-ui-angular
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    local_dir: .storybook-out
+    on:
+      branch: master
