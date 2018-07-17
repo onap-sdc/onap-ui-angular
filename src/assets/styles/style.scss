@@ -1,3 +1,5 @@
-@import '../../../node_modules/onap-ui-common/lib/styles/style.scss'; 
+@import 'node_modules/onap-ui-common/lib/style'; 
+@import 'node_modules/onap-ui-common/lib/scss/variables.scss'; 
+@import 'node_modules/onap-ui-common/lib/scss/mixins.scss'; 
 @import 'svg_icon.scss';
 @import 'tooltip_custom_style.scss';

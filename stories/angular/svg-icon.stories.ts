@@ -9,7 +9,7 @@ import { Mode, Placement, Size, BackgroundShape, ButtonType, BackgroundColor } f
 
 const mode = Object.keys(Mode);
 const size = Object.keys(Size);
-const icons_categories: Array<string> = Object.keys(SvgIconComponent.Icons);
+const icons_categories: Array<string> = Object.keys(SvgIconComponent.Icons());
 const background_shape: Array<string> = Object.keys(BackgroundShape);
 const background_color: Array<string> = Object.keys(BackgroundColor);
 
@@ -33,6 +33,8 @@ let stories = storiesOf('Icons|Show case', module)
   // services: #71C5E8
   // red: 
   
+console.log(icons_categories);
+
 icons_categories.map((category) => 
 
   stories.add(category, () => {
@@ -56,7 +58,7 @@ icons_categories.map((category) =>
         },
         template: 
           `<div class='storybook-icons-showcase'>` + 
-              Object.keys(SvgIconComponent.Icons[category]).map((iconName) =>
+              Object.keys(SvgIconComponent.Icons()[category]).map((iconName) =>
                 `
                 <div class='storybook-component-wrapper'>
                   <div class='storybook-component-info'>${iconName}</div>
