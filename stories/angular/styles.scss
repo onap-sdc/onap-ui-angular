@@ -93,3 +93,12 @@ Specific styles for storybook components sample
         }
     }
 }
+
+.storybook-welcome {
+    h1 { font-size: 30px; margin: 12px 0 12px 0; }
+    h2 { font-size: 24px; margin: 12px 0 12px 0; }
+    h3 { font-size: 20px; margin: 12px 0 12px 0; }
+    h4 { font-size: 14px; margin: 4px 0 4px 0; text-decoration: underline; }
+    code { font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 12px; }
+    ul li { list-style: circle; list-style-position: inside; }
+}

@@ -66,7 +66,9 @@ While developing, just run `npm run storybook` in your terminal to launch a loca
 [Adding a new component](https://github.com/onap-sdc/onap-ui-angular/wiki/Adding-a-new-component)
 
 [Deploying storybook to a fork's github pages](https://github.com/onap-sdc/onap-ui-angular/wiki/Deploying-storybook-to-a-fork's-github-pages)
- 
+
+[Understanding project build](https://github.com/onap-sdc/onap-ui-angular/wiki/Understanding-project-build)
+
 ### Having some trouble? Have an issue?
 For bugs and issues, please use the [issues](https://github.com/onap-sdc/onap-ui-angular/issues) page
 
