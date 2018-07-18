@@ -1,27 +1,77 @@
-# AngularCli
+# ONAP-UI-ANGULAR Style-Guide and Components
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
+This project aims to create a unified UI styled components for multiple development teams who work on the same web-based applications. 
+This repository contains the definition of all the basic widgets and reusable controllers. 
 
-## Development server
+Note: the project is build of 3 different projects:
+1. [onap-ui-common](https://github.com/onap-sdc/onap-ui-common) - contains HTML and SCSS files for all components
+2. [onap-ui-angular](https://github.com/onap-sdc/onap-ui-angular) - contains Angular components according to the HTML defined in onap-ui-common
+3. [onap-ui-react](https://github.com/onap-sdc/onap-ui-react) - contains React components according to the HTML defined in onap-ui-common
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+### Usage
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#### Link the library's CSS file
+There are several options to link to onap-ui-angular CSS file:
 
-## Build
+###### SCSS
+```scss
+@import "path_to_node_modules/onap-ui/css/style.css";
+```
+###### HTML
+```html
+<link rel="stylesheet" href="path_to_node_modules/onap-ui/css/style.css">
+```
+###### As Module (Using loading tool, i.e. [Webpack](https://webpack.github.io/))
+```js
+import 'onap-ui/css/style.css';
+```
+###### Angular CLI projects
+You can add this line to style.css file:
+```js
+@import "../node_modules/onap-ui/css/style.css";
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+#### Using the library in latest Angular (6)
+###### Add the library to your module
+```js
+  import { SdcUiComponentsModule, SdcUiComponents } from 'onap-ui-angular';
 
-## Running unit tests
+  @NgModule({
+	declarations: [
+	  AppComponent
+	],
+	imports: [
+	  BrowserModule,
+	  FormsModule,
+	  HttpModule,
+	  SdcUiComponentsModule
+	],
+	providers: [
+		SdcUiComponents.ModalService
+	],
+	bootstrap: [AppComponent]
+  })
+  export class AppModule { }
+```	
 
-Run `ng test` to execute the unit tests via [Jest](https://facebook.github.io/jest/).
 
-## Running end-to-end tests
+### Running storybook
+The components in this library are displayed via [storybook](https://github.com/storybooks/storybook). Head to [http://onap-sdc.github.io/onap-ui-angular](http://onap-sdc.github.io/onap-ui-angular) to see the components that are in `master`.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+While developing, just run `npm run storybook` in your terminal to launch a local storybook server where you can see your changes. For deploying storybook to your own fork repository, refer to the guides section below.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Useful guides
+[Adding a new component](https://github.com/onap-sdc/onap-ui-angular/wiki/Adding-a-new-component)
+
+[Deploying storybook to a fork's github pages](https://github.com/onap-sdc/onap-ui-angular/wiki/Deploying-storybook-to-a-fork's-github-pages)
+ 
+### Having some trouble? Have an issue?
+For bugs and issues, please use the [issues](https://github.com/onap-sdc/onap-ui-angular/issues) page
+
+### How to Contribute
+**Contribution can be made only by following these guide lines**
+* This project combines both `React` & `Angular` framework libraries. Hence, every change in the basic HTML files structure, must be followed by changes on react and angular projects ([onap-ui-angular](https://github.com/onap-sdc/onap-ui-angular), [onap-ui-react](https://github.com/onap-sdc/onap-ui-react)).
+* There will be no any 3rd party UI framework imported (i.e. `Bootstrap`, `Material`, `Foundation`... etc.).
+* Contribution are done only by the [contribution guide](https://github.com/onap-sdc/onap-ui-angular/wiki/Contribution-guide). Contributions submitted not in this format and guidelines will not be considered.

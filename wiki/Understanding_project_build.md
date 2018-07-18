@@ -20,7 +20,7 @@ storybook:build: build the storybook code for using in github pages
 ## Exclude Angular core from the bundle
 
 It might be pretty obvious but we must keep in mind that we’re writing library for Angular project. Since project itself must have Angular core as a dependency the library should not include Angular sources in the bundles it produces. To do so we need to setup peer dependencies in our package.json file.
-```json
+```js
 {
   ...  
   "peerDependencies": {
@@ -36,7 +36,7 @@ It might be pretty obvious but we must keep in mind that we’re writing library
 Running node_modules/.bin/ngc -p tsconfig-aot.json
 
 Some important notes regarding tsconfig-aot.json file:
-```json
+```js
 {
   "compilerOptions": {
     "target": "es5",          // Specifying ES standard

@@ -1,5 +1,5 @@
 /*
- Exports all the components and services of sdc-ui.
+ Exports all the components and services of onap-ui-angular.
  */
 
 // Form Elements
