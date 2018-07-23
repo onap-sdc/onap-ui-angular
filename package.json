@@ -1,9 +1,9 @@
 {
   "name": "onap-ui-angular",
-  "version": "5.1.6",
+  "version": "5.1.7",
   "author": "d2",
   "private": false,
-  "main": "index.umd.js",
+  "main": "dist/index.umd.js",
   "license": "MIT",
   "scripts": {
     "e2e": "ng e2e --no-webdriver-update",
@@ -78,7 +78,7 @@
     "@angular/core": "^6.0.3"
   },
   "files": [
-    "dist/**/*",
+    "dist",
     "README.md"
   ]
 }
