@@ -1,6 +1,6 @@
 {
   "name": "onap-ui-angular",
-  "version": "5.1.4",
+  "version": "5.1.5",
   "author": "d2",
   "private": false,
   "main": "dist/index.umd.js",
@@ -76,5 +76,9 @@
   "peerDependencies": {
     "@angular/common": "^6.0.3",
     "@angular/core": "^6.0.3"
-  }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ]
 }
