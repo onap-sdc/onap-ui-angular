@@ -1,6 +1,6 @@
 {
   "name": "onap-ui-angular",
-  "version": "5.1.10",
+  "version": "5.1.11",
   "author": "d2",
   "private": false,
   "main": "dist/index.umd.js",

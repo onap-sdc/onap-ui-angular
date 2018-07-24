@@ -1,6 +1,7 @@
 import { SdcUiComponentsModule } from './index';
 import { downgradeComponent, downgradeInjectable } from "@angular/upgrade/static";
 import * as Components from './components';
+import * as Services from './services';
 declare const angular: any;
 
 let SdcUiComponentsNg1Module = null;
@@ -38,7 +39,7 @@ if (typeof angular !== "undefined") {
     }));
 
     // Modals
-    SdcUiComponentsNg1Module.service('SdcModalService', downgradeInjectable(Components.ModalService));
+    SdcUiComponentsNg1Module.service('SdcModalService', downgradeInjectable(Services.ModalService));
     SdcUiComponentsNg1Module.directive('sdcModal', downgradeComponent({
         component: Components.ModalComponent,
         inputs: ['size', 'title', 'message', 'buttons', 'type'],
@@ -50,7 +51,7 @@ if (typeof angular !== "undefined") {
     }));
 
     // Notifications
-    SdcUiComponentsNg1Module.service('SdcNotificationService', downgradeInjectable(Components.NotificationsService));
+    SdcUiComponentsNg1Module.service('SdcNotificationService', downgradeInjectable(Services.NotificationsService));
     SdcUiComponentsNg1Module.directive('sdcNotificationContainer', downgradeComponent({
         component: Components.NotificationContainerComponent
     }));
