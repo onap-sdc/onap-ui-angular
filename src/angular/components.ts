@@ -1,5 +1,5 @@
 /*
- Exports all the components and services of onap-ui-angular.
+ Exports all the components of onap-ui-angular.
  */
 
 // Form Elements
@@ -14,13 +14,11 @@ export { ButtonComponent } from "./buttons/button.component";
 
 // Modals
 export { ModalComponent } from "./modals/modal.component";
-export { ModalService } from "./modals/modal.service";
 export { ModalButtonComponent } from "./modals/modal-button.component";
 
 // Notifications
 export { NotificationComponent } from "./notifications/notification/notification.component";
 export { NotificationContainerComponent } from "./notifications/container/notifcontainer.component";
-export { NotificationsService } from "./notifications/services/notifications.service";
 
 // Popup Menu
 export { PopupMenuListComponent } from "./popup-menu/popup-menu-list.component";

@@ -67,8 +67,16 @@ export class SdcUiComponentsModule {
 }
 
 import * as SdcUiComponents from './components';
+import * as SdcUiServices from './services';
 import * as SdcUiCommon from './common/index';
 
-// export { SdcUiComponentsNg1Module } from './ng1.module';
-export { SdcUiComponents };
-export { SdcUiCommon };
+export { SdcUiComponentsNg1Module } from './ng1.module';
+// export { SdcUiComponents };
+// export { SdcUiServices };
+// export { SdcUiCommon };
+
+export const SdcUi = {
+    components: SdcUiComponents,
+    services: SdcUiServices,
+    common: SdcUiCommon
+};
