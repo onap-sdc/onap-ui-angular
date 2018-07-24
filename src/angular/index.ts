@@ -75,8 +75,12 @@ export { SdcUiComponentsNg1Module } from './ng1.module';
 // export { SdcUiServices };
 // export { SdcUiCommon };
 
+let components = SdcUiComponents;
+let services = SdcUiServices;
+let common = SdcUiCommon
+
 export const SdcUi = {
-    components: SdcUiComponents,
-    services: SdcUiServices,
-    common: SdcUiCommon
+    components,
+    services,
+    common
 };
