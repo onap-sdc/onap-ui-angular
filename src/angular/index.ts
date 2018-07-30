@@ -63,24 +63,27 @@ import { MultilineEllipsisModule } from "./multiline-ellipsis/multiline-ellipsis
         MultilineEllipsisModule
     ]
 })
-export class SdcUiComponentsModule {
-}
+export class SdcUiComponentsModule {}
+
+export { SdcUiComponentsNg1Module } from './ng1.module';
 
 import * as SdcUiComponents from './components';
 import * as SdcUiServices from './services';
 import * as SdcUiCommon from './common/index';
 
-export { SdcUiComponentsNg1Module } from './ng1.module';
-// export { SdcUiComponents };
-// export { SdcUiServices };
-// export { SdcUiCommon };
+export { SdcUiComponents };
+export { SdcUiServices };
+export { SdcUiCommon };
 
-let components = SdcUiComponents;
-let services = SdcUiServices;
-let common = SdcUiCommon
 
-export const SdcUi = {
-    components,
-    services,
-    common
-};
+
+
+// let components = SdcUiComponents;
+// let services = SdcUiServices;
+// let common = SdcUiCommon
+
+// export const SdcUi = {
+//     components,
+//     services,
+//     common
+// };

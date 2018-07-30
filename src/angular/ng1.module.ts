@@ -1,4 +1,3 @@
-import { SdcUiComponentsModule } from './index';
 import { downgradeComponent, downgradeInjectable } from "@angular/upgrade/static";
 import * as Components from './components';
 import * as Services from './services';
@@ -140,4 +139,4 @@ if (typeof angular !== "undefined") {
     }));
 }
 
-export {SdcUiComponentsNg1Module};
+export { SdcUiComponentsNg1Module };
