@@ -19,10 +19,13 @@ let stories = storiesOf('Form elements|Radio button group', module)
       ]
     })
   )
-  createStory(stories, "All options", true, true, true, "Radio buttons group", "Full example of radio buttons.");
-  createStory(stories, "With legend", true, false, false, "Radio buttons group", "Example of radio buttons with legend.");
-  createStory(stories, "With disabled", false, true, false, "Radio buttons group", "Example of radio buttons with disabled.");
-  createStory(stories, "With direction", false, false, true, "Radio buttons group", "Example of radio buttons with direction.");
+  let containsLegend = true;
+  let containsDisabled = true;
+  let containsDirection = true;
+  createStory(stories, "All options", containsLegend, containsDisabled, containsDirection, "Radio buttons group", "Full example of radio buttons.");
+  createStory(stories, "With legend", containsLegend, !containsDisabled, !containsDirection, "Radio buttons group", "Example of radio buttons with legend.");
+  createStory(stories, "With disabled", !containsLegend, containsDisabled, !containsDirection, "Radio buttons group", "Example of radio buttons with disabled.");
+  createStory(stories, "With direction", !containsLegend, !containsDisabled, containsDirection, "Radio buttons group", "Example of radio buttons with direction.");
   function createStory(stories, title, containsLegend, containsDisabled, containsDirection, notesTitle, notesText){
     stories.add(title, () => {
         const _legend = containsLegend ? text('legend','Radio Buttons Group legend') : null;

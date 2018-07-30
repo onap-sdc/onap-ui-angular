@@ -6,7 +6,7 @@ import { moduleMetadata } from '@storybook/angular';
 import { TabsModule } from '../../src/angular/tabs/tabs.module';
 import { FormElementsModule } from '../../src/angular/form-elements/form-elements.module';
 
-let stories = storiesOf('Form elements|Tabs', module)
+let stories = storiesOf('Tabs', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(
@@ -19,9 +19,11 @@ let stories = storiesOf('Form elements|Tabs', module)
       ]
     })
   )
-  createStory(stories, "All options", true, true, "Tabs", "Full example of simple tabs.");
-  createStory(stories, "Tabs with text", true, false, "Tabs with titles", "Simple tabs with text title.");
-  createStory(stories, "Tabs with icons", false, true, "Tabs with icons", "Simple tabs with icon title.");
+  let containsTitle = true;
+  let containsTitleIcon = true;
+  createStory(stories, "All options", containsTitle, containsTitleIcon, "Tabs", "Full example of simple tabs.");
+  createStory(stories, "Tabs with text", containsTitle, !containsTitleIcon, "Tabs with titles", "Simple tabs with text title.");
+  createStory(stories, "Tabs with icons", !containsTitle, containsTitleIcon, "Tabs with icons", "Simple tabs with icon title.");
 
   function createStory(stories, title, containsTitle, containsTitleIcon, notesTitle, notesText){
     stories.add(title, () => {

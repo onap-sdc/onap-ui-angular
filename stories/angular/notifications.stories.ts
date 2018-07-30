@@ -6,7 +6,7 @@ import { moduleMetadata } from '@storybook/angular';
 import { NotificationModule } from '../../src/angular/notifications/notification.module';
 import { NotificationSettings } from '../../src/angular/notifications/utilities/notification.config';
 
-let stories = storiesOf('Form elements|Notification', module)
+let stories = storiesOf('Notification', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(

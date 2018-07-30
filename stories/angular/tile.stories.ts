@@ -13,7 +13,7 @@ const background_shape: Array<string> = Object.keys(BackgroundShape);
 const background_color: Array<string> = Object.keys(BackgroundColor);
 
 
-storiesOf('Form elements|Tiles', module)
+let stories = storiesOf('Tiles', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(
@@ -27,49 +27,55 @@ storiesOf('Form elements|Tiles', module)
       ]
     })
   )
-  .add('Tiles', () => {
-      const _header = text('tile header', "Header");
-      const _mode = select('mode', mode, 'primary', '');
-      const _size = select('size', size, 'medium', '');
-      const _backgroundShape = select('backgroundShape', background_shape, '', '');
-      const _backgroundColor = select('backgroundColor', background_color, '', '');
-      const _debug_icon = boolean('Debug icon', false);
-      const _footer = text('tile footer', "Footer");
-      return {
-        props: {
-            _header, _mode, _size, _backgroundShape, _backgroundColor, _debug_icon, _footer
+
+  createStory(stories, "Tiles", "Tiles", "Full example of tiles.");
+
+  function createStory(stories, title, notesTitle, notesText){
+    stories.add(title, () => {
+        const _category = text('Category', 'resources_60')
+        const _name = text('Icon name', 'Border Element_60px')
+        const _mode = select('Mode', mode, 'primary', '');
+        const _size = select('Size', size, 'x_large', '');
+        const _backgroundShape = select('BackgroundShape', background_shape, '', '');
+        const _backgroundColor = select('BackgroundColor', background_color, '', '');
+        const _disabled = boolean('Disabled', false);
+        
+        return {
+            props: {
+                _category, _name, _mode, _size, _backgroundShape, _backgroundColor, _disabled
+            },
+            template: `
+            <sdc-tile>
+                <sdc-tile-header >
+                    <div class="blue">P</div>
+                </sdc-tile-header>
+                <sdc-tile-content>
+                    <div class='storybook-component-wrapper blue'>
+                        <svg-icon 
+                            [ngClass] = "{'storybook-debug-icon': _debug_icon===true}"
+                            [category] = "_category"
+                            [name] = "_name"
+                            [mode] = "_mode" 
+                            [size] = "_size"
+                            [backgroundShape] = "_backgroundShape"
+                            [backgroundColor] = "_backgroundColor"
+                            [disabled] = "_disabled"
+                            >
+                        </svg-icon>
+                    </div>
+                    <div class="sdc-tile-content-info">
+                    <span class="sdc-tile-info-line title">Router</span>
+                    <div class="sdc-tile-info-line subtitle">test</div>
+                </div>
+                </sdc-tile-content>
+                <sdc-tile-footer>
+                    <span class="sdc-tile-footer-cell">Footer</span>
+                </sdc-tile-footer>
+            </sdc-tile>
+            `
+        }
         },
-        template: `
-        <sdc-tile>
-            <sdc-tile-header>
-                <span class="sdc-tile-header-cell">{{_header}}</span>
-            </sdc-tile-header>
-            <sdc-tile-content>
-            <div class='storybook-icons-showcase'>
-                <div class='storybook-component-wrapper'>
-                    <div class='storybook-component-info'>Applcation Server-24px</div>
-                    <svg-icon 
-                        [ngClass]="{'storybook-debug-icon': _debug_icon===true}"
-                        category="resources_24"
-                        name="Applcation Server-24px"
-                        [mode]="_mode" 
-                        [size]="_size"
-                        [backgroundShape]="_backgroundShape"
-                        [backgroundColor]="_backgroundColor"
-                        >
-                    </svg-icon>
-                </div>
-                </div>
-            </sdc-tile-content>
-            <sdc-tile-footer>
-                <span class="sdc-tile-footer-cell">{{_footer}}</span>
-            </sdc-tile-footer>
-        </sdc-tile>
-        `
-      }
-    },
-    { notes: `<h2>Tiles</h2>
-            Full example of tiles.
-            Use the KNOBS tab to change values.`
-    }
-)
+        { notes: `<h2>` + notesTitle + `</h2>` + notesText + `<br>Use the KNOBS tab to change values.`
+        }
+    )
+  }

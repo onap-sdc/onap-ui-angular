@@ -5,7 +5,7 @@ import { action, configureActions } from '@storybook/addon-actions';
 import { moduleMetadata } from '@storybook/angular';
 import { TagCloudModule } from '../../src/angular/tag-cloud/tag-cloud.module';
 
-let stories = storiesOf('Form elements|Tag Cloud', module)
+let stories = storiesOf('Tag Cloud', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(
@@ -17,10 +17,13 @@ let stories = storiesOf('Form elements|Tag Cloud', module)
       ]
     })
   )
-  createStory(stories, "All options", false, true, true, "Tag cloud", "Full example of simple tag cloud.");
-  createStory(stories, "View only", false, true, false, "Tag cloud", "Full example of simple tag cloud with View only.");
-  createStory(stories, "View only list", true, false, false,  "Tag cloud", "Full example of simple tag cloud with View only list.");
-  createStory(stories, "Unique list", false, false, true, "Tag cloud", "Full example of simple tag cloud with View unique list.");
+  let containsViewOnlyList = true;
+  let containsViewOnly = true;
+  let containsUniqueList = true;
+  createStory(stories, "All options", !containsViewOnlyList, containsViewOnly, containsUniqueList, "Tag cloud", "Full example of simple tag cloud.");
+  createStory(stories, "View only", !containsViewOnlyList, containsViewOnly, !containsUniqueList, "Tag cloud", "Full example of simple tag cloud with View only.");
+  createStory(stories, "View only list", containsViewOnlyList, !containsViewOnly, !containsUniqueList,  "Tag cloud", "Full example of simple tag cloud with View only list.");
+  createStory(stories, "Unique list", !containsViewOnlyList, !containsViewOnly, containsUniqueList, "Tag cloud", "Full example of simple tag cloud with View unique list.");
 
   function createStory(stories, title, containsViewOnlyList, containsViewOnly, containsUniqueList, notesTitle, notesText){
     stories.add(title, () => {
@@ -35,13 +38,9 @@ let stories = storiesOf('Form elements|Tag Cloud', module)
 
         return {
             props: {
-                // listChanged: () => {
-                //     //this._list = array('List', tagCloud, ',');
-                //     setTimeout(() => {},2000);
-                //     action('tag cloud list changed');
-                //   },
                 listChanged: action('tag cloud list changed'),
-                _label, _list, _isViewOnly, _listViewOnly, _isUniqueList, _uniqueErrorMessage, _placeholder
+                _label, _list, _isViewOnly, _listViewOnly, _isUniqueList, _uniqueErrorMessage, _placeholder,
+                containsViewOnly
                 
             },
             template: `
@@ -49,7 +48,7 @@ let stories = storiesOf('Form elements|Tag Cloud', module)
             #tagCloud
                 [label] = "_label"
                 [(list)] = "_list"
-                [isViewOnly] = "containsViewOnly ? _isViewOnly : _listViewOnly"
+                [isViewOnly] = "this.containsViewOnly ? _isViewOnly : _listViewOnly"
                 [isUniqueList] = "_isUniqueList"
                 [uniqueErrorMessage] = "_uniqueErrorMessage"
                 [placeholder] = "_placeholder"

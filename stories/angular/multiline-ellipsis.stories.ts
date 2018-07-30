@@ -7,7 +7,7 @@ import { MultilineEllipsisModule } from '../../src/angular/multiline-ellipsis/mu
 import { ButtonsModule } from '../../src/angular/buttons/buttons.module';
 import { ButtonComponent } from '../../src/angular/buttons/button.component';
 
-let stories = storiesOf('Form elements|Multiline ellipsis', module)
+let stories = storiesOf('Multiline ellipsis', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(
@@ -21,11 +21,17 @@ let stories = storiesOf('Form elements|Multiline ellipsis', module)
       ]
     })
   )
-  createStory(stories, "All options", true, true, true, true, "Multiline-ellipsis", "Full example of simple multiline ellipsis.");
-  createStory(stories, "With number of line", true, false, false, false, "Multiline-ellipsis", "Example of simple multiline ellipsis With number of line.");
-  createStory(stories, "With line hight", false, true, false, false, "Multiline-ellipsis", "Example of simple multiline ellipsis With line hight.");
-  createStory(stories, "With class name", false, false, true, false, "Multiline-ellipsis", "Example of simple multiline ellipsis With class name.");
-  createStory(stories, "With change text", false, false, false, true, "Multiline-ellipsis", "Example of simple multiline ellipsis With change text.");
+
+  let containslines = true;
+  let containslineHeight = true;
+  let containsClassName = true;
+  let containsChangeText = true
+
+  createStory(stories, "All options", containslines, containslineHeight, containsClassName, containsChangeText, "Multiline-ellipsis", "Full example of simple multiline ellipsis.");
+  createStory(stories, "With number of line", containslines, !containslineHeight, !containsClassName, !containsChangeText, "Multiline-ellipsis", "Example of simple multiline ellipsis With number of line.");
+  createStory(stories, "With line hight", !containslines, containslineHeight, !containsClassName, !containsChangeText, "Multiline-ellipsis", "Example of simple multiline ellipsis With line hight.");
+  createStory(stories, "With class name", !containslines, !containslineHeight, containsClassName, !containsChangeText, "Multiline-ellipsis", "Example of simple multiline ellipsis With class name.");
+  createStory(stories, "With change text", !containslines, !containslineHeight, !containsClassName, containsChangeText, "Multiline-ellipsis", "Example of simple multiline ellipsis With change text.");
 
   function createStory(stories, title, containslines, containslineHeight, containsClassName, containsChangeText, notesTitle, notesText){
     stories.add(title, () => {
@@ -40,7 +46,7 @@ let stories = storiesOf('Form elements|Multiline ellipsis', module)
               showSortText: false,
               hasEllipsis: true,
               hasEllipsisChanged: action('Ellipsis changed and its'),
-              _lines, _lineHeight, _className, _shortText, _longText
+              _lines, _lineHeight, _className, _shortText, _longText,
             },
             template: containsChangeText ? `
             <multiline-ellipsis
@@ -54,14 +60,15 @@ let stories = storiesOf('Form elements|Multiline ellipsis', module)
             <br/>
             <sdc-button (click)="this.showSortText = !this.showSortText;" text="Toggle Text Length"></sdc-button>
             <br/>
-            <span class="y">has ellipsis? <b>{{ this.hasEllipsis ? 'yes' : 'no' }}</b></span>`: `<multiline-ellipsis
-            [lines]="_lines"
-            [lineHeight]="_lineHeight"
-            [className]="_className"
-            (hasEllipsisChanged)="this.hasEllipsis = $event"
-            (hasEllipsisChanged)="hasEllipsisChanged($event)"
-            >{{ this.showSortText ? _shortText : _longText }}
-        </multiline-ellipsis>` 
+            <span class="y">has ellipsis? <b>{{ this.hasEllipsis ? 'yes' : 'no' }}</b></span>`:
+            `<multiline-ellipsis
+                [lines]="_lines"
+                [lineHeight]="_lineHeight"
+                [className]="_className"
+                (hasEllipsisChanged)="this.hasEllipsis = $event"
+                (hasEllipsisChanged)="hasEllipsisChanged($event)"
+                >{{ this.showSortText ? _shortText : _longText }}
+            </multiline-ellipsis>` 
         }
         },
         { notes: `<h2>` + notesTitle + `</h2>` + notesText + `<br>Use the KNOBS tab to change values.`
