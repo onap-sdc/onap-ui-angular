@@ -14,6 +14,10 @@ export class SearchBarComponent {
     @Input() public debounceTime: number;
     @Output() public searchQueryClick: EventEmitter<string> = new EventEmitter<string>();
 
+    // constructor() {
+    //     this.debounceTime = 200;
+    // }
+    
     public searchButtonClick = (): void => {
         this.searchQueryClick.emit(this.searchQuery);
     }

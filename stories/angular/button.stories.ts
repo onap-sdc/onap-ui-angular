@@ -175,7 +175,7 @@ stories.add(storiesNames.withSpinner, () => {
     props: {
       buttonClick: (button) => {
         button.show_spinner = true;
-        setTimeout(() => {button.show_spinner = false},2000);
+        // setTimeout(() => {button.show_spinner = false},2000);
         action('Button was clicked (see in action logger tab)');
       },
       _text, _testId, _type, _show_spinner, _spinner_position
