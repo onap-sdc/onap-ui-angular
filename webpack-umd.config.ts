@@ -32,9 +32,9 @@ export default {
         test: /\.ts$/,
         use: [
           {
-            loader: 'awesome-typescript-loader',
+            loader: 'ts-loader',
             options: {
-              configFileName: 'tsconfig-aot.json'
+              configFile: "tsconfig-aot.json"
             }
           },
           {

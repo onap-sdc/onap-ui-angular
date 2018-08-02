@@ -11,6 +11,7 @@ export { TextareaComponent } from "./form-elements/text-elements/textarea/textar
 
 // Buttons
 export { ButtonComponent } from "./buttons/button.component";
+export { ButtonFileOpenerComponent } from "./buttons/button-file-opener.component";
 
 // Modals
 export { ModalComponent } from "./modals/modal.component";
