@@ -4,9 +4,9 @@ import { Component, Input } from "@angular/core";
     selector: "inner-content",
     template: `
         <div>
-            <sdc-input [label]="'Enter value'" [(value)]="name"> </sdc-input>
-            <sdc-input [label]="'Enter value'" [(value)]="name"> </sdc-input>
-            <sdc-input [label]="'Enter value'" [(value)]="name"> </sdc-input>
+            <sdc-input label="Enter value" [(value)]="name"> </sdc-input>
+            <sdc-input label="Enter value" [(value)]="name"> </sdc-input>
+            <sdc-input label="Enter value" [(value)]="name"> </sdc-input>
         </div>
 `
 })
