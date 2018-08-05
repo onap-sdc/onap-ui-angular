@@ -6,7 +6,7 @@ import { moduleMetadata } from '@storybook/angular';
 import { FormElementsModule } from '../../src/angular/form-elements/form-elements.module';
 import { ModalModule } from '../../src/angular/modals/modal.module';
 import { ModalConsumerComponent } from './helpers/modal-consumer.component';
-import { ModalService } from '../../src/angular/components';
+import { ModalService } from '../../src/angular/services';
 import { ButtonsModule } from '../../src/angular/buttons/buttons.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
