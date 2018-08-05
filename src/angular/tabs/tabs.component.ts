@@ -12,9 +12,7 @@ export class TabsComponent implements AfterContentInit {
 
     @HostBinding('class') classes = 'sdc-tabs sdc-tabs-header';
     @ContentChildren(TabComponent) public tabs: QueryList<TabComponent>;
-
-    @Output() public selectedTab: EventEmitter<TabComponent> = new EventEmitter<TabComponent>();
-    
+    @Output() public selectedTab: EventEmitter<TabComponent> = new EventEmitter<TabComponent>();   
 
     public _size = Size.medium;
 
