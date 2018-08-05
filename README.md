@@ -11,26 +11,51 @@ Note: the project is build of 3 different projects:
 
 ### Usage
 
-#### Link the library's CSS file
-There are several options to link to onap-ui-angular CSS file:
+To start using this library you need to install 2 libraris:
+1. onap-ui-angular or onap-ui-react.
+2. onap-ui-common
 
-###### SCSS
-```scss
-@import "path_to_node_modules/onap-ui/css/style.css";
+```js
+npm install --save-dev onap-ui-angular
+npm install --save-dev onap-ui-common
 ```
+
+#### Link the library's CSS file
+The main CSS file is defined in onap-ui-common library.
+There are several options to link it to your project:
+
+###### Angular CLI projects
+You can add this line to src/style.css file:
+```js
+@import "node_modules/onap-ui-common/lib/style.css";
+```
+
+Angular CLI project has angular.json file, that defines location of styles files.
+By default angular.json contains the following definition:
+```js
+	"styles": [
+	  "src/styles.css"
+	],
+```
+So you can add to src/styles.css import of onap-ui-common styles.
+
 ###### HTML
 ```html
-<link rel="stylesheet" href="path_to_node_modules/onap-ui/css/style.css">
+<link rel="stylesheet" href="node_modules/onap-ui-common/lib/style.css">
 ```
+
 ###### As Module (Using loading tool, i.e. [Webpack](https://webpack.github.io/))
 ```js
-import 'onap-ui/css/style.css';
+import 'onap-ui-common/lib/style.css';
 ```
-###### Angular CLI projects
-You can add this line to style.css file:
-```js
-@import "../node_modules/onap-ui/css/style.css";
-```
+
+###### Importing SCSS typography files
+onap-ui-common also contains to SCSS files:
+variables.scss
+mixins.scss
+
+You can import these files to your project and get the same color scheme and variables line onap-ui-common.
+
 
 #### Using the library in latest Angular (6)
 ###### Add the library to your module

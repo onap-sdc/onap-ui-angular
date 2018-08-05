@@ -1,5 +1,6 @@
 import { storiesOf } from '@storybook/angular';
 import { ButtonComponent } from '../../src/angular/buttons/button.component';
+import { ButtonFileOpenerComponent } from '../../src/angular/buttons/button-file-opener.component';
 import { moduleMetadata } from '@storybook/angular';
 import { SvgIconModule } from '../../src/angular/svg-icon/svg-icon.module';
 import { action } from '@storybook/addon-actions';
@@ -19,7 +20,8 @@ const storiesNames = {
   defaultButton: 'Default button',
   typesButtons: 'Button ',
   withIcon: 'Button with icon',
-  withSpinner: 'Button with spinner'
+  withSpinner: 'Button with spinner',
+  buttonFileOpener: 'Button file opener'
 }
 
 let stories = storiesOf('Form elements|Buttons', module)
@@ -27,7 +29,10 @@ let stories = storiesOf('Form elements|Buttons', module)
 .addDecorator(withNotes)
 .addDecorator(
   moduleMetadata({
-    declarations: [ButtonComponent],
+    declarations: [
+      ButtonComponent,
+      ButtonFileOpenerComponent
+    ],
     imports: [
       SvgIconModule
     ]
@@ -193,5 +198,32 @@ stories.add(storiesNames.withSpinner, () => {
         </sdc-button>
       `
     };
+  });
 
-});
+
+stories.add(storiesNames.buttonFileOpener, () => {
+
+  const _text = text('text', 'Open file');
+  const _testId = text('testId', 'button-test-id-file-opener');
+  const _type = select('type', buttonTypes, 'primary', '');
+  const _extensions = text('extensions', 'ts,js');
+  const fileUpload = text('(fileUpload)', 'call back function when file upload');
+
+  return {
+    props: {
+      fileUpload: action('File updaload action'),
+      _text, _testId, _type, _extensions
+    },
+    template: `
+      <sdc-button-file-opener
+          #button
+          [text]="_text"
+          [testId]="_testId"
+          [type]="_type"
+          [extensions]="_extensions"
+          (fileUpload)="fileUpload($event)"
+          >
+        </sdc-button-file-opener>
+      `
+    };
+  });
