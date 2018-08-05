@@ -53,8 +53,9 @@ export class ButtonFileOpenerComponent extends ButtonComponent implements AfterV
         reader.readAsDataURL(file);
     }
     private _handleReaderLoaded(e) {
-        this.fileObject.base64 = e.target.result;
-        this.fileUpload.emit({file: this.fileObject});
+        let base64 = e.target.result;
+        this.fileObject.base64 = base64.split('base64,')[1];
+        this.fileUpload.emit(this.fileObject);
     }
 
 }
