@@ -1,4 +1,4 @@
-import { Component, Input, AfterContentInit, ContentChildren, QueryList, HostBinding } from '@angular/core';
+import { Component, Input, AfterContentInit, ContentChildren, QueryList, HostBinding, EventEmitter, Output } from '@angular/core';
 import { TabComponent } from './children/tab.component';
 import { Mode, Size } from './../common/enums';
 import { template } from "./tabs.component.html";
@@ -12,10 +12,12 @@ export class TabsComponent implements AfterContentInit {
 
     @HostBinding('class') classes = 'sdc-tabs sdc-tabs-header';
     @ContentChildren(TabComponent) public tabs: QueryList<TabComponent>;
+    @Output() public selectedTab: EventEmitter<TabComponent> = new EventEmitter<TabComponent>();   
 
     public _size = Size.medium;
 
     public selectTab(tab: TabComponent) {
+        this.selectedTab.emit(tab);
         // deactivate all tabs
         this.tabs.toArray().forEach((_tab: TabComponent) => {
             _tab.active = false;

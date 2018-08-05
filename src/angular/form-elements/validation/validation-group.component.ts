@@ -29,7 +29,7 @@ export class ValidationGroupComponent implements AfterContentInit {
         let validationResult = true;
         // Iterate over all validationComponent inside the group and return boolean result true in case all validations passed.
         this.validationsComponents.forEach((validationComponent) => {
-            if (validationComponent.validate()) {
+            if (!validationComponent.validate()) {
                 validationResult = false;
             }
         });
