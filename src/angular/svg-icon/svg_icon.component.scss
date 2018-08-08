@@ -1,3 +1,9 @@
+@import 'node_modules/onap-ui-common/lib/scss/variables.scss';
+
+:host {
+  display: inline-flex;
+}
+
 @mixin color-icon($primary-color) {
     color: $primary-color;
     fill: $primary-color;
