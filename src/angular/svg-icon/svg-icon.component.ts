@@ -6,7 +6,7 @@ import { template } from './svg-icon.component.html';
 
 @Component({
     selector: 'svg-icon',
-    styleUrls: ['./svg_icon.component.scss'],
+    styleUrls: ['./svg-icon.component.scss'],
     template: template
 })
 export class SvgIconComponent implements OnChanges {
