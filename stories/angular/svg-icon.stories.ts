@@ -56,7 +56,7 @@ icons_categories.map((type) =>
                   <div class='storybook-component-info'>${iconName}</div>
                   <svg-icon
                       [ngClass]="{'storybook-debug-icon': _debug_icon===true}"
-                      category="${type}"
+                      type="${type}"
                       name="${iconName}"
                       [mode]="_mode"
                       [size]="_size"
