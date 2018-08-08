@@ -6,7 +6,7 @@ import { template } from './svg-icon-label.component.html';
 
 @Component({
     selector: 'svg-icon-label',
-    styleUrls: ['./svg_icon.component.scss'],
+    styleUrls: ['./svg-icon.component.scss'],
     template: template
 })
 export class SvgIconLabelComponent extends SvgIconComponent {
