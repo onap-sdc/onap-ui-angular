@@ -12,7 +12,7 @@ import { template } from './svg-icon.component.html';
 export class SvgIconComponent implements OnChanges {
 
     @Input() public name: string;
-    @Input() public category: string;
+    @Input() public type: string;
     @Input() public mode: Mode;
     @Input() public size: Size;
     @Input() public backgroundShape: BackgroundShape;
@@ -29,7 +29,7 @@ export class SvgIconComponent implements OnChanges {
     constructor(protected domSanitizer: DomSanitizer) {
         this.size = Size.medium;
         this.disabled = false;
-        this.category = this.category || "common";
+        this.type = this.type || "common";
     }
 
     static Icons(): { [key: string]: string } {
@@ -42,7 +42,7 @@ export class SvgIconComponent implements OnChanges {
     }
 
     protected updateSvgIconByName() {
-        this.svgIconContent = iconsMap[this.category][this.name] || null;
+        this.svgIconContent = iconsMap[this.type][this.name] || null;
         if (this.svgIconContent) {
             this.svgIconContentSafeHtml = this.domSanitizer.bypassSecurityTrustHtml(this.svgIconContent);
             this.svgIconCustomClassName = '__' + this.name.replace(/\s+/g, '_');
