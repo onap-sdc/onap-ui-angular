@@ -13,7 +13,7 @@ const positions = ['right', 'left'];
 const iconsNames = ['settings-o', 'plus-circle-o', 'plus-circle', 'caret2-right-circle-o'];
 
 /**
- * There is strange behaviour with Storybook storyname, if the name is string 'aaaa', then all stories 
+ * There is strange behaviour with Storybook storyname, if the name is string 'aaaa', then all stories
  * need to be string, you can not do const aaaa = 'aaaa' and pass the parameter aaaa as storyname.
  */
 const storiesNames = {
@@ -65,7 +65,7 @@ stories.add(storiesNames.defaultButton, () => {
             (click)="buttonClick1()"
             >
         </sdc-button>
-        
+
         <div class='storybook-component-info'>With small text</div>
         <sdc-button
           [text]="_text2"
@@ -102,8 +102,8 @@ buttonTypes.forEach((buttonType) => {
           buttonClick: action('Button was clicked (see in action logger tab)'),
           _text, _testId, _type, _disabled
         },
-        template: 
-          `<div class='storybook-new-row'>` + 
+        template:
+          `<div class='storybook-new-row'>` +
             buttonSizes.map((currentSize) => `
             <div class='storybook-component-wrapper'>
               <div class='storybook-component-info'>${currentSize} size</div>
@@ -115,9 +115,9 @@ buttonTypes.forEach((buttonType) => {
                     (click)="buttonClick()">
                 </sdc-button>
               </div>
-              `).join('\n') + 
+              `).join('\n') +
           `</div>
-          <div class='storybook-new-row'>` 
+          <div class='storybook-new-row'>`
           .concat(
               buttonSizes.map((currentSize) => `
                 <div class='storybook-component-wrapper'>
@@ -130,7 +130,7 @@ buttonTypes.forEach((buttonType) => {
                       (click)="buttonClick()">
                   </sdc-button>
                 </div>
-                `).join('\n') + 
+                `).join('\n') +
           '</div>'
           )
         };
@@ -208,16 +208,18 @@ stories.add(storiesNames.buttonFileOpener, () => {
   const _type = select('type', buttonTypes, 'primary', '');
   const _extensions = text('extensions', 'ts,js');
   const fileUpload = text('(fileUpload)', 'call back function when file upload');
+  const _size = select('size', buttonSizes, 'medium');
 
   return {
     props: {
       fileUpload: action('File updaload action'),
-      _text, _testId, _type, _extensions
+      _text, _testId, _type, _extensions, _size
     },
     template: `
       <sdc-button-file-opener
           #button
           [text]="_text"
+          [size]="_size"
           [testId]="_testId"
           [type]="_type"
           [extensions]="_extensions"

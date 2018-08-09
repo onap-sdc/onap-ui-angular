@@ -11,12 +11,7 @@ export class FileObject {
 
 @Component({
     selector: "sdc-button-file-opener",
-    template: template,
-    styles: [`
-        input[type=file] {
-            display: none;
-        }
-    `]
+    template: template
 })
 export class ButtonFileOpenerComponent extends ButtonComponent implements AfterViewInit {
 
