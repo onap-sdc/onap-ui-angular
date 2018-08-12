@@ -10,53 +10,53 @@ import { ModalService } from '../../src/angular/components';
 import { ButtonsModule } from '../../src/angular/buttons/buttons.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// let stories = storiesOf('Modal', module)
-//   .addDecorator(withKnobs)
-//   .addDecorator(withNotes)
-//   .addDecorator(
-//     moduleMetadata({
-//       declarations: [
-//         ModalConsumerComponent
-//       ],
-//       imports: [
-//           ModalModule,
-//           FormElementsModule,
-//           ButtonsModule,
-//           BrowserAnimationsModule
-//       ],
-//       providers: [
-//           ModalService
-//         ]
-//     })
-//   )
-//   const modalTypes = ['Info', 'Warning', 'Error', 'Success'];
+let stories = storiesOf('Modal', module)
+  .addDecorator(withKnobs)
+  .addDecorator(withNotes)
+  .addDecorator(
+    moduleMetadata({
+      declarations: [
+        ModalConsumerComponent
+      ],
+      imports: [
+          ModalModule,
+          FormElementsModule,
+          ButtonsModule,
+          BrowserAnimationsModule
+      ],
+      providers: [
+          ModalService
+        ]
+    })
+  )
+  const modalTypes = ['Info', 'Warning', 'Error', 'Success'];
  
-//   modalTypes.forEach((buttonType) => {
+  modalTypes.forEach((buttonType) => {
 
-//     stories.add(buttonType + ' modal', () => {
+    stories.add(buttonType + ' modal', () => {
   
-//         return {
-//           props: {
-//             openModal: action('Modal opened (see in action logger tab)'),
-//             buttonType
-//           },
-//           template: 
-//             `<b> ${buttonType} Modal</b><br><br>
-//             <modal-consumer [action]="'open' + this.buttonType +'Modal'"></modal-consumer>`
+        return {
+          props: {
+            openModal: action('Modal opened (see in action logger tab)'),
+            buttonType
+          },
+          template: 
+            `<b> ${buttonType} Modal</b><br><br>
+            <modal-consumer [action]="'open' + this.buttonType +'Modal'"></modal-consumer>`
           
-//           };
+          };
           
-//       },
-//       { notes: `<h2>` + buttonType + ` modal</h2>
-//                 When click on view model ` + buttonType + ` model will open`+
-//                 `<br>Source Code:` +
-//                 `<br><b>this.modalService.open`+ buttonType + `Modal('`+ buttonType + ` modal title', '`+ buttonType + 
-//                 ` modal content', '`+ buttonType + `ModalTestId');</b>`+
-//                 `<br>Use the KNOBS tab to change values.`
-//       }
+      },
+      { notes: `<h2>` + buttonType + ` modal</h2>
+                When click on view model ` + buttonType + ` model will open`+
+                `<br>Source Code:` +
+                `<br><b>this.modalService.open`+ buttonType + `Modal('`+ buttonType + ` modal title', '`+ buttonType + 
+                ` modal content', '`+ buttonType + `ModalTestId');</b>`+
+                `<br>Use the KNOBS tab to change values.`
+      }
 
-//     );     
-//   });
+    );     
+  });
 
 //   stories.add('Info Modal with custom buttons', () => {
   
