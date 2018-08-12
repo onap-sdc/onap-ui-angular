@@ -33,7 +33,7 @@ let stories = storiesOf('Modal', module)
  
   modalTypes.forEach((buttonType) => {
 
-    stories.add('Modal' + buttonType, () => {
+    stories.add(buttonType + ' modal', () => {
   
         return {
           props: {
@@ -57,3 +57,27 @@ let stories = storiesOf('Modal', module)
 
     );     
   });
+
+  stories.add('Modal', () => {
+  
+    return {
+      props: {
+        openModal: action('Modal opened (see in action logger tab)'),
+        buttonType
+      },
+      template: 
+        `<b> ${buttonType} Modal</b><br><br>
+        <modal-consumer [action]="'open' + this.buttonType +'Modal'"></modal-consumer>`
+      
+      };
+      
+  },
+  { notes: `<h2>` + buttonType + ` modal</h2>
+            When click on view model ` + buttonType + ` model will open`+
+            `<br>Source Code:` +
+            `<br><b>this.modalService.open`+ buttonType + `Modal('`+ buttonType + ` modal title', '`+ buttonType + 
+            ` modal content', '`+ buttonType + `ModalTestId');</b>`+
+            `<br>Use the KNOBS tab to change values.`
+  }
+
+);  
