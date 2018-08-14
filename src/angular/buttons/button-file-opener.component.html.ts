@@ -5,6 +5,7 @@ export const template = `
     {{ text }}
     <input
         type="file"
+        [attr.data-tests-id]="'file' + testId"
         [accept]="allowedExtensions"
         [disabled] = "disabled"
         (change)="onFileSelect($event)"
