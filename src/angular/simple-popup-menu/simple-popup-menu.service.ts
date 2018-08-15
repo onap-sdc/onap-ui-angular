@@ -17,11 +17,11 @@ export class simplePopupMenuService {
             position: position ? position : { x: 0, y:0 },
             relative: relative ? relative : true
         };
-        const popupMenuInstance: ComponentRef<SimplePopupMenuListComponent> = this.openModal(popupMenuConfig);
+        const popupMenuInstance: ComponentRef<SimplePopupMenuListComponent> = this.openPopUpMenu(popupMenuConfig);
         return popupMenuInstance.instance;
     }
 
-    public openModal = (customMMenuData: any): ComponentRef<SimplePopupMenuListComponent> => {
+    public openPopUpMenu = (customMMenuData: any): ComponentRef<SimplePopupMenuListComponent> => {
         let popupMenuInstance: ComponentRef<SimplePopupMenuListComponent> = this.createDynamicComponentService.createComponentDynamically(SimplePopupMenuListComponent, customMMenuData);
         popupMenuInstance.instance.instanceRef = popupMenuInstance;
         return popupMenuInstance;
