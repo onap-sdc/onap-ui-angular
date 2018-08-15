@@ -1,12 +1,10 @@
 import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { PopupMenuListComponent } from "./popup-menu-list.component";
+import { template } from './popup-menu-item.component.html';
 
 @Component({
     selector: 'popup-menu-item',
-    template:
-        `<li [ngClass]="[className || '', type || '', type == 'separator'? '': 'sdc-menu-item']" (click)="performAction($event)">
-    <ng-content *ngIf="type != 'separator'"></ng-content>
-</li>`
+    template: template
 })
 export class PopupMenuItemComponent {
     @Input() public className: string;
