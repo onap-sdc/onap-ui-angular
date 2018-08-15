@@ -37,7 +37,6 @@ let stories = storiesOf('Modal', module)
   
         return {
           props: {
-            openModal: action('Modal opened (see in action logger tab)'),
             buttonType
           },
           template: 
@@ -51,9 +50,70 @@ let stories = storiesOf('Modal', module)
                 When click on view model ` + buttonType + ` model will open`+
                 `<br>Source Code:` +
                 `<br><b>this.modalService.open`+ buttonType + `Modal('`+ buttonType + ` modal title', '`+ buttonType + 
-                ` modal content', '`+ buttonType + `ModalTestId');</b>`+
-                `<br>Use the KNOBS tab to change values.`
+                ` modal content', '`+ buttonType + `ModalTestId');</b>`
       }
 
     );     
   });
+
+  ['Info'].forEach(() => {
+    stories.add('Modal Info with custom buttons', () => {
+
+        return {
+          props: {
+          },
+          template: 
+            `<b> Info Modal</b><br><br>
+            <modal-consumer [action]="'openInfoModalWithCustomButtons'"></modal-consumer>`
+          
+          };
+          
+      },
+      { notes: `<h2> Info modal</h2>
+                When click on view model Info with custom buttons model will open`+
+                `<br>Source Code:` +
+                `<br><b>const buttons = [
+                      { text: 'CONFIRM', type: ButtonType.info, callback: this.onConfirmAction, closeModal: true },
+                      { text: 'CANCEL', type: ButtonType.info, closeModal: true }
+                    ] as ModalButtonComponent[];
+                  this.modalService.openInfoModal('Info modal title', 'Info modal content', "infoModalTestId", buttons);
+                  private onConfirmAction = ():void => {
+                    alert("Action has been confirmed");
+                  };</b>`
+      }
+    );     
+});
+
+['Warning'].forEach(() => {
+  stories.add('Modal Warning with custom buttons', () => {
+
+      return {
+        props: {
+        },
+        template: 
+          `<b> Warning Modal</b><br><br>
+          <modal-consumer [action]="'openWarningModalWithCustomButtons'"></modal-consumer>`
+        
+        };
+        
+    },
+    { notes: `<h2> Warning modal</h2>
+              When click on view model Warning with custom buttons model will open`+
+              `<br>Source Code:` +
+              `<br><b>const buttons = [
+                { text: 'SAVE', type: ButtonType.warning, callback: this.onSaveAction, closeModal: true },
+                { text: 'APPLY', type: ButtonType.warning, callback: this.onApplyAction },
+                { text: 'CANCEL', type: ButtonType.warning, closeModal: true }
+              ] as ModalButtonComponent[];
+              this.modalService.openWarningModal('Warning modal title', 'Warning modal content', "WarningModalTestId", buttons);
+              private onSaveAction = (): void => {
+                alert("Action has been saved, modal will be close");
+              }
+              private onApplyAction = (): void => {
+                  alert("Action has been applied, modal will not be close");
+              }</b>`
+    }
+  );     
+});
+
+
