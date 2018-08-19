@@ -31,8 +31,8 @@ let stories = storiesOf('Tabs', module)
         const _title2 = containsTitle ? text('Tab2 title', 'tab2 ') : null;
         const _titleIcon1 = containsTitleIcon ? text('Tab1 titleIcon', 'inputs-o') : null;
         const _titleIcon2 = containsTitleIcon ? text('Tab2 titleIcon', 'edit-file-o') : null;
-        const _active1 = boolean('Tab1 disabled', false);
-        const _active2 = boolean('Tab2 disabled', false);
+        const _active1 = boolean('Tab1 is active', true);
+        const _active2 = boolean('Tab2 is active', false);
         const _selectTab = text('*(selectTab)', 'Event throws when select tab changed, see in Action logger tab.');
 
         return {

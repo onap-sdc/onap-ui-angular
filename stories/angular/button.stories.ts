@@ -170,7 +170,7 @@ stories.add(storiesNames.withIcon, () => {
 stories.add(storiesNames.withSpinner, () => {
 
   const _text = text('text', 'Spinner button');
-  const _testId = text('testId', 'button-test-id-with-icon');
+  const _testId = text('testId', 'button-test-id-with-spinner');
   const _type = select('type', buttonTypes, 'primary', '');
   const _show_spinner = boolean('show_spinner', false, '');
   const _spinner_position = select('spinner_position', positions, 'right', '');

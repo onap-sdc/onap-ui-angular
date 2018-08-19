@@ -35,7 +35,7 @@ let stories = storiesOf('Menu', module)
   function createMenuListStory(stories, title, containsPosition, containsRelative, containsClassName, notesTitle, notesText){
     stories.add(title, () => {
         const _className = containsClassName ? text('Class name', ''): null;
-        const _relative = containsRelative ? boolean('Relative', true) : true;
+        const _relative = containsRelative ? boolean('Relative', false) : false;
         const _positionLeft = containsPosition ? number('Position left', 0): 0;
         const _positionTop = containsPosition ? number('Position top', 0): 0;
         const _open = containsPosition ? boolean('Menu list open', undefined): false;
@@ -55,12 +55,13 @@ let stories = storiesOf('Menu', module)
                  _className, _relative, _positionLeft, _positionTop, _open
             },
             template: `
-            <div style="position: relative; width: 400px; height: 200px; background: blue;"
-                (click)="menu.position = {x:$event.offsetX, y:$event.offsetY}; _open=true;">
-                <span class="message" style="position: absolute; color: #ffffff;">Click in the box...<br/>
+            <div style="position: relative; width: 400px; height: 200px; background: blue;">
+                <span class="message" style="position: absolute; color: #ffffff;top: 0; left: 0;">Click in the box...<br/>
                     (popup menu is {{menuStatus === undefined ? 'never opened' : (menuStatus ? 'open at '+menuPos.x+' , '+menuPos.y : 'closed')}})<br/>
                     selected: <span #selectedItem id="selectedItem" [style.color]="selectedItemColor">{{selectedItemValue}}</span>
                 </span>
+                <div style="position: absolute;width: 100%;height: 100%;"
+                (click)="menu.position = {x:$event.offsetX, y:$event.offsetY}; _open=true;">
                 <popup-menu-list #menu
                     [(open)]="_open"
                     [position] = "{x:_positionLeft, y:_positionTop}"
