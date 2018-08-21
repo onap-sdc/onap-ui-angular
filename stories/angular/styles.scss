@@ -107,5 +107,6 @@ Specific styles for storybook components sample
     display: inline-block;
     width: 100px;
     overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
   }

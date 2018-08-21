@@ -1,6 +1,6 @@
 export const template = `
-<button class="sdc-button sdc-button__{{ type }} btn-{{ size }} {{ iconPositionClass }}"
-        [disabled] = "disabled || show_spinner"
+<button class="sdc-button sdc-button__{{ type }} btn-{{ size }} {{ iconPositionClass }}" 
+ [disabled] = "disabled || show_spinner"
         [attr.data-tests-id]="testId">
         <svg-icon
                 *ngIf="icon_name"
@@ -9,7 +9,7 @@ export const template = `
                 [size]="'medium'"
                 >
         </svg-icon>
-        {{ text }}
+        <span class="max-characters" >{{text}}</span>
 </button>
 <svg-icon *ngIf="show_spinner" name="spinner" [size]="'medium'" class="sdc-button__spinner" [ngClass]="{left: spinner_position === placement.right}"></svg-icon>
 `;
