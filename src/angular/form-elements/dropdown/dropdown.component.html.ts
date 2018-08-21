@@ -2,7 +2,7 @@ export const template = `
 <div class="sdc-dropdown" #dropDownWrapper
     [ngClass]="{
     'headless': type === cIDropDownTypes.Headless,
-    'sdc-dropdown__error': !valid,
+    'sdc-dropdown__error': (!valid && dirty),
     'open-bottom': show && bottomVisible,
     'open-top':show && !bottomVisible}">
     <label *ngIf="label" class="sdc-dropdown__label" [ngClass]="{'required':required}">{{label}}</label>

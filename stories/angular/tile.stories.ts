@@ -23,7 +23,7 @@ let stories = storiesOf('Tiles', module)
       ],
       imports: [
         TileModule,
-        SvgIconModule
+        SvgIconModule,
       ]
     })
   )
@@ -33,7 +33,7 @@ let stories = storiesOf('Tiles', module)
   function createStory(stories, title, notesTitle, notesText){
     stories.add(title, () => {
         const _category = text('Category', 'resources_60')
-        const _name = text('Icon name', 'Border Element_60px')
+        const _name = text('Icon name', 'borderElement')
         const _mode = select('Mode', mode, 'primary', '');
         const _size = select('Size', size, 'x_large', '');
         const _backgroundShape = select('BackgroundShape', background_shape, '', '');
@@ -53,7 +53,7 @@ let stories = storiesOf('Tiles', module)
                     <div class='storybook-component-wrapper blue'>
                         <svg-icon 
                             [ngClass] = "{'storybook-debug-icon': _debug_icon===true}"
-                            [category] = "_category"
+                            [type] = "_category"
                             [name] = "_name"
                             [mode] = "_mode" 
                             [size] = "_size"

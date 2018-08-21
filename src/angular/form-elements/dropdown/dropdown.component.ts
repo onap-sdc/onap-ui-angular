@@ -93,6 +93,8 @@ export class DropDownComponent extends ValidatableComponent implements OnChanges
         } else if (this.isSelectable((option as IDropDownOption).value)) {
             this.setSelected((option as IDropDownOption).value);
         }
+        this.valid = true;
+        this.valueChanged(option);
     }
 
     public toggleDropdown = (event?): void => {

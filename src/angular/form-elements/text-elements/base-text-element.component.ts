@@ -40,6 +40,7 @@ export class BaseTextElementComponent extends ValidatableComponent implements On
     }
 
     onKeyPress(value: string) {
+        this.valid = true;
         this.valueChanged(this.value);
     }
 

@@ -102,3 +102,10 @@ Specific styles for storybook components sample
     code { font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 12px; }
     ul li { list-style: circle; list-style-position: inside; }
 }
+
+.max-characters {
+    display: inline-block;
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
