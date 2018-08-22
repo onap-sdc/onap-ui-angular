@@ -35,7 +35,7 @@ let stories = storiesOf('Menu', module)
   function createMenuListStory(stories, title, containsPosition, containsRelative, containsClassName, notesTitle, notesText){
     stories.add(title, () => {
         const _className = containsClassName ? text('Class name', ''): null;
-        const _relative = containsRelative ? boolean('Relative', false) : false;
+        const _relative = containsRelative ? boolean('Relative', true) : true;
         const _positionLeft = containsPosition ? number('Position left', 0): 0;
         const _positionTop = containsPosition ? number('Position top', 0): 0;
         const _open = containsPosition ? boolean('Menu list open', undefined): false;

@@ -32,7 +32,7 @@ let stories = storiesOf('Tiles', module)
 
   function createStory(stories, title, notesTitle, notesText){
     stories.add(title, () => {
-        const _category = text('Category', 'resources_60')
+        const _type = text('Type', 'resources_60')
         const _name = text('Icon name', 'borderElement')
         const _mode = select('Mode', mode, 'primary', '');
         const _size = select('Size', size, 'x_large', '');
@@ -43,7 +43,7 @@ let stories = storiesOf('Tiles', module)
         
         return {
             props: {
-                _category, _name, _mode, _size, _backgroundShape, _backgroundColor, _disabled, _testId
+                _type, _name, _mode, _size, _backgroundShape, _backgroundColor, _disabled, _testId
             },
             template: `
             <sdc-tile [testId]="_testId">
@@ -54,7 +54,7 @@ let stories = storiesOf('Tiles', module)
                     <div class='storybook-component-wrapper blue'>
                         <svg-icon 
                             [ngClass] = "{'storybook-debug-icon': _debug_icon===true}"
-                            [type] = "_category"
+                            [type] = "_type"
                             [name] = "_name"
                             [mode] = "_mode" 
                             [size] = "_size"
