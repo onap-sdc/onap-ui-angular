@@ -39,6 +39,7 @@ let stories = storiesOf('Menu', module)
         const _positionLeft = containsPosition ? number('Position left', 0): 0;
         const _positionTop = containsPosition ? number('Position top', 0): 0;
         const _open = containsPosition ? boolean('Menu list open', undefined): false;
+        const _testId = text('testId', 'popup-menu-test-id');
         const _openChange = text('*(openChange)', 'Event throws when menu is open or close, see in Action logger tab.');
         const _positionChange = text('*(positionChange)', 'Event throws when position changed, see in Action logger tab.');
 
@@ -52,7 +53,7 @@ let stories = storiesOf('Menu', module)
                     selectedItem.innerText = itemPlace;
                     selectedItem.style.color = color;
                 },
-                 _className, _relative, _positionLeft, _positionTop, _open
+                 _className, _relative, _positionLeft, _positionTop, _open, _testId
             },
             template: `
             <div style="position: relative; width: 400px; height: 200px; background: blue;">
@@ -67,6 +68,7 @@ let stories = storiesOf('Menu', module)
                     [position] = "{x:_positionLeft, y:_positionTop}"
                     [relative] = "_relative"
                     [className] = "_className"
+                    [testId]="_testId"
                     (openChange)="menuStatus=$event; openChanged($event)"
                     (positionChange)="menuPos=$event; positionChanged($event)">
                     <popup-menu-item (action)="showSelectedItem('First', 'red', selectedItem)">First</popup-menu-item>

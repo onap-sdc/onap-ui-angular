@@ -18,6 +18,7 @@ export class LoaderComponent implements OnInit, OnDestroy {
     @Input() size?: LoaderSize; // small || medium || large
     @Input() global?: boolean; // If is relative is set to true, loader will appear over parent element. Otherwise, will be fixed over the entire page.
     @Input() name?: string;
+    @Input() testId: string;
     @Output() activeChange: EventEmitter<number> = new EventEmitter<number>();
 
     constructor(private loaderService: LoaderService) {

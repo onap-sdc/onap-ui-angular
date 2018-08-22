@@ -43,13 +43,13 @@ let stories = storiesOf('Form elements|Radio button group', module)
         const _disabled = containsDisabled ? boolean('disabled', false) : null;
         const _direction = containsDirection ? text('direction','horizontal') : null;
         const _selectedValue = text('selected value', 'val1');
-
+        const _testId = text('testId', 'radio-button-test-id');
         const _selectedValueChange = text('*(valueChange)', 'Event throws when selected radio button, see in Action logger tab.');
 
         return {
             props: {
                 selectRadioButton: action('select radio button'),
-                _legend, _disabled, _direction, _options, _selectedValue
+                _legend, _disabled, _direction, _options, _selectedValue, _testId
             },
             template: `
             <sdc-radio-group
@@ -72,6 +72,7 @@ let stories = storiesOf('Form elements|Radio button group', module)
                     ]}"
                 [disabled]="_disabled"
                 [direction]="_direction"
+                [testId]="_testId"
                 (valueChange)= "selectRadioButton($event)"
                 ></sdc-radio-group>
             <br><div>Selected Radio: {{_selectedValue}}</div>

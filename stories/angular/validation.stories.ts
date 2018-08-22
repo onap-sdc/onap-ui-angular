@@ -60,6 +60,7 @@ let stories = storiesOf('Validation', module)
         const requiredValidDisabled = containValidatorsDisabled ? boolean('Required Validator disabled', false): false;
         const regexValidDisabled = containValidatorsDisabled ? boolean('Regex Validator disabled', false): false;
         const customValidDisabled = containValidatorsDisabled ? boolean('Custom Validator disabled', false): false;
+        const _testId = text('testId', 'validation-test-id');
         
         const _customCallback = containCustomValid ? text ('*(Callback)', 'User function that define a validation'): null;
         const _validityChanged = text('*(validityChanged)', 'Event throws when validation changed, see in Action logger tab.');
@@ -74,11 +75,12 @@ let stories = storiesOf('Validation', module)
                 return (Number(value) === 100) ? true : false;
             },
               _validationDisabled, _requiredMessage, _regexMessage, _customMessage, _pattern,
-              requiredValidDisabled, regexValidDisabled, customValidDisabled
+              requiredValidDisabled, regexValidDisabled, customValidDisabled, _testId
           },
           template: `
           <sdc-input #numberValidator label="Please enter some number" [maxLength]="10" required="true"></sdc-input>
-          <sdc-validation [validateElement]="numberValidator" (validityChanged)="onChange($event)" [disabled]="_validationDisabled">
+          <sdc-validation [validateElement]="numberValidator" (validityChanged)="onChange($event)" [disabled]="_validationDisabled"
+              [testId]="_testId">
               <sdc-required-validator  *ngIf="this.displayRequiredValid" [message]="_requiredMessage" [disabled]="requiredValidDisabled"></sdc-required-validator>
               <sdc-regex-validator *ngIf="this.displayRegexValid" [message]="_regexMessage" [pattern]="_pattern" [disabled]="regexValidDisabled"></sdc-regex-validator>
               <sdc-custom-validator *ngIf="this.displayCustomValid" [message]="_customMessage" [callback]="isValueHundred" [disabled]="customValidDisabled"></sdc-custom-validator>

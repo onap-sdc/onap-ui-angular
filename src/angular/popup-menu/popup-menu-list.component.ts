@@ -37,6 +37,7 @@ export class PopupMenuListComponent implements AfterContentInit {
     }
     @Input() public className: string;
     @Input() public relative: boolean = false;
+    @Input() public testId: string;
     @Output() public openChange: EventEmitter<boolean> = new EventEmitter<boolean>();
     @Output() public positionChange: EventEmitter<IPoint> = new EventEmitter<IPoint>();
 

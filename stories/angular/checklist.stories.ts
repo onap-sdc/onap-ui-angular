@@ -30,16 +30,17 @@ storiesOf('Form elements|Checklist', module)
   .add('Simple checklist', () => {
       //const _checklistModel = object('checklistModel', checkListModelExample);
       const _checkedChange = text('*(checkedChange)', 'Event throws when checklist changed, see in Action logger tab.');
-
+      const _testId = text('testId', 'smalpe-test-id');
       return {
         props: {
             checkedChange: action('Checklist changed '),
-            checkListModelExample
+            checkListModelExample, _testId
         },
         template: `
         <sdc-checklist 
-          [checklistModel]="checkListModelExample">
-          (checkedChange)="checkedChange($event)"
+          [checklistModel]="checkListModelExample"
+          [testId]="_testId"
+          (checkedChange)="checkedChange($event)">
         </sdc-checklist>
         `
       }

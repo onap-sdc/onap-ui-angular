@@ -21,13 +21,14 @@ storiesOf('Accordion', module)
   )
   .add('Simple accordion', () => {
       const _title = text('title', 'Accordion header');
+      const _testId = text('testId', 'accordion-test-id');
 
       return {
         props: {
-          _title
+          _title, _testId
         },
         template: `
-        <sdc-accordion [title]="_title">
+        <sdc-accordion [title]="_title" [testId]="_testId">
           <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce consequat dictum porttitor. 
               Nam facilisis, dui nec maximus facilisis, nisl eros mattis arcu, nec pharetra nisl nisi vitae metus. 
@@ -69,16 +70,18 @@ storiesOf('Accordion', module)
       const _title = text('title', 'Accordion header');
       const _arrow_direction = select('arrow-direction', positions, 'left', '');
       const _css_class = text('css_class', 'sdc-accordion-custom-class');
+      const _testId = text('testId', 'accordion-test-id');
   
       return {
         props: {
-          _title, _arrow_direction, _css_class
+          _title, _arrow_direction, _css_class,  _testId
         },
         template: `
         <sdc-accordion 
           [title]="_title"
           [arrow-direction]="_arrow_direction"
           [css-class]="_css_class"
+          [testId]="_testId"
           >
           <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce consequat dictum porttitor. 
@@ -97,10 +100,11 @@ storiesOf('Accordion', module)
         const _arrow_direction = select('arrow-direction', positions, 'left', '');
         const _css_class = text('css_class', 'custom-class');
         const _open = boolean('open', true, '');
+        const _testId = text('testId', 'accordion-test-id');
 
         return {
           props: {
-            _title, _arrow_direction, _css_class, _open
+            _title, _arrow_direction, _css_class, _open, _testId
           },
           template: `
           <sdc-accordion 
@@ -108,6 +112,7 @@ storiesOf('Accordion', module)
             [arrow-direction]="_arrow_direction"
             [css-class]="_css_class"
             [open]="_open"
+            [testId]="_testId"
             >
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce consequat dictum porttitor. 

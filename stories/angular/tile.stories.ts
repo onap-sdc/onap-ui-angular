@@ -38,14 +38,15 @@ let stories = storiesOf('Tiles', module)
         const _size = select('Size', size, 'x_large', '');
         const _backgroundShape = select('BackgroundShape', background_shape, '', '');
         const _backgroundColor = select('BackgroundColor', background_color, '', '');
+        const _testId = text('testId', 'tile-test-id');
         const _disabled = boolean('Disabled', false);
         
         return {
             props: {
-                _category, _name, _mode, _size, _backgroundShape, _backgroundColor, _disabled
+                _category, _name, _mode, _size, _backgroundShape, _backgroundColor, _disabled, _testId
             },
             template: `
-            <sdc-tile>
+            <sdc-tile [testId]="_testId">
                 <sdc-tile-header >
                     <div class="blue">P</div>
                 </sdc-tile-header>

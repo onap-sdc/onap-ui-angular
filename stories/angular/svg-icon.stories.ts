@@ -35,6 +35,7 @@ icons_categories.map((type) =>
       let _size = select('size', size, 'medium', '');
       let _backgroundShape = select('backgroundShape', background_shape, '', '');
       let _backgroundColor = select('backgroundColor', background_color, '', '');
+      const _testId = text('testId', 'svg-icon-test-id');
       const _debug_icon = boolean('Debug icon', false);
 
       if (type === 'resources_60' || type === 'services_60') {
@@ -46,7 +47,7 @@ icons_categories.map((type) =>
 
       return {
         props: {
-          _debug_icon, _mode, _size, _backgroundShape, _backgroundColor
+          _debug_icon, _mode, _size, _backgroundShape, _backgroundColor, _testId
         },
         template:
           `<div class='storybook-icons-showcase'>` +
@@ -62,6 +63,7 @@ icons_categories.map((type) =>
                       [size]="_size"
                       [backgroundShape]="_backgroundShape"
                       [backgroundColor]="_backgroundColor"
+                      [testId]="testId"
                       >
                   </svg-icon>
                 </div>

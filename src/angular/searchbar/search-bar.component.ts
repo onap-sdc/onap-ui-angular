@@ -12,6 +12,7 @@ export class SearchBarComponent {
     @Input() public label: string;
     @Input() public searchQuery: string;
     @Input() public debounceTime: number;
+    @Input() public testId: string;
     @Output() public searchQueryClick: EventEmitter<string> = new EventEmitter<string>();
 
     // constructor() {

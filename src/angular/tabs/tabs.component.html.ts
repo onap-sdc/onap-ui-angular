@@ -1,5 +1,5 @@
 export const template = `
-<ul class="sdc-tabs-list" role="tablist">
+<ul class="sdc-tabs-list" role="tablist" [attr.data-tests-id]="testId">
     <li *ngFor="let tab of tabs" class="sdc-tab" role="tab" (click)="selectTab(tab)" [class.sdc-tab-active]="tab.active">
         <span *ngIf="tab.title">{{tab.title}}</span>
         <svg-icon-label

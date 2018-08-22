@@ -9,6 +9,7 @@ import { template } from "./checklist.component.html";
 })
 export class ChecklistComponent  {
     @Input() public checklistModel: ChecklistModel;
+    @Input() public testId: string;
     @Output() public checkedChange: EventEmitter<ChecklistItemModel> = new EventEmitter<ChecklistItemModel>();
 
     private checkboxCheckedChange(checkbox: ChecklistItemModel, currentChecklistModel: ChecklistModel, stopPropagation?: boolean) {

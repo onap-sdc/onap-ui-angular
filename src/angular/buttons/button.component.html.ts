@@ -9,7 +9,7 @@ export const template = `
                 [size]="'medium'"
                 >
         </svg-icon>
-        <span class="max-characters" >{{text}}</span>
+       {{text}}
 </button>
 <svg-icon *ngIf="show_spinner" name="spinner" [size]="'medium'" class="sdc-button__spinner" [ngClass]="{left: spinner_position === placement.right}"></svg-icon>
 `;

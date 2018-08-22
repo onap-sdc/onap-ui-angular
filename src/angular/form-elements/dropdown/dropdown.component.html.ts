@@ -1,5 +1,5 @@
 export const template = `
-<div class="sdc-dropdown" #dropDownWrapper
+<div class="sdc-dropdown" #dropDownWrapper [attr.data-tests-id]="testId"
     [ngClass]="{
     'headless': type === cIDropDownTypes.Headless,
     'sdc-dropdown__error': (!valid && dirty),

@@ -39,6 +39,7 @@ let stories = storiesOf('Multiline ellipsis', module)
 	      const _lineHeight = containslineHeight ? text('Line height', '18px') : null;
         const _className = containsClassName ? text('Class name', 'yellow-ellipsis'): null;
         const _shortText = containsChangeText ? text('Short text', 'Short text - No ellipsis!') :null;
+        const _testId = text('testId', 'multiline-ellipsis-test-id');
         const _longText = text('Long text','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et molestie erat, sit amet rutrum purus. Mauris tristique efficitur felis, rutrum scelerisque enim sodales eu. Cras tristique ipsum a elementum auctor. Donec et elit id sapien tempus posuere. Nulla condimentum semper nisi, ac convallis augue dignissim nec. Nunc vestibulum nisi metus, ac rutrum enim consectetur nec. Vivamus volutpat ac risus aliquet iaculis.\nVestibulum et ex egestas, scelerisque enim et, vehicula nisi. Aenean posuere ornare dolor, in laoreet turpis mattis in. Fusce sodales blandit ornare. Donec porta eros vel tellus consequat, a ultricies augue ullamcorper. Vestibulum dolor diam, auctor ac magna quis, aliquet tincidunt odio. Nulla eu cursus metus. Maecenas laoreet in risus vel suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis facilisis orci rhoncus pharetra pretium. Nam blandit arcu lobortis eros luctus lobortis. Integer gravida iaculis finibus.')
         const _hasEllipsisChanged = text('*(hasEllipsisChanged)', 'Event throws when number of lines or line height or class name changed, see in Action logger tab.');
         return {
@@ -46,13 +47,14 @@ let stories = storiesOf('Multiline ellipsis', module)
               showSortText: false,
               hasEllipsis: true,
               hasEllipsisChanged: action('Ellipsis changed and its'),
-              _lines, _lineHeight, _className, _shortText, _longText,
+              _lines, _lineHeight, _className, _shortText, _longText, _testId
             },
             template: containsChangeText ? `
             <multiline-ellipsis
                 [lines]="_lines"
                 [lineHeight]="_lineHeight"
                 [className]="_className"
+                [testId]="_testId"
                 (hasEllipsisChanged)="this.hasEllipsis = $event"
                 (hasEllipsisChanged)="hasEllipsisChanged($event)"
                 >{{ this.showSortText ? _shortText : _longText }}

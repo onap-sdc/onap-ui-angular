@@ -1,4 +1,4 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 import { template } from "./tile.component.html";
 
 @Component({
@@ -7,5 +7,6 @@ import { template } from "./tile.component.html";
 })
 
 export class TileComponent {
+    @Input() public testId: string;
     @HostBinding('class') classes = 'sdc-tile';
 }
