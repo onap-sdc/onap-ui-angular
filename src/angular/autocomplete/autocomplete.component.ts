@@ -29,6 +29,7 @@ export class AutoCompleteComponent implements OnInit {
     @Input() public label: string;
     @Input() public placeholder: string;
     @Output() public itemSelected: EventEmitter<any> = new EventEmitter<any>();
+    @Input() public testId: string;
 
     public searchQuery: string;
     private complexData: any[] = [];

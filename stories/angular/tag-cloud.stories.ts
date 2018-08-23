@@ -34,13 +34,14 @@ let stories = storiesOf('Tag Cloud', module)
         let _isUniqueList = containsUniqueList ? boolean('Unique list', false) : null;
         let _uniqueErrorMessage = containsUniqueList ? text('Unique error message', 'Unique error') : null;
         let _placeholder =  text('place holder', 'Type a value and then click enter or');
+        const _testId = text('testId', 'tag-cloud-test-id');
         let _listChanged = text('*(listChanged)', 'Event throws when tag cloud list changed, see in Action logger tab.');
 
         return {
             props: {
                 listChanged: action('tag cloud list changed'),
                 _label, _list, _isViewOnly, _listViewOnly, _isUniqueList, _uniqueErrorMessage, _placeholder,
-                containsViewOnly
+                containsViewOnly, _testId
                 
             },
             template: `
@@ -52,6 +53,7 @@ let stories = storiesOf('Tag Cloud', module)
                 [isUniqueList] = "_isUniqueList"
                 [uniqueErrorMessage] = "_uniqueErrorMessage"
                 [placeholder] = "_placeholder"
+                [testId]="_testId"
                 (listChanged)= "listChanged($event)"
             >
             </sdc-tag-cloud>

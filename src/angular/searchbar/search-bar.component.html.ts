@@ -1,5 +1,5 @@
 export const template = `
-<div class="search-bar-container" [ngClass]="{'not-empty': searchQuery}">
+<div class="search-bar-container" [ngClass]="{'not-empty': searchQuery}" [attr.data-tests-id]="testId">
     <sdc-input class="sdc-input-wrapper"
                [label]="label"
                [placeHolder]="placeholder"

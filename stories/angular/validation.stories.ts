@@ -45,7 +45,9 @@ let stories = storiesOf('Validation', module)
   let containEnterValue = true
   createEmailStory(stories, "Email validation", !containEnterValue, "Validations", "Example of email validation.");
   createEmailStory(stories, "Value entered", containEnterValue, "Validations", "Example of validation with value already entered.");
-
+  
+  createDropDownStory(stories, "Validation in drop down");
+  createValidationGroupStory(stories, "Validation group");
   function createStory(stories, title, containRequiredValid, containRegexValid, containCustomValid, containValidationDisabled,
                   containValidatorsDisabled, notesTitle, notesText){
   stories.add(title, () => {
@@ -58,6 +60,7 @@ let stories = storiesOf('Validation', module)
         const requiredValidDisabled = containValidatorsDisabled ? boolean('Required Validator disabled', false): false;
         const regexValidDisabled = containValidatorsDisabled ? boolean('Regex Validator disabled', false): false;
         const customValidDisabled = containValidatorsDisabled ? boolean('Custom Validator disabled', false): false;
+        const _testId = text('testId', 'validation-test-id');
         
         const _customCallback = containCustomValid ? text ('*(Callback)', 'User function that define a validation'): null;
         const _validityChanged = text('*(validityChanged)', 'Event throws when validation changed, see in Action logger tab.');
@@ -72,11 +75,12 @@ let stories = storiesOf('Validation', module)
                 return (Number(value) === 100) ? true : false;
             },
               _validationDisabled, _requiredMessage, _regexMessage, _customMessage, _pattern,
-              requiredValidDisabled, regexValidDisabled, customValidDisabled
+              requiredValidDisabled, regexValidDisabled, customValidDisabled, _testId
           },
           template: `
           <sdc-input #numberValidator label="Please enter some number" [maxLength]="10" required="true"></sdc-input>
-          <sdc-validation [validateElement]="numberValidator" (validityChanged)="onChange($event)" [disabled]="_validationDisabled">
+          <sdc-validation [validateElement]="numberValidator" (validityChanged)="onChange($event)" [disabled]="_validationDisabled"
+              [testId]="_testId">
               <sdc-required-validator  *ngIf="this.displayRequiredValid" [message]="_requiredMessage" [disabled]="requiredValidDisabled"></sdc-required-validator>
               <sdc-regex-validator *ngIf="this.displayRegexValid" [message]="_regexMessage" [pattern]="_pattern" [disabled]="regexValidDisabled"></sdc-regex-validator>
               <sdc-custom-validator *ngIf="this.displayCustomValid" [message]="_customMessage" [callback]="isValueHundred" [disabled]="customValidDisabled"></sdc-custom-validator>
@@ -112,73 +116,77 @@ let stories = storiesOf('Validation', module)
       }
     )
   }
-
-  stories.add('Validation in drop down', () => {
+  function createDropDownStory(stories, title){
+    stories.add(title, () => {
+      const validityChanged = text('*(validityChanged)', 'Event throws when validation changed, see in Action logger tab.');
+  
+      return {
+      props: {
+        options:[
+            {
+              "label": "First Option Label",
+              "value": "firstOptionValue"
+            },
+            {
+              "label": "Second Option Label",
+              "value": "secondOptionValue"
+            },
+            {
+              "label": "Third Option Label",
+              "value": "thirdOptionValue",
+              "type": "Simple"
+            }
+          ],
+          onChange: action('Dropdown validation valids'),
+          isThirdOption: (value: any) => {
+            return value === 'thirdOptionValue';
+          }
+      },
+      template: `
+      <sdc-dropdown #mydropdown label="Hi I am a label" placeHolder="Please choose option" [options]="options" 
+            (changed)="onChange(validation.validate())"></sdc-dropdown>
+      <sdc-validation #validation [validateElement]="mydropdown" (validityChanged)="onChange($event)">
+          <sdc-required-validator message="Field is required!"></sdc-required-validator>
+          <sdc-custom-validator message="Please select the third option" [callback]="isThirdOption"></sdc-custom-validator>
+      </sdc-validation>
+      `
+      }
+  },
+  { notes: `<h2>Validation in dropdown</h2> example of validation in dropdown<br>Use the KNOBS tab to change values.`
+  }
+  )
+  }
+ 
+function createValidationGroupStory(stories, title){
+  stories.add(title, () => {
     const validityChanged = text('*(validityChanged)', 'Event throws when validation changed, see in Action logger tab.');
-
+  
     return {
     props: {
-      options:[
-          {
-            "label": "First Option Label",
-            "value": "firstOptionValue"
-          },
-          {
-            "label": "Second Option Label",
-            "value": "secondOptionValue"
-          },
-          {
-            "label": "Third Option Label",
-            "value": "thirdOptionValue",
-            "type": "Simple"
-          }
-        ],
-        onChange: action('Dropdown validation valids'),
-        isThirdOption: (value: any) => {
-          return value === 'thirdOptionValue';
-        }
+        emailPattern: RegexPatterns.email,
+        numberPattern: RegexPatterns.numbers,
+        checkValidateGroup: action('Group validation valids')
     },
     template: `
-    <sdc-dropdown #mydropdown label="Hi I am a label" placeHolder="Please choose option" [options]="options" 
-          (changed)="onChange(validation.validate())"></sdc-dropdown>
-    <sdc-validation #validation [validateElement]="mydropdown" (validityChanged)="onChange($event)">
-        <sdc-required-validator message="Field is required!"></sdc-required-validator>
-        <sdc-custom-validator message="Please select the third option" [callback]="isThirdOption"></sdc-custom-validator>
-    </sdc-validation>
+      <sdc-validation-group #validationGroup>
+        <sdc-input #email label="Please enter valid email address" [maxLength]="50" required="true"></sdc-input>
+        <sdc-validation [validateElement]="email">
+            <sdc-required-validator message="Field is required!"></sdc-required-validator>
+            <sdc-regex-validator message="This is not a valid email!" [pattern]="this.emailPattern"></sdc-regex-validator>
+        </sdc-validation>
+  
+        <sdc-input #numberValidator label="Please enter some number" [maxLength]="10" required="true"></sdc-input>
+        <sdc-validation [validateElement]="numberValidator">
+            <sdc-required-validator message="Field is required!"></sdc-required-validator>    
+            <sdc-regex-validator message="This is not a number!" [pattern]="this.numberPattern"></sdc-regex-validator>
+        </sdc-validation>
+      <sdc-button text="validate group" (click)="checkValidateGroup(validationGroup.validate())"></sdc-button>
     `
     }
-},
-{ notes: `<h2>Validation in dropdown</h2> example of validation in dropdown<br>Use the KNOBS tab to change values.`
-}
-)
-
-stories.add('Validation group', () => {
-  const validityChanged = text('*(validityChanged)', 'Event throws when validation changed, see in Action logger tab.');
-
-  return {
-  props: {
-      emailPattern: RegexPatterns.email,
-      numberPattern: RegexPatterns.numbers,
-      checkValidateGroup: action('Group validation valids')
   },
-  template: `
-    <sdc-validation-group #validationGroup>
-      <sdc-input #email label="Please enter valid email address" [maxLength]="50" required="true"></sdc-input>
-      <sdc-validation [validateElement]="email">
-          <sdc-required-validator message="Field is required!"></sdc-required-validator>
-          <sdc-regex-validator message="This is not a valid email!" [pattern]="this.emailPattern"></sdc-regex-validator>
-      </sdc-validation>
-
-      <sdc-input #numberValidator label="Please enter some number" [maxLength]="10" required="true"></sdc-input>
-      <sdc-validation [validateElement]="numberValidator">
-          <sdc-required-validator message="Field is required!"></sdc-required-validator>    
-          <sdc-regex-validator message="This is not a number!" [pattern]="this.numberPattern"></sdc-regex-validator>
-      </sdc-validation>
-    <sdc-button text="validate group" (click)="checkValidateGroup(validationGroup.validate())"></sdc-button>
-  `
+  { notes: `<h2>Validation in dropdown</h2> example of validation in dropdown<br>Use the KNOBS tab to change values.`
   }
-},
-{ notes: `<h2>Validation in dropdown</h2> example of validation in dropdown<br>Use the KNOBS tab to change values.`
+  )
+  
 }
-)
 

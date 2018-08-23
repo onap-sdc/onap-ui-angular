@@ -13,6 +13,7 @@ export class MultilineEllipsisComponent implements OnChanges, AfterViewChecked {
 	@Input() public lines: number;
 	@Input() public lineHeight: string;
 	@Input() public className: string;
+	@Input() public testId: string;
 	@Output() public hasEllipsisChanged: EventEmitter<boolean>;
 
 	@ViewChild('multilineEllipsisContainer') public elmContainer: ElementRef;

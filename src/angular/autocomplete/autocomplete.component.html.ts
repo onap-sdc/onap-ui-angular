@@ -1,5 +1,5 @@
 export const template = `
-<div class="sdc-autocomplete-container" [ngClass]="{'results-shown': autoCompleteResults.length}">
+<div class="sdc-autocomplete-container" [ngClass]="{'results-shown': autoCompleteResults.length}" [attr.data-tests-id]="testId">
     <sdc-filter-bar
         [placeholder]="placeholder"
         [label]="label"

@@ -1,6 +1,6 @@
 export const template = `
 <label class='sdc-radio-group__legend'>{{legend}}</label>
-<div class='sdc-radio-group__radios {{direction}}'>
+<div class='sdc-radio-group__radios {{direction}}' [attr.data-tests-id]="testId">
     <div *ngFor="let item of options.items">
         <div class="sdc-radio">
             <label class="sdc-radio__animation-wrapper" SdcRippleClickAnimation [rippleClickDisabled]="disabled">

@@ -3,6 +3,7 @@ import { TagItemComponent } from "./tag-item/tag-item.component";
 import { TagCloudComponent } from "./tag-cloud.component";
 import { CommonModule } from "@angular/common";
 import { FormElementsModule } from './../form-elements/form-elements.module';
+import { TooltipModule } from "../tooltip/tooltip.module";
 
 @NgModule({
     declarations: [
@@ -11,7 +12,8 @@ import { FormElementsModule } from './../form-elements/form-elements.module';
     ],
     imports: [
         CommonModule,
-        FormElementsModule
+        FormElementsModule,
+        TooltipModule
     ],
     exports: [
         TagCloudComponent

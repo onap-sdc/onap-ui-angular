@@ -31,18 +31,19 @@ let stories = storiesOf('Tabs', module)
         const _title2 = containsTitle ? text('Tab2 title', 'tab2 ') : null;
         const _titleIcon1 = containsTitleIcon ? text('Tab1 titleIcon', 'inputs-o') : null;
         const _titleIcon2 = containsTitleIcon ? text('Tab2 titleIcon', 'edit-file-o') : null;
-        const _active1 = boolean('Tab1 disabled', false);
-        const _active2 = boolean('Tab2 disabled', false);
+        const _active1 = boolean('Tab1 is active', true);
+        const _active2 = boolean('Tab2 is active', false);
+        const _testId = text('testId', 'tabs-test-id');
         const _selectTab = text('*(selectTab)', 'Event throws when select tab changed, see in Action logger tab.');
 
         return {
             props: {
                 selectTab: action('select tab changed'),
                 _title1, _titleIcon1, _active1,
-                _title2, _titleIcon2, _active2, _selectTab
+                _title2, _titleIcon2, _active2, _selectTab, _testId
             },
             template: `
-            <sdc-tabs (selectedTab)="selectTab($event)">
+            <sdc-tabs (selectedTab)="selectTab($event)" [testId]="_testId">
                 <sdc-tab [title]="_title1" [titleIcon]="_titleIcon1" [active]="_active1">This is tab 1</sdc-tab>
                 <sdc-tab [title]="_title2" [titleIcon]="_titleIcon2" [active]="_active2">This is tab 2</sdc-tab>
             </sdc-tabs>

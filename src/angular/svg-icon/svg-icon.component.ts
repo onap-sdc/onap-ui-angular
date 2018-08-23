@@ -20,6 +20,7 @@ export class SvgIconComponent implements OnChanges {
     @Input() public disabled: boolean;
     @Input() public clickable: boolean;
     @Input() public className: any;
+    @Input() public testId: string;
 
     public svgIconContent: string;
     public svgIconContentSafeHtml: SafeHtml;

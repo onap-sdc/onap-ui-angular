@@ -3,6 +3,7 @@ import { ButtonComponent } from "./button.component";
 import { CommonModule } from "@angular/common";
 import { SvgIconModule } from './../svg-icon/svg-icon.module';
 import { ButtonFileOpenerComponent } from './button-file-opener.component';
+import {TooltipModule} from './../tooltip/tooltip.module'
 
 @NgModule({
     declarations: [
@@ -11,7 +12,8 @@ import { ButtonFileOpenerComponent } from './button-file-opener.component';
     ],
     imports: [
         CommonModule,
-        SvgIconModule
+        SvgIconModule,
+        TooltipModule
     ],
     exports: [
         ButtonComponent,

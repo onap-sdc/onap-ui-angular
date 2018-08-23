@@ -13,6 +13,7 @@ export class TagCloudComponent {
     @Input() public label: string;
     @Input() public placeholder: string;
     @Output() public listChanged: EventEmitter<string[]> = new EventEmitter<string[]>();
+    @Input() public testId: string;
     public newTagItem: string;
     public uniqueError: boolean;
 

@@ -12,7 +12,8 @@ export class NotificationComponent implements OnInit {
 
     @Input() notificationSetting: NotificationSettings;
     @Output() destroyComponent = new EventEmitter<any>();
-    @ViewChild("dynamicContentContainer", { read: ViewContainerRef }) contentContainer: ViewContainerRef;
+    @Input() public testId: string;
+    @ViewChild('dynamicContentContainer', { read: ViewContainerRef }) dynamicContentContainer: ViewContainerRef;
     public fade: boolean = false;
 
     constructor(private createDynamicComponentService: CreateDynamicComponentService) {
@@ -20,7 +21,7 @@ export class NotificationComponent implements OnInit {
 
     public ngOnInit() {
         if (this.notificationSetting.hasCustomContent) {
-            this.createDynamicComponentService.insertComponentDynamically(this.notificationSetting.innerComponentType, this.notificationSetting.innerComponentOptions, this.contentContainer);
+            this.createDynamicComponentService.insertComponentDynamically(this.notificationSetting.innerComponentType, this.notificationSetting.innerComponentOptions, this.dynamicContentContainer);
         }
 
         if (!this.notificationSetting.sticky) {

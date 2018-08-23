@@ -1,5 +1,5 @@
 export const template = `
-<div class="sdc-tag-cloud-new-item-field" [ngClass]="{'not-empty': newTagItem}">
+<div class="sdc-tag-cloud-new-item-field" [ngClass]="{'not-empty': newTagItem}" [attr.data-tests-id]="testId">
     <sdc-input [label]="label"
                [disabled]="(isViewOnly===true)"
                [placeHolder]="placeholder"

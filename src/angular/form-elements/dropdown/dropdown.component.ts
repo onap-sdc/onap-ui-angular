@@ -18,6 +18,7 @@ export class DropDownComponent extends ValidatableComponent implements OnChanges
     @Input() maxHeight: number;
     @Input() selectedOption: IDropDownOption;
     @Input() type: DropDownTypes = DropDownTypes.Regular;
+    @Input() testId: string;
     @ViewChild('dropDownWrapper') dropDownWrapper: ElementRef;
     @ViewChild('optionsContainerElement') optionsContainerElement: ElementRef;
     @HostListener('document:click', ['$event']) onClick(e) {
@@ -93,6 +94,8 @@ export class DropDownComponent extends ValidatableComponent implements OnChanges
         } else if (this.isSelectable((option as IDropDownOption).value)) {
             this.setSelected((option as IDropDownOption).value);
         }
+        this.valid = true;
+        this.valueChanged(option);
     }
 
     public toggleDropdown = (event?): void => {

@@ -1,5 +1,5 @@
 export const template = `
-<div *ngFor="let checkbox of checklistModel.checkboxes" #currentCheckbox>
+<div *ngFor="let checkbox of checklistModel.checkboxes" #currentCheckbox [attr.data-tests-id]="testId">
     <div class="checkbox-item">
         <sdc-checkbox [label]="checkbox.label"
                       [(checked)]="checkbox.isChecked"

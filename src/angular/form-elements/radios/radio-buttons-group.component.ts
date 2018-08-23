@@ -17,6 +17,7 @@ export class RadioGroupComponent {
     @Input() public legend: string;
     @Input() public options: IOptionGroup;
     @Input() public disabled: boolean;
+    @Input() public testId: string;
 
     @Input()
     get value(): string {

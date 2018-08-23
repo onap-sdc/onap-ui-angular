@@ -30,6 +30,7 @@ export class SimplePopupMenuListComponent implements AfterContentInit {
     @Output() public positionChange: EventEmitter<IPoint> = new EventEmitter<IPoint>();
     @Input() public menuItemsData: menuItem[]
     @Input() public instanceRef: ComponentRef<SimplePopupMenuListComponent>;
+    @Input() public testId: string;
 
 
     private _position: IPoint = {x: 0, y: 0};

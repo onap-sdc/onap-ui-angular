@@ -1,5 +1,5 @@
 export const template = `
-<div class = "sdc-loader-wrapper" *ngIf="!global">
+<div class = "sdc-loader-wrapper" *ngIf="!global" [attr.data-tests-id]="testId">
     <div class="sdc-loader-background" *ngIf="active">
         <div class="sdc-loader {{ size }}" *ngIf="active"></div>
     </div>
