@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewEncapsulation, HostBinding } from '@angular/core';
 import { template } from "./checkbox.component.html";
 
 @Component({
@@ -12,6 +12,7 @@ export class CheckboxComponent {
     @Input() disabled:boolean;
     @Input() testId: string;
     @Output() checkedChange:EventEmitter<any> = new EventEmitter<any>();
+    @HostBinding('class.sdc-checkbox') true;
 
     public toggleState(newState:boolean) {
         if (!this.disabled) {
