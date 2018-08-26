@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Component, EventEmitter, Input, Output, HostBinding, AfterViewInit } from "@angular/core";
 import { ChecklistModel } from "./models/Checklist";
 import { ChecklistItemModel } from "./models/ChecklistItem";
 import { template } from "./checklist.component.html";
@@ -7,10 +7,15 @@ import { template } from "./checklist.component.html";
     selector: 'sdc-checklist',
     template: template
 })
-export class ChecklistComponent  {
+export class ChecklistComponent implements AfterViewInit {
     @Input() public checklistModel: ChecklistModel;
     @Input() public testId: string;
     @Output() public checkedChange: EventEmitter<ChecklistItemModel> = new EventEmitter<ChecklistItemModel>();
+    @HostBinding('attr.data-tests-id') dataTestId: string;
+
+    ngAfterViewInit() {
+      this.dataTestId = this.testId;
+    }
 
     private checkboxCheckedChange(checkbox: ChecklistItemModel, currentChecklistModel: ChecklistModel, stopPropagation?: boolean) {
         // push/pop the checkbox value
