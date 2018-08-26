@@ -4,6 +4,7 @@ export const template = `
         <sdc-checkbox [label]="checkbox.label"
                       [(checked)]="checkbox.isChecked"
                       [disabled]="checkbox.disabled"
+                      [attr.data-tests-id]="testId"
                       (checkedChange)="checkboxCheckedChange(checkbox, checklistModel)"
                       [ngClass]="{'semi-checked': !checkbox.isChecked && hasCheckedChild(currentCheckbox)}"></sdc-checkbox>
     </div>
