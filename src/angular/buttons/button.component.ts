@@ -1,5 +1,5 @@
 import { Component, HostBinding, Input, OnInit } from "@angular/core";
-import { Placement, ButtonType } from "../common/enums";
+import { Placement, ButtonType, Mode } from "../common/enums";
 import { IButtonComponent } from './ibutton.interface';
 import { template } from "./button.component.html";
 
@@ -12,6 +12,7 @@ export class ButtonComponent implements OnInit, IButtonComponent {
     @Input() public text: string;
     @Input() public disabled: boolean;
     @Input() public type: ButtonType;
+    @Input() public icon_mode: Mode;
     @Input() public size: string;
     @Input() public preventDoubleClick: boolean;
     @Input() public icon_name: string;

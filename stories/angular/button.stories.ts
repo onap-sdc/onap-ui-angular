@@ -7,6 +7,7 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs, text, number, boolean, array, select, color, date, button } from '@storybook/addon-knobs';
 import { withNotes } from '@storybook/addon-notes';
 
+const iconMode = ['primary', 'secondary', 'success', 'error', 'warning', 'info', 'white']
 const buttonTypes = ['primary', 'secondary', 'link', 'success', 'error', 'warning', 'info'];
 const buttonSizes = ['large', 'medium', 'small', 'x-small', 'default'];
 const positions = ['right', 'left'];
@@ -139,10 +140,10 @@ buttonTypes.forEach((buttonType) => {
 });
 
 stories.add(storiesNames.withIcon, () => {
-
   const _text = text('text', 'Sample');
   const _testId = text('testId', 'button-test-id-with-icon');
   const _type = select('type', buttonTypes, 'primary', '');
+  const _iconMode = select('icon mode', iconMode, 'primary', '');
   const _icon_position = select('icon_position', positions, 'left', '');
   const _icon_name = select('icon_name', iconsNames, 'settings-o', '');
   const click = text('(click)', 'call back function');
@@ -150,7 +151,7 @@ stories.add(storiesNames.withIcon, () => {
   return {
     props: {
       buttonClick: action('Button was clicked (see in action logger tab)'),
-      _text, _testId, _type, _icon_position, _icon_name
+      _text, _testId, _type, _icon_position, _icon_name, _iconMode
     },
     template: `
         <sdc-button
@@ -159,6 +160,7 @@ stories.add(storiesNames.withIcon, () => {
             [type]="_type"
             [icon_name]="_icon_name"
             [icon_position]="_icon_position"
+            [icon_mode] = "_iconMode"
             (click)="buttonClick()"
           >
         </sdc-button>

@@ -4,6 +4,7 @@ export const template = `
         [placeholder]="placeholder"
         [label]="label"
         [searchQuery]="searchQuery"
+        [testId]="testId + '-filter-bar'"
         (searchQueryChange)="onSearchQueryChanged($event)">
     </sdc-filter-bar>
     <ul class="autocomplete-results" [@displayResultsAnimation]="autoCompleteResults.length ?'true':'false'">

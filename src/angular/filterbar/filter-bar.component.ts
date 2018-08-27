@@ -8,6 +8,7 @@ import { template } from "./filter-bar.component.html";
 export class FilterBarComponent {
 
     @HostBinding('class') classes = 'sdc-filter-bar';
+    @HostBinding('attr.data-tests-id') dataTestId: string;
 
     @Input() public placeholder: string;
     @Input() public label: string;
@@ -18,6 +19,9 @@ export class FilterBarComponent {
 
     constructor() {
         this.debounceTime = 200;
+    }
+    ngAfterViewInit() {
+        this.dataTestId = this.testId;
     }
 
     public searchTextChange = ($event): void => {
