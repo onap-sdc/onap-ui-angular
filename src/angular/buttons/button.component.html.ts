@@ -5,7 +5,7 @@ export const template = `
         <svg-icon
                 *ngIf="icon_name"
                 [name]="icon_name"
-                [mode]="type"
+                [mode]="icon_mode"
                 [size]="'medium'"
                 >
         </svg-icon>
