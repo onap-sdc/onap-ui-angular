@@ -10,6 +10,7 @@ import { DropDownTriggerDirective } from "./dropdown/dropdown-trigger.directive"
 import {SvgIconModule} from "../svg-icon/svg-icon.module";
 import { ValidationModule } from './validation/validation.module';
 import {TextareaComponent} from "./text-elements/textarea/textarea.component";
+import { CalculateTestIdPipe } from "../utils/calculate-test-id.pipe";
 
 @NgModule({
     imports: [
@@ -25,7 +26,8 @@ import {TextareaComponent} from "./text-elements/textarea/textarea.component";
         CheckboxComponent,
         RadioGroupComponent,
         DropDownTriggerDirective,
-        TextareaComponent
+        TextareaComponent,
+        CalculateTestIdPipe
     ],
     exports: [
         DropDownComponent,
@@ -34,7 +36,8 @@ import {TextareaComponent} from "./text-elements/textarea/textarea.component";
         CheckboxComponent,
         RadioGroupComponent,
         ValidationModule,
-        TextareaComponent
+        TextareaComponent,
+        CalculateTestIdPipe
     ]
 })
 export class FormElementsModule {

@@ -6,7 +6,7 @@ export const template = `
         <div class="sdc-modal__header sdc-{{type}}__header">
             <div class="sdc-modal__icon" *ngIf="type!='custom'" [innerHtml]="svgIconContentSafeHtml"></div>
             <div *ngIf="title" class="title" >{{ title }}</div>
-            <sdc-modal-close-button #modalCloseButton [testId]="getCalculatedTestId('close')" [modalInstanceRef]="instanceRef"></sdc-modal-close-button>
+            <sdc-modal-close-button #modalCloseButton [testId]="'close' | calculateTestId : testId" [modalInstanceRef]="instanceRef"></sdc-modal-close-button>
         </div>
 
         <div class="sdc-modal__content">
@@ -25,7 +25,7 @@ export const template = `
                 [spinner_position]="button.spinner_position"
                 [show_spinner]="button.show_spinner"
                 [callback]="button.callback"
-                [testId]="getCalculatedTestId('button-' + button.text)"
+                [testId]="'button-' + button.text | calculateTestId : testId"
                 (closeModalEvent)="closeModal()"
                 >
             </sdc-modal-button>

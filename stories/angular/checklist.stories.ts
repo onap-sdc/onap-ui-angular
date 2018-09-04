@@ -7,6 +7,7 @@ import { CheckboxComponent, ChecklistComponent } from '../../src/angular/compone
 import { RippleClickAnimationDirective } from '../../src/angular/animations/ripple-click.animation.directive';
 import { ChecklistModel } from '../../src/angular/checklist/models/Checklist';
 import { ChecklistItemModel } from '../../src/angular/checklist/models/ChecklistItem';
+import { FormElementsModule } from '../../src/angular/form-elements/form-elements.module';
 
 const simpleCheckListModelExample: ChecklistModel =  new ChecklistModel([],[
   new ChecklistItemModel('apple'),
@@ -31,11 +32,10 @@ storiesOf('Form elements|Checklist', module)
   .addDecorator(
     moduleMetadata({
       declarations: [
-        CheckboxComponent,
-        RippleClickAnimationDirective,
         ChecklistComponent
       ],
       imports: [
+        FormElementsModule
       ]
     })
   )
