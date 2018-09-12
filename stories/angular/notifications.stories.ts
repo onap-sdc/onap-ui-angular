@@ -5,6 +5,8 @@ import { action, configureActions } from '@storybook/addon-actions';
 import { moduleMetadata } from '@storybook/angular';
 import { NotificationModule } from '../../src/angular/notifications/notification.module';
 import { NotificationSettings } from '../../src/angular/notifications/utilities/notification.config';
+import { ButtonsModule } from '../../src/angular/buttons/buttons.module';
+import { NotificationsExample } from './helpers/notifications-example.component';
 
 let stories = storiesOf('Notification', module)
   .addDecorator(withKnobs)
@@ -12,9 +14,11 @@ let stories = storiesOf('Notification', module)
   .addDecorator(
     moduleMetadata({
       declarations: [
+        NotificationsExample
       ],
       imports: [
-        NotificationModule
+        NotificationModule,
+        ButtonsModule
          
       ]
     })
@@ -42,10 +46,7 @@ let stories = storiesOf('Notification', module)
                 _type, _notifyText, _notifyTitle, _sticky, _hasCustomContent, _duration
             },
             template: `
-            <sdc-notification
-               [notificationSetting] = "_notificationSetting"
-            >
-            </sdc-notification>
+            <notifications-example></notifications-example>
             `
         }
         },

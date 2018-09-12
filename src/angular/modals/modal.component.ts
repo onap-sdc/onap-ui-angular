@@ -1,7 +1,6 @@
 import { Component, Input, ViewContainerRef, ViewChild, ComponentRef, Renderer, OnInit } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ModalButtonComponent } from './modal-button.component';
-import { LowerCasePipe } from '@angular/common';
 import { ModalCloseButtonComponent } from './modal-close-button.component';
 import { ModalType } from './models/modal-config';
 import { template } from './modal.component.html';
@@ -75,9 +74,7 @@ export class ModalComponent implements OnInit {
     private noSvg = ``;
 
     constructor(private renderer: Renderer,
-        private domSanitizer: DomSanitizer,
-        private lowerCasePipe: LowerCasePipe
-    ) {
+        private domSanitizer: DomSanitizer) {
         this.modalVisible = true;
     }
 
@@ -99,14 +96,6 @@ export class ModalComponent implements OnInit {
             default:
                 this.svgIconContentSafeHtml = this.domSanitizer.bypassSecurityTrustHtml(this.noSvg);
         }
-    }
-
-    getCalculatedTestId = (buttonText: string): string => {
-        // TODO: Replace this
-        if (this.testId) {
-            return this.testId + '-' + this.lowerCasePipe.transform(buttonText);
-        }
-        return null;
     }
 
     public modalToggled = (toggleEvent: any) => {

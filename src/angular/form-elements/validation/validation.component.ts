@@ -14,6 +14,7 @@ export class ValidationComponent implements AfterContentInit {
 
     @Input() public validateElement: ValidatableComponent;
     @Input() public disabled: boolean;
+    @Input() public testId: string;
     @Output() public validityChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
     @HostBinding('class') classes;
 

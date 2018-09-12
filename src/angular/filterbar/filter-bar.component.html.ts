@@ -1,11 +1,12 @@
 export const template = `
-<div class="search-bar-container">
+<div class="search-bar-container" >
     <sdc-input class="search-bar-input"
                [label]="label"
                [placeHolder]="placeholder"
                [debounceTime]="debounceTime"
                [(value)]="searchQuery"
-               (valueChange)="searchTextChange($event)"></sdc-input>
+               (valueChange)="searchTextChange($event)"
+               [testId]="testId + '-input'"></sdc-input>
     <span class="clear-search-x filter-button" *ngIf="searchQuery" (click)="clearSearchQuery()">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
           <defs>

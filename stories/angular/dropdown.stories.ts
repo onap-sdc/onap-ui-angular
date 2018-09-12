@@ -107,7 +107,7 @@ storiesOf('Form elements|Dropdown', module)
       const _placeHolder = text('placeHolder', 'Sample placeholder');
       const _disabled = boolean('disabled', false);
       const _options = object('options', options1);
-      const _testId = text('testId', 'smalpe-test-id');
+      const _testId = text('testId', 'dropdown-test-id');
       const _required = boolean('required', false);
       const _maxHeight = number('maxHeight', 20);
       const _selectedOption = object('selectedOption', {});
@@ -129,6 +129,7 @@ storiesOf('Form elements|Dropdown', module)
             [maxHeight]="_maxHeight"
             [options]="_options" 
             [selectedOption]="_selectedOption"
+            [testId]="_testId"
             (changed)="onChange($event)"
             >
         </sdc-dropdown>
@@ -145,7 +146,7 @@ storiesOf('Form elements|Dropdown', module)
     const _placeHolder = text('placeHolder', 'Sample placeholder');
     const _disabled = boolean('disabled', false);
     const _options = object('options', options2);
-    const _testId = text('testId', 'smalpe-test-id');
+    const _testId = text('testId', 'dropdown-test-id');
     const _required = boolean('required', false);
     const _maxHeight = number('maxHeight', 20);
     const _selectedOption = object('selectedOption', {});
@@ -183,7 +184,7 @@ storiesOf('Form elements|Dropdown', module)
     const _placeHolder = text('placeHolder', 'Sample placeholder');
     const _disabled = boolean('disabled', false);
     const _options = object('options', options2);
-    const _testId = text('testId', 'smalpe-test-id');
+    const _testId = text('testId', 'dropdown-test-id');
     const _required = boolean('required', false);
     const _maxHeight = number('maxHeight', 20);
     const _selectedOption = object('selectedOption', { label: 'Second Option Label', value: 'secondOptionValue'});
@@ -221,7 +222,7 @@ storiesOf('Form elements|Dropdown', module)
     const _placeHolder = text('placeHolder', 'Sample placeholder');
     const _disabled = boolean('disabled', false);
     const _options = object('options', options1);
-    const _testId = text('testId', 'smalpe-test-id');
+    const _testId = text('testId', 'dropdown-test-id');
     const _required = boolean('required', false);
     const _maxHeight = number('maxHeight', 20);
     const _selectedOption = object('selectedOption', {});
@@ -261,7 +262,7 @@ storiesOf('Form elements|Dropdown', module)
     const _placeHolder = text('placeHolder', 'Sample placeholder');
     const _disabled = boolean('disabled', false);
     const _options = object('options', options1);
-    const _testId = text('testId', 'smalpe-test-id');
+    const _testId = text('testId', 'dropdown-test-id');
     const _required = boolean('required', false);
     const _maxHeight = number('maxHeight', 20);
     const _selectedOption = object('selectedOption', {});

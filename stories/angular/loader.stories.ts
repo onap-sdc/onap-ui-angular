@@ -34,6 +34,7 @@ storiesOf('Loader', module)
   .add('Relative loader', () => {
     const _size = select('size', Object.values(LoaderSize), LoaderSize.large);
     const _name = text('name', 'RelativeLoader');
+    const _testId = text('testId', 'loader-test-id');
     const _active = boolean('active', false);
 
       return {
@@ -46,11 +47,11 @@ storiesOf('Loader', module)
                 loader.deactivate();
                 action('Loader deactivated')();
             },
-            _size, _name, _active
+            _size, _name, _active, _testId
         },
         template: `
         <h2>Loader visible: {{_active}}</h2>
-        <sdc-loader #loader1 [size]="_size" [name]="_name" [(active)]="_active">
+        <sdc-loader #loader1 [size]="_size" [name]="_name" [(active)]="_active" [testId]="_testId">
             <div style="border:1px solid black; padding:20px 100px;">
                 <sdc-input label="Please Enter Value" required="true" [maxLength]="5"></sdc-input>
                 <sdc-input label="Please Enter Value" required="true" [maxLength]="5"></sdc-input>

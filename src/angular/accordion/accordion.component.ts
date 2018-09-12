@@ -13,6 +13,7 @@ export class AccordionComponent {
     @Input('title') title: string;
     @Input('open') open: boolean;
     @Output('accordionChanged') changed = new EventEmitter<boolean>();
+    @Input() public testId: string;
 
     public accordionArrowDirection = Placement;
 

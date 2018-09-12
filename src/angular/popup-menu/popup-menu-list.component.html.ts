@@ -4,6 +4,7 @@ export const template = `
   *ngIf="open"
   [ngClass]="[className || '', relative? 'relative': '']"
   [ngStyle]="{'left': position.x + 'px', 'top': position.y + 'px'}"
-  (click)="$event.stopPropagation()">
+  (click)="$event.stopPropagation()"
+  [attr.data-tests-id]="testId">
   <ng-content></ng-content>
 </ul>`;
