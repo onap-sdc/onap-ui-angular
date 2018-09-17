@@ -18,7 +18,8 @@ import { TabsModule } from "./tabs/tabs.module";
 import { LoaderModule } from "./loader/loader.module";
 import { AccordionModule } from "./accordion/accordion.module";
 import { MultilineEllipsisModule } from "./multiline-ellipsis/multiline-ellipsis.module";
-import { SimplePopupMenuModule } from "./simple-popup-menu/simple-popup-menu.module"; 
+import { SimplePopupMenuModule } from "./simple-popup-menu/simple-popup-menu.module";
+
 @NgModule({
     imports: [
         AnimationDirectivesModule,
