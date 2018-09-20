@@ -1,4 +1,14 @@
-import { Component, Input, ViewContainerRef, ViewChild, ComponentRef, Renderer, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  ViewContainerRef,
+  ViewChild,
+  ComponentRef,
+  Renderer,
+  OnInit,
+  Output,
+  EventEmitter
+} from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ModalButtonComponent } from './modal-button.component';
 import { ModalCloseButtonComponent } from './modal-close-button.component';
@@ -30,6 +40,8 @@ export class ModalComponent implements OnInit {
     @Input() type: ModalType;
     @Input() testId: string;
     @Input() instanceRef: ComponentRef<ModalComponent>; // the component ref is injected to the component in order to destroy the componet from itself
+
+    @Output() onClose : EventEmitter<string> =  new EventEmitter<string>();
 
     @ViewChild('modalCloseButton')
     set refCloseButton(_modalCloseButton: ModalCloseButtonComponent) {
@@ -137,7 +149,8 @@ export class ModalComponent implements OnInit {
         // evn.taregt.classList.add('sdc-ripple-click__animated');
     }
 
-    public closeModal = (): void => {
+    public closeModal = (btnName : string): void => {
+        this.onClose.emit(btnName);
         this.modalVisible = false;
     }
 

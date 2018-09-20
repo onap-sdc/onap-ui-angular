@@ -22,34 +22,35 @@ export class ModalService {
         } as IModalConfig;
         const modalInstance: ComponentRef<ModalComponent> = this.openModal(modalConfig);
         return modalInstance.instance;
-    }
+    };
 
     /* Shortcut method to open basic modals with title, message, and OK button that simply closes the modal. */
     public openInfoModal = (title: string, message: string, testId: string, buttons?: ModalButtonComponent[]): ModalComponent => {
+
         return this.getBaseModal(ModalType.info, title, message, testId, buttons);
-    }
+    };
 
     public openWarningModal = (title: string, message: string, testId: string, buttons?: ModalButtonComponent[]): ModalComponent => {
         return this.getBaseModal(ModalType.warning, title, message, testId, buttons);
-    }
+    };
 
     public openErrorModal = (title: string, message: string, testId: string, buttons?: ModalButtonComponent[]): ModalComponent => {
         return this.getBaseModal(ModalType.error, title, message, testId, buttons);
-    }
+    };
 
     public openSuccessModal = (title: string, message: string, testId: string, buttons?: ModalButtonComponent[]): ModalComponent => {
         return this.getBaseModal(ModalType.success, title, message, testId, buttons);
-    }
+    };
 
     public openCustomModal = (modalConfig: IModalConfig, dynamicComponentType: Type<any>, dynamicComponentInput?: any) => {
         const modalInstance: ComponentRef<ModalComponent> = this.openModal(modalConfig);
         this.createInnnerComponent(modalInstance, dynamicComponentType, dynamicComponentInput);
         return modalInstance.instance;
-    }
+    };
 
     public createInnnerComponent = (modalInstance: ComponentRef<ModalComponent>, dynamicComponentType: Type<any>, dynamicComponentInput?: any): void => {
         modalInstance.instance.innerModalContent = this.createDynamicComponentService.insertComponentDynamically(dynamicComponentType, dynamicComponentInput, modalInstance.instance.dynamicContentContainer);
-    }
+    };
 
     public openModal = (customModalData: IModalConfig): ComponentRef<ModalComponent> => {
         let modalInstance: ComponentRef<ModalComponent> = this.createDynamicComponentService.createComponentDynamically(ModalComponent, customModalData);
