@@ -28,6 +28,9 @@ export class ValidationComponent implements AfterContentInit {
     constructor() {
         this.disabled = false;
         this.classes = 'sdc-validation';
+        if (this.validateElement){
+          this.validateElement.validationActive = true;
+        }
     }
 
     ngAfterContentInit(): void {
