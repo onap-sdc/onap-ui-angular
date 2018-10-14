@@ -1,5 +1,5 @@
 export const template = `
-<ul class="sdc-menu-list"
+<ul class="sdc-menu-list" (clickOutside)="closeMenu()"
   [ngClass]="[className || '', relative? 'relative': '']"
   [ngStyle]="{'left': position.x + 'px', 'top': position.y + 'px'}"
   [attr.data-tests-id]="testId"
@@ -13,7 +13,7 @@ export const template = `
       [type]="item.type"
       [action]="item.action"
       [className]="item.className"
-      (closeMenu)="closeMenu($event)"
+      (closeMenu)="closeMenu()"
   >
   </popup-menu-item>
 </ul>`;

@@ -5,17 +5,22 @@ import { CommonModule } from "@angular/common";
 import { simplePopupMenuService } from "./simple-popup-menu.service";
 import { SvgIconModule } from "../svg-icon/svg-icon.module";
 import { CreateDynamicComponentService } from "../utils/create-dynamic-component.service";
+import { ClickOutsideDirective } from "../utils/clickoutside.directive";
 
 @NgModule({
     declarations: [
         SimplePopupMenuListComponent,
-        SimplePopupMenuItemComponent
+        SimplePopupMenuItemComponent,
+        ClickOutsideDirective
     ],
     imports: [
         CommonModule,
         SvgIconModule
     ],
-    exports: [],
+    exports: [
+        SimplePopupMenuListComponent,
+        SimplePopupMenuItemComponent
+    ],
     providers: [
         simplePopupMenuService,
         CreateDynamicComponentService
