@@ -13,7 +13,7 @@ const centerMiddleSuffix = 'center__middle';
     selector: '[sdc-tooltip]'
 })
 export class TooltipDirective implements OnInit {
-    @Input('tooltip-text') public text = 'tooltip';
+    @Input('tooltip-text') public text;
     @Input('tooltip-placement') public placement: TooltipPlacement = TooltipPlacement.Top;
     @Input('tooltip-css-class') public customCssClass: string;
     @Input('tooltip-template') public template: TemplateRef<any>;
@@ -71,8 +71,10 @@ export class TooltipDirective implements OnInit {
 
             if (this.template) {
                 this.tooltipTemplateContainer.instance.container.createEmbeddedView(this.template);
+            } else if(this.text) {
+                this.tooltip.textContent = this.text;
             } else {
-                this.tooltip.textContent = this.text ? this.text : 'tooltip';
+                this.tooltip = undefined;
             }
 
             this.setCssClass(true);

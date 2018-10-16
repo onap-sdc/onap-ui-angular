@@ -10,6 +10,7 @@ export class TabComponent {
   @Input() public title: string;
   @Input() public titleIcon: string;
   @Input() public active = false;
+  @Input() public tooltipText: string;
 
   public titleIconMode = Mode.secondary;
 
