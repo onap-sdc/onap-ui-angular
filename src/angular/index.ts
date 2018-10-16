@@ -10,8 +10,7 @@ import { TileModule } from "./tiles/tile.module";
 import { ChecklistModule } from "./checklist/checklist.module";
 import { SvgIconModule } from "./svg-icon/svg-icon.module";
 import { AutoCompleteModule } from "./autocomplete/autocomplete.module";
-import { FilterBarModule } from "./filterbar/filter-bar.module";
-import { SearchBarModule } from "./searchbar/search-bar.module";
+import { SearchModule } from "./search/search.module";
 import { TooltipModule } from "./tooltip/tooltip.module";
 import { TagCloudModule } from './tag-cloud/tag-cloud.module';
 import { TabsModule } from "./tabs/tabs.module";
@@ -32,8 +31,7 @@ import { SimplePopupMenuModule } from "./simple-popup-menu/simple-popup-menu.mod
         TileModule,
         ChecklistModule,
         AutoCompleteModule,
-        FilterBarModule,
-        SearchBarModule,
+        SearchModule,
         TooltipModule,
         SvgIconModule,
         TagCloudModule,
@@ -54,8 +52,7 @@ import { SimplePopupMenuModule } from "./simple-popup-menu/simple-popup-menu.mod
         TileModule,
         ChecklistModule,
         AutoCompleteModule,
-        FilterBarModule,
-        SearchBarModule,
+        SearchModule,
         TooltipModule,
         SvgIconModule,
         TagCloudModule,

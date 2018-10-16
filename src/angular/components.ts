@@ -57,7 +57,7 @@ export { AutoCompleteComponent } from './autocomplete/autocomplete.component';
 export { AutocompletePipe } from './autocomplete/autocomplete.pipe';
 
 // Filter
-export { FilterBarComponent } from './filterbar/filter-bar.component';
+export { FilterBarComponent } from './search/filter-bar.component';
 
 // Infinite Scroll
 export { InfiniteScrollDirective } from './infinite-scroll/infinite-scroll.directive';
@@ -66,7 +66,7 @@ export { InfiniteScrollDirective } from './infinite-scroll/infinite-scroll.direc
 export { LoaderComponent } from './loader/loader.component';
 
 // Searchbar
-export { SearchBarComponent } from './searchbar/search-bar.component';
+export { SearchBarComponent } from './search/search-bar.component';
 
 // Tooltip
 export { TooltipDirective } from "./tooltip/tooltip.directive";

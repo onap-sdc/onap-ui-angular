@@ -4,7 +4,7 @@ import { withNotes } from '@storybook/addon-notes';
 import { action, configureActions } from '@storybook/addon-actions';
 import { moduleMetadata } from '@storybook/angular';
 import { AutoCompleteComponent, AutocompletePipe } from '../../src/angular/components';
-import { FilterBarModule } from '../../src/angular/filterbar/filter-bar.module';
+import { SearchModule } from '../../src/angular/search/search.module';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -17,7 +17,7 @@ storiesOf('AutoComplete', module)
           AutoCompleteComponent
       ],
       imports: [
-          FilterBarModule,
+          SearchModule,
           BrowserAnimationsModule
       ],
       providers: [

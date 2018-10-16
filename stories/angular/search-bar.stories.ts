@@ -20,26 +20,24 @@ storiesOf('Form elements|Searchbar', module)
     })
   )
   .add('Searchbar', () => {
-      const _label = text('label', 'Searchbar label');
       const _placeholder = text('placeholder', 'Searchbar placeholder');
       const _debounceTime = number('debounceTime', 200);
       const _searchQuery = text('searchQuery', '');
       const _testId = text('testId', 'search-bar-test-id');
-      const _searchQueryClick = text('*(searchQueryClick)', 'Event throws when click on search query, see in Action logger tab.');
+      const _searchQueryClick = text('*(searchQueryEvent)', 'Event throws when click on search query, see in Action logger tab.');
 
       return {
         props: {
             onChange: action('click on search query'),
-            _label, _searchQuery, _placeholder, _debounceTime, _testId
+            _searchQuery, _placeholder, _debounceTime, _testId
         },
         template: `
         <sdc-search-bar
             [placeholder]="_placeholder"
-            [label]="_label"
             [debounceTime]="_debounceTime"
             [(searchQuery)]="_searchQuery"
             [testId]="_testId"
-            (searchQueryClick)="onChange($event)">
+            (searchQueryEvent)="onChange($event)">
         </sdc-search-bar>
         `
       }
