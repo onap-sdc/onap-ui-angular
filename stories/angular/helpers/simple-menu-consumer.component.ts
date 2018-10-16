@@ -11,7 +11,7 @@ import { simplePopupMenuService } from "../../../src/angular/simple-popup-menu/s
     (click)="openMenu({x:$event.offsetX, y:$event.offsetY})">
     <span class="message" style="position: absolute; color: #ffffff;">Click in the box to open the popup menu</span>
     </div>
-    <sdc-button *ngIf="template == 'clickButton'" [text]="'View Menu'" (click)="openMenu()"></sdc-button>`
+    <sdc-button *ngIf="template == 'clickButton'" [text]="'View Menu'" (click)="openMenu({x:$event.offsetX, y:$event.offsetY})"></sdc-button>`
 })
 export class SimplepMenuConsumerComponent {
     @Input() public template: string;
@@ -57,9 +57,5 @@ export class SimplepMenuConsumerComponent {
     }
     private openMenu(position: IPoint): void {
         this.simplePopupMenuService.openBaseMenu(this.menuItemsData, position);
-    }
-    @HostListener('document:click', ['$event']) 
-    onClick($event) {
-        this.openMenu({x: $event.offsetX, y: $event.offsetY})
     }
 }

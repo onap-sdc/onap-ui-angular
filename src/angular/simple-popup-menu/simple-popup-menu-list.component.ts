@@ -34,18 +34,16 @@ export class SimplePopupMenuListComponent implements AfterContentInit {
 
 
     private _position: IPoint = {x: 0, y: 0};
+    private notFirstClick = false; 
 
     public ngAfterContentInit() {
     }
-    public closeMenu(closeMenu: boolean){
-        if(closeMenu){
+    public closeMenu(){
+        if(this.notFirstClick){
             this.instanceRef.destroy();
-        }    
+        } 
+        else{
+            this.notFirstClick = true;
+        }   
     }
-    @HostListener('document:click', ['$event']) 
-    clickOutside($event) {
-        this.instanceRef.destroy();
-    }
-
-    
 }

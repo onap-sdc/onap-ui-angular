@@ -27,7 +27,7 @@ storiesOf('Form elements|Filterbar', module)
       const _searchQuery = text('searchQuery', '');
       const _testId = text('testId', 'filter-bar-test-id');
       const _searchQueryOutput = text('*(searchQuery)', 'Event throws when search query changed');
-      const _searchQueryChange = text('*(searchQueryChange)', 'Event throws when search query changed, see in Action logger tab.');
+      const _searchQueryChange = text('*(searchQueryEvent)', 'Event throws when search query changed, see in Action logger tab.');
 
       return {
         props: {
@@ -41,7 +41,7 @@ storiesOf('Form elements|Filterbar', module)
             [debounceTime]="_debounceTime"
             [(searchQuery)]="_searchQuery"
             [testId]="_testId"
-            (searchQueryChange)="onChange($event)">
+            (searchQueryEvent)="onChange($event)">
         </sdc-filter-bar>
         `
       }

@@ -37,7 +37,8 @@ import { CalculateTestIdPipe } from "../utils/calculate-test-id.pipe";
         RadioGroupComponent,
         ValidationModule,
         TextareaComponent,
-        CalculateTestIdPipe
+        CalculateTestIdPipe,
+        SvgIconModule
     ]
 })
 export class FormElementsModule {

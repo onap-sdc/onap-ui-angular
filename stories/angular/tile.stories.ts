@@ -51,7 +51,7 @@ let stories = storiesOf('Tiles', module)
                     <div class="blue">P</div>
                 </sdc-tile-header>
                 <sdc-tile-content>
-                    <div class='storybook-component-wrapper blue'>
+                    <div class='sdc-tile-content-icon blue'>
                         <svg-icon 
                             [ngClass] = "{'storybook-debug-icon': _debug_icon===true}"
                             [type] = "_type"

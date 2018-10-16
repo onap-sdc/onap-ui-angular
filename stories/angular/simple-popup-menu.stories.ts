@@ -18,7 +18,6 @@ let stories = storiesOf('Simple Menu', module)
     })
   );
 
-createMenuListStory(stories, 'Click on document', null, 'Simple popup menu', 'Simple menu list open when click on document.');
 createMenuListStory(stories, 'Click on div', 'clickOnDiv', 'Simple popup menu','Simple menu list open when click on div.');
 createMenuListStory(stories, 'Click on button', 'clickButton', 'Simple popup menu', 'Simple menu list open when click on button.');
 function createMenuListStory(stories, title, template, notesTitle, notesText) {

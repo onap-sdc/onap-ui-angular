@@ -5,7 +5,7 @@ export const template = `
         [label]="label"
         [searchQuery]="searchQuery"
         [testId]="testId + '-filter-bar'"
-        (searchQueryChange)="onSearchQueryChanged($event)">
+        (searchQueryEvent)="onSearchQueryChanged($event)">
     </sdc-filter-bar>
     <ul class="autocomplete-results" [@displayResultsAnimation]="autoCompleteResults.length ?'true':'false'">
         <li *ngFor="let item of autoCompleteResults"
