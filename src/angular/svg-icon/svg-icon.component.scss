@@ -11,6 +11,7 @@
 
 @mixin color-icon-hover($secondary-color) {
     &.clickable {
+      cursor: pointer;
         &:not([disabled]):hover, &:active, &:focus {
             @include color-icon($secondary-color);
         }
@@ -50,6 +51,11 @@
     &.mode-primary {
         @include color-icon($blue);
         @include color-icon-hover($light-blue);
+    }
+
+    &.mode-primary2 {
+      @include color-icon($dark-gray);
+      @include color-icon-hover($light-blue);
     }
 
     &.mode-secondary {
@@ -113,28 +119,56 @@
         padding: 6px;
     }
 
-    &.bg-color-primary {
+    &.bg-color-purple {
         background-color: $purple;
     }
 
-    &.bg-color-secondary {
+    &.bg-color-light-blue {
         background-color: $light-blue;
     }
 
-    &.bg-color-success {
+    &.bg-color-green {
         background-color: $green;
     }
 
-    &.bg-color-error {
+    &.bg-color-red {
         background-color: $red;
     }
 
-    &.bg-color-warning {
+    &.bg-color-yellow {
         background-color: $yellow;
     }
 
-    &.bg-color-info {
+    &.bg-color-blue {
         background-color: $blue;
+    }
+
+    &.bg-color-lightBlue {
+      background-color: $light-blue;
+    }
+
+    &.bg-color-darkBlue {
+      background-color: $dark-blue;
+    }
+
+    &.bg-color-darkBlue2 {
+      background-color: $dark-blue2;
+    }
+
+    &.bg-color-disabledBlue {
+      background-color: $disabled-blue;
+    }
+
+    &.bg-color-gray {
+      background-color: $gray;
+    }
+
+    &.bg-color-white {
+      background-color: $white;
+    }
+
+    &.bg-color-transparent {
+      background-color:transparent;
     }
 }
 

@@ -18,17 +18,24 @@ export enum BackgroundShape {
 }
 
 export enum BackgroundColor {
-    primary = 'primary',
-    secondary = 'secondary',
-    success = 'success',
-    error = 'error',
-    warning = 'warning',
-    info = 'info'
+    gray = 'gray',
+    purple = 'purple',
+    blue = 'blue',
+    lightBlue = 'light-blue',
+    darkBlue = 'dark-blue',
+    darkBlue2 = 'dark-blue2',
+    disabledBlue = 'disabled-blue',
+    white = 'white',
+    transparent = 'transparent',
+    green = 'green',
+    red = 'red',
+    yellow = 'yellow'
 }
 
 // TODO: Replace this with type
 export enum Mode {
     primary = 'primary',
+    primary2 = 'primary2',
     secondary = 'secondary',
     success = 'success',
     error = 'error',
