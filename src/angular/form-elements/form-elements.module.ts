@@ -11,6 +11,9 @@ import {SvgIconModule} from "../svg-icon/svg-icon.module";
 import { ValidationModule } from './validation/validation.module';
 import {TextareaComponent} from "./text-elements/textarea/textarea.component";
 import { CalculateTestIdPipe } from "../utils/calculate-test-id.pipe";
+import {DropdownModule} from "./dropdown/dropdown.module";
+import {DropdownResultsModule} from "./dropdown/dropdown-result/dropdown-result.module";
+import {DropdownResultsComponent} from "./dropdown/dropdown-result/dropdown-results.component";
 
 @NgModule({
     imports: [
@@ -18,10 +21,11 @@ import { CalculateTestIdPipe } from "../utils/calculate-test-id.pipe";
         FormsModule,
         ReactiveFormsModule,
         AnimationDirectivesModule,
-        SvgIconModule
+        SvgIconModule,
+        DropdownResultsModule,
+        DropdownModule
     ],
     declarations: [
-        DropDownComponent,
         InputComponent,
         CheckboxComponent,
         RadioGroupComponent,
@@ -30,12 +34,13 @@ import { CalculateTestIdPipe } from "../utils/calculate-test-id.pipe";
         CalculateTestIdPipe
     ],
     exports: [
-        DropDownComponent,
+        DropdownResultsModule,
         DropDownTriggerDirective,
         InputComponent,
         CheckboxComponent,
         RadioGroupComponent,
         ValidationModule,
+        DropdownModule,
         TextareaComponent,
         CalculateTestIdPipe,
         SvgIconModule

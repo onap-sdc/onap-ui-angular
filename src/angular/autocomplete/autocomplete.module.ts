@@ -5,13 +5,16 @@ import { SearchModule } from "./../search/search.module";
 import { AutocompletePipe } from "./autocomplete.pipe";
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {DropdownResultsModule} from "../form-elements/dropdown/dropdown-result/dropdown-result.module";
 
 @NgModule({
     declarations: [
         AutoCompleteComponent,
-        AutocompletePipe
+        AutocompletePipe,
+
     ],
     imports: [
+        DropdownResultsModule,
         BrowserModule,
         BrowserAnimationsModule,
         SearchModule,

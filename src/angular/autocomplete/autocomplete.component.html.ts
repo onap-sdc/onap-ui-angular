@@ -7,9 +7,6 @@ export const template = `
         [testId]="testId + '-filter-bar'"
         (searchQueryEvent)="onSearchQueryChanged($event)">
     </sdc-filter-bar>
-    <ul class="autocomplete-results" [@displayResultsAnimation]="autoCompleteResults.length ?'true':'false'">
-        <li *ngFor="let item of autoCompleteResults"
-        (click)="onItemSelected(item)">{{item.value}}</li>
-    </ul>
+    <dropdown-results [options]="autoCompleteResults" (onItemSelected)="onItemSelected($event)"></dropdown-results>
 </div>
 `;

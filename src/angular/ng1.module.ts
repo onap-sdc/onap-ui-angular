@@ -18,7 +18,7 @@ if (typeof angular !== "undefined") {
     SdcUiComponentsNg1Module.directive('sdcDropdown', downgradeComponent({
         component: Components.DropDownComponent,
         inputs: ['label', 'options', 'disabled', 'placeHolder', 'required', 'validate', 'headless', 'maxHeight', 'selectedOption'],
-        outputs: ['changeEmitter']
+        outputs: ['onItemSelected']
     }));
     SdcUiComponentsNg1Module.directive('sdcCheckbox', downgradeComponent({
         component: Components.CheckboxComponent,

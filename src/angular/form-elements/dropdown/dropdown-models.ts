@@ -1,6 +1,5 @@
 export enum DropDownTypes {
     Regular = "Regular",
-    Headless = "Headless",
     Auto = "Auto"
 }
 
