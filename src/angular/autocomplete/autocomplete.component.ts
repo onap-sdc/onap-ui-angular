@@ -4,6 +4,7 @@ import { AutocompletePipe } from "./autocomplete.pipe";
 import { template } from "./autocomplete.component.html";
 import { HttpClient, HttpParams } from '@angular/common/http';
 import 'rxjs/add/operator/map';
+import {IDropDownOption} from "../form-elements/dropdown/dropdown-models";
 
 @Component({
     selector: 'sdc-autocomplete',
@@ -24,7 +25,7 @@ import 'rxjs/add/operator/map';
 })
 export class AutoCompleteComponent implements OnInit {
     @Input() public data: any[] = [];
-    @Input() public dataSchema: IDataSchema;
+    @Input() public dataSchema: IDropDownOption;
     @Input() public dataUrl: string;
     @Input() public label: string;
     @Input() public placeholder: string;
@@ -59,22 +60,22 @@ export class AutoCompleteComponent implements OnInit {
     private convertSimpleData = (): void => {
         this.complexData = [];
         this.data.forEach((item: any) => {
-            this.complexData.push({key: item, value: item});
+            this.complexData.push({label: item, value: item});
         });
     }
 
     private convertComplexData = (): void => {
         this.complexData = [];
         this.data.forEach((item: any) => {
-            this.complexData.push({key: item[this.dataSchema.key], value: item[this.dataSchema.value]});
+            this.complexData.push({label: item[this.dataSchema.label], value: item[this.dataSchema.value]});
         });
     }
 
-    private onItemSelected = (selectedItem: IDataSchema): void => {
+    private onItemSelected = (selectedItem: IDropDownOption): void => {
         this.searchQuery = selectedItem.value;
         this.isItemSelected = true;
         this.autoCompleteResults = [];
-        this.itemSelected.emit(selectedItem.key);
+        this.itemSelected.emit(selectedItem.label);
     }
 
     public onSearchQueryChanged = (searchText: string): void => {
@@ -108,7 +109,3 @@ export class AutoCompleteComponent implements OnInit {
     }
 }
 
-export interface IDataSchema {
-    key: string;
-    value: string;
-}

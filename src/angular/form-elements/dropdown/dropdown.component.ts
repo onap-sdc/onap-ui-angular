@@ -20,10 +20,6 @@ export class DropDownComponent extends ValidatableComponent implements OnChanges
     @Input() type: DropDownTypes = DropDownTypes.Regular;
     @Input() testId: string;
     @ViewChild('dropDownWrapper') dropDownWrapper: ElementRef;
-    @ViewChild('optionsContainerElement') optionsContainerElement: ElementRef;
-    @HostListener('document:click', ['$event']) onClick(e) {
-        this.onClickDocument(e);
-    }
 
     public bottomVisible = true;
     private myRenderer: Renderer;
@@ -32,7 +28,6 @@ export class DropDownComponent extends ValidatableComponent implements OnChanges
     public show = false;
 
     // Export DropDownOptionType enum so we can use it on the template
-    public cIDropDownOptionType = DropDownOptionType;
     public cIDropDownTypes = DropDownTypes;
 
     // Configure unselectable option types
@@ -83,12 +78,7 @@ export class DropDownComponent extends ValidatableComponent implements OnChanges
         return this.selectedOption && this.selectedOption.value;
     }
 
-    public selectOption = (option: IDropDownOption | string, event?): void => {
-        if (event) { event.stopPropagation(); }
-        if (this.type === DropDownTypes.Headless) {
-            // Hide the options when in headless mode and user select option.
-            this.myRenderer.setElementStyle(this.dropDownWrapper.nativeElement, 'display', 'none');
-        }
+    public selectOption = (option: IDropDownOption): void => {
         if (typeof option === 'string' && this.isSelectable(option)) {
             this.setSelected(option);
         } else if (this.isSelectable((option as IDropDownOption).value)) {
@@ -99,10 +89,7 @@ export class DropDownComponent extends ValidatableComponent implements OnChanges
 
     public toggleDropdown = (event?): void => {
         if (event) { event.stopPropagation(); }
-        if (this.type === DropDownTypes.Headless) {
-            // Show the options when in headless mode.
-            this.myRenderer.setElementStyle(this.dropDownWrapper.nativeElement, 'display', 'block');
-        }
+
         if (this.disabled) { return; }
         this.animation_init = true;
         this.bottomVisible = this.isBottomVisible();
@@ -144,16 +131,8 @@ export class DropDownComponent extends ValidatableComponent implements OnChanges
         return windowPos > dropDownPos;
     }
 
-    private onClickDocument = (event): void => {
-        if (this.type === DropDownTypes.Headless) {
-            if (!this.optionsContainerElement.nativeElement.contains(event.target)) {
-                this.show = false;
-            }
-        } else {
-            if (!this.dropDownWrapper.nativeElement.contains(event.target)) {
-                this.show = false;
-            }
-        }
+    public closeListOptions = ()=> {
+      this.show = false;
     }
 
 }

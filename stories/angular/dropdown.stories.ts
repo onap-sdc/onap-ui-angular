@@ -7,6 +7,7 @@ import { CheckboxComponent, DropDownComponent, SvgIconComponent } from '../../sr
 import { RippleClickAnimationDirective } from '../../src/angular/animations/ripple-click.animation.directive';
 import { DropDownTypes, IDropDownOption, DropDownOptionType } from '../../src/angular/form-elements/dropdown/dropdown-models';
 import { DropDownTriggerDirective } from '../../src/angular/form-elements/dropdown/dropdown-trigger.directive';
+import {DropdownModule} from "../../src/angular/form-elements/dropdown/dropdown.module";
 
 const dropdownTypes = Object.values(DropDownTypes);
 const options1: IDropDownOption[] = [
@@ -93,12 +94,11 @@ storiesOf('Form elements|Dropdown', module)
   .addDecorator(
     moduleMetadata({
       declarations: [
-        DropDownComponent,
         RippleClickAnimationDirective,
-        SvgIconComponent,
         DropDownTriggerDirective
       ],
       imports: [
+        DropdownModule
       ]
     })
   )
@@ -214,46 +214,6 @@ storiesOf('Form elements|Dropdown', module)
   },
   { notes: `<h2>Checkbox</h2>
           Full example of checkbox with groups pre selected option.
-          Use the KNOBS tab to change values.`
-  }
-)
-.add('Headless mode', () => {
-    const _label = text('label', 'Simple dropdown');
-    const _placeHolder = text('placeHolder', 'Sample placeholder');
-    const _disabled = boolean('disabled', false);
-    const _options = object('options', options1);
-    const _testId = text('testId', 'dropdown-test-id');
-    const _required = boolean('required', false);
-    const _maxHeight = number('maxHeight', 20);
-    const _selectedOption = object('selectedOption', {});
-    const _type = select('type', dropdownTypes, DropDownTypes.Headless);
-    const _onChange = text('*(onChange)', 'Event throws when dropdown changed, see in Action logger tab.');
-
-    return {
-      props: {
-          onChange: action('Dropdown value changed '),
-          _label, _placeHolder, _disabled, _required, _testId, _options, _maxHeight, _selectedOption, _type
-      },
-      template: `
-      <button SdcDropdownTrigger [dropDown]="dropDown1">Click to toggle!</button>
-      <sdc-dropdown
-          #dropDown1
-          [label]="_label" 
-          [placeHolder]="_placeHolder"
-          [type]="_type"
-          [disabled]="_disabled"
-          [required]="_required"
-          [maxHeight]="_maxHeight"
-          [options]="_options" 
-          [selectedOption]="_selectedOption"
-          (changed)="onChange($event)"
-          >
-      </sdc-dropdown>
-      `
-    }
-  },
-  { notes: `<h2>Checkbox</h2>
-          Full example of checkbox (headless mode).
           Use the KNOBS tab to change values.`
   }
 )

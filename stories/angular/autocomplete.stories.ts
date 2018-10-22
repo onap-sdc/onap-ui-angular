@@ -7,6 +7,7 @@ import { AutoCompleteComponent, AutocompletePipe } from '../../src/angular/compo
 import { SearchModule } from '../../src/angular/search/search.module';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {DropdownResultsModule} from "../../src/angular/form-elements/dropdown/dropdown-result/dropdown-result.module";
 
 storiesOf('AutoComplete', module)
   .addDecorator(withKnobs)
@@ -18,7 +19,8 @@ storiesOf('AutoComplete', module)
       ],
       imports: [
           SearchModule,
-          BrowserAnimationsModule
+          BrowserAnimationsModule,
+          DropdownResultsModule
       ],
       providers: [
           HttpClient, HttpHandler, AutocompletePipe
@@ -67,7 +69,7 @@ storiesOf('AutoComplete', module)
         {id: 'whiteId', color: 'white'},
         {id: 'blackId', color: 'black'}
     ];
-    const sampleSchema = {key: 'id', value: 'color'};
+    const sampleSchema = {label: 'id', value: 'color'};
 
     const _label = text('label', 'Complex data (Object)');
     const _placeholder = text('placeholder', 'Complex data');
@@ -97,7 +99,7 @@ storiesOf('AutoComplete', module)
         `
     }
 ).add('Backend data', () => {
-    const sampleSchema = {key: 'id', value: 'color'};
+    const sampleSchema = {label: 'id', value: 'color'};
 
     const _label = text('label', 'Complex data (Object)');
     const _placeholder = text('placeholder', 'Complex data');

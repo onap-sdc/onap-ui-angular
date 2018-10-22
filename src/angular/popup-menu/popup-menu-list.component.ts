@@ -35,6 +35,7 @@ export class PopupMenuListComponent implements AfterContentInit {
             this.positionChange.emit(this._position);
         }
     }
+
     @Input() public className: string;
     @Input() public relative: boolean = false;
     @Input() public testId: string;

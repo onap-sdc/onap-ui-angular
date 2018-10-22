@@ -170,6 +170,9 @@
     &.bg-color-transparent {
       background-color:transparent;
     }
+    &.bg-color-silver {
+      background-color: $light-silver;
+    }
 }
 
 .svg-icon-wrapper {
