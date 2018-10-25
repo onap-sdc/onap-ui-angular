@@ -1,28 +1,26 @@
-import { Component, Input, Output, EventEmitter, HostBinding } from '@angular/core';
+import {Component, Input, Output, EventEmitter, HostBinding} from '@angular/core';
+import {st} from "@angular/core/src/render3";
+import {BaseTextElementComponent} from "../form-elements/text-elements/base-text-element.component";
 
 @Component({
-    selector: 'sdc-search',
-    template: ''
+  selector: 'sdc-search',
+  template: ''
 })
-export class SearchBaseComponent {
- 
-    @Input() public placeholder: string;
-    @Input() public searchQuery: string;
-    @Input() public label: string;
-    @Input() public debounceTime: number;
-    @Input() public testId: string;
+export class SearchBaseComponent extends BaseTextElementComponent {
+
     @Output() public searchQueryEvent: EventEmitter<string> = new EventEmitter<string>();
 
     constructor() {
-        this.debounceTime = 200;
+      super();
+      this.debounceTime = 200;
     }
-    
+
     public searchItem = ($event?): void => {
-        this.searchQueryEvent.emit($event ? $event : this.searchQuery);
+      this.searchQueryEvent.emit($event ? $event : this.value);
     }
 
     private clearSearchQuery = (): void => {
-        this.searchQuery = "";
+      this.value = "";
     }
 
 }

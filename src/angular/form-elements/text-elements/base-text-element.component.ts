@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from "@angular/forms";
 import { ValidatableComponent } from "../validation/validatable.component";
 import 'rxjs/add/operator/debounceTime';
+import {Size} from "../../common/enums";
 
 export class BaseTextElementComponent extends ValidatableComponent implements OnInit {
 
@@ -16,6 +17,7 @@ export class BaseTextElementComponent extends ValidatableComponent implements On
     @Input() public minLength: number;
     @Input() public maxLength: number;
     @Input() public debounceTime: number;
+    @Input() public size:  Size;
     @Input() public testId: string;
 
     public control: FormControl;

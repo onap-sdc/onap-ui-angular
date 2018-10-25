@@ -1,5 +1,7 @@
 export const template = `
-  <ul *ngIf="options" class="sdc-dropdown__options-list sdc-dropdown__options-list--animation-init">
+  <ul *ngIf="options" class="dropdown-results dropdown-results__animation-open" [ngClass]="{
+              'sdc-dropdown__options-list--headless': headless
+              }">
     <li class="sdc-dropdown__option" *ngFor="let option of options" [ngClass]="{
                               'selected': option == selectedOption,
                               'sdc-dropdown__option--group':isGroupDesign,

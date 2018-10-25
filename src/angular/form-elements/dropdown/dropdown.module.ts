@@ -5,6 +5,8 @@ import {BrowserModule} from "@angular/platform-browser";
 import {SvgIconModule} from "../../svg-icon/svg-icon.module";
 import {FormsModule} from "@angular/forms";
 import {ClickOutsideDirective} from "../../utils/clickoutside.directive";
+import {InputComponent} from "../../components";
+import {InputModule} from "../text-elements/input/input.module";
 
 @NgModule({
   declarations: [
@@ -14,6 +16,7 @@ import {ClickOutsideDirective} from "../../utils/clickoutside.directive";
     FormsModule,
     BrowserModule,
     SvgIconModule,
+    InputModule,
     DropdownResultsModule
   ],
   exports: [

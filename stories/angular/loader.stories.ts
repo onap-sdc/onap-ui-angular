@@ -3,12 +3,13 @@ import { withKnobs, text, number, boolean, array, select, color, date, button } 
 import { withNotes } from '@storybook/addon-notes';
 import { action, configureActions } from '@storybook/addon-actions';
 import { moduleMetadata } from '@storybook/angular';
-import { LoaderComponent, ButtonComponent, InputComponent, SvgIconComponent } from '../../src/angular/components';
-import { FormElementsModule } from '../../src/angular/form-elements/form-elements.module';
+import { LoaderComponent, ButtonComponent, SvgIconComponent } from '../../src/angular/components';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LoaderService } from '../../src/angular/loader/loader.service';
 import { LoaderSize } from '../../src/angular/loader/loader.component';
+import {InputModule} from "../../src/angular/form-elements/text-elements/input/input.module";
 
 storiesOf('Loader', module)
   .addDecorator(withKnobs)
@@ -18,11 +19,11 @@ storiesOf('Loader', module)
       declarations: [
         LoaderComponent,
         ButtonComponent,
-        InputComponent,
         SvgIconComponent
       ],
       imports: [
           CommonModule,
+        InputModule,
         FormsModule,
         ReactiveFormsModule
       ],
