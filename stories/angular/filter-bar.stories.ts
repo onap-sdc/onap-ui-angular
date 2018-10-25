@@ -36,10 +36,10 @@ storiesOf('Form elements|Filterbar', module)
         },
         template: `
         <sdc-filter-bar
-            [placeholder]="_placeholder"
+            [placeHolder]="_placeholder"
             [label]="_label"
             [debounceTime]="_debounceTime"
-            [(searchQuery)]="_searchQuery"
+            [(value)]="_searchQuery"
             [testId]="_testId"
             (searchQueryEvent)="onChange($event)">
         </sdc-filter-bar>

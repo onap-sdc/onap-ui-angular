@@ -2,26 +2,21 @@ import { Component, EventEmitter, Input, Output, forwardRef, OnChanges, SimpleCh
 import { IDropDownOption, DropDownOptionType, DropDownTypes } from "./dropdown-models";
 import { ValidatableComponent } from './../validation/validatable.component';
 import { template } from './dropdown.component.html';
+import {Size} from "../../common/enums";
+import {BaseTextElementComponent} from "../text-elements/base-text-element.component";
 
 @Component({
     selector: 'sdc-dropdown',
     template: template
 })
-export class DropDownComponent extends ValidatableComponent implements OnChanges, OnInit {
+export class DropDownComponent extends BaseTextElementComponent implements OnChanges, OnInit {
 
     @Output('changed') changeEmitter:EventEmitter<IDropDownOption> = new EventEmitter<IDropDownOption>();
-    @Input() label: string;
     @Input() options: IDropDownOption[];
-    @Input() disabled: boolean;
-    @Input() placeHolder: string;
-    @Input() required: boolean;
-    @Input() maxHeight: number;
     @Input() selectedOption: IDropDownOption;
     @Input() type: DropDownTypes = DropDownTypes.Regular;
-    @Input() testId: string;
-    @ViewChild('dropDownWrapper') dropDownWrapper: ElementRef;
+    @Input() size: Size;
 
-    public bottomVisible = true;
     private myRenderer: Renderer;
 
     // Drop-down show/hide flag. default is false (closed)
@@ -46,7 +41,6 @@ export class DropDownComponent extends ValidatableComponent implements OnChanges
     constructor(public renderer: Renderer) {
         super();
         this.myRenderer = renderer;
-        this.maxHeight = 244;
         this.filterValue = '';
     }
 
@@ -89,10 +83,6 @@ export class DropDownComponent extends ValidatableComponent implements OnChanges
 
     public toggleDropdown = (event?): void => {
         if (event) { event.stopPropagation(); }
-
-        if (this.disabled) { return; }
-        this.animation_init = true;
-        this.bottomVisible = this.isBottomVisible();
         this.show = !this.show;
     }
 
@@ -122,13 +112,6 @@ export class DropDownComponent extends ValidatableComponent implements OnChanges
         if (this.type === DropDownTypes.Auto) { this.filterValue = value; }
         this.show = false;
         this.changeEmitter.next(this.selectedOption);
-    }
-
-    private isBottomVisible = (): boolean => {
-        const windowPos = window.innerHeight + window.pageYOffset;
-        const boundingRect = this.dropDownWrapper.nativeElement.getBoundingClientRect();
-        const dropDownPos = boundingRect.top + boundingRect.height + this.maxHeight;
-        return windowPos > dropDownPos;
     }
 
     public closeListOptions = ()=> {

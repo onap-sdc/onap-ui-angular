@@ -29,7 +29,8 @@ export enum BackgroundColor {
     transparent = 'transparent',
     green = 'green',
     red = 'red',
-    yellow = 'yellow'
+    yellow = 'yellow',
+    silver ='silver'
 }
 
 // TODO: Replace this with type

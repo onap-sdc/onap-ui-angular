@@ -40,9 +40,7 @@ import { SimplePopupMenuModule } from "./simple-popup-menu/simple-popup-menu.mod
         LoaderModule,
         AccordionModule,
         MultilineEllipsisModule,
-        SimplePopupMenuModule,
-        DropdownModule,
-        DropdownResultsModule
+        SimplePopupMenuModule
     ],
     exports: [
         AnimationDirectivesModule,
@@ -63,9 +61,7 @@ import { SimplePopupMenuModule } from "./simple-popup-menu/simple-popup-menu.mod
         LoaderModule,
         AccordionModule,
         MultilineEllipsisModule,
-        SimplePopupMenuModule,
-        DropdownModule,
-        DropdownResultsModule
+        SimplePopupMenuModule
     ]
 })
 export class SdcUiComponentsModule {}
@@ -75,8 +71,6 @@ export { SdcUiComponentsNg1Module } from './ng1.module';
 import * as SdcUiComponents from './components';
 import * as SdcUiServices from './services';
 import * as SdcUiCommon from './common/index';
-import {DropdownModule} from "./form-elements/dropdown/dropdown.module";
-import {DropdownResultsModule} from "./form-elements/dropdown/dropdown-result/dropdown-result.module";
 
 export { SdcUiComponents };
 export { SdcUiServices };

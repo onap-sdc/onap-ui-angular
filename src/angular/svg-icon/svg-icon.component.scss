@@ -224,7 +224,7 @@
 
     &.mode-secondary {
         @include color-icon-label($gray);
-        @include color-icon-label-hover($dark-gray);
+        @include color-icon-label-hover($light-blue);
     }
 
     &.mode-success {
@@ -241,7 +241,7 @@
 
     &.mode-info {
         @include color-icon-label($text-black);
-        @include color-icon-label-hover($dark-blue);
+        @include color-icon-label-hover($light-blue);
     }
 
     &.size-x_small {

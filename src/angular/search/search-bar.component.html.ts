@@ -1,15 +1,20 @@
 export const searchBartemplate = `
-<div class="search-bar-container"  [attr.data-tests-id]="testId" [class.active]="searchQuery && searchQuery.length">  
+<div class="search-bar-container"  [attr.data-tests-id]="testId" [class.active]="value && value.length">  
     <sdc-input class="sdc-input-wrapper"
-               [placeHolder]="placeholder"
+               [placeHolder]="placeHolder"
                [debounceTime]="debounceTime"
-               [(value)]="searchQuery"></sdc-input>
+               [righIconName]="search-o"
+               [(value)]="value"></sdc-input>
     <span class="search-button" (click)="searchItem()">
-        <svg-icon 
-          [name]="'search-o'"
-          [mode]="'secondary'"
-          [size]="'x_large'">
-        </svg-icon>
+       <svg-icon 
+        [clickable]="true"
+        [name]="'search-o'"
+        (click)="searchItem()"
+        [backgroundShape]="'rectangle'"
+        [backgroundColor]="'silver'"
+        [mode]="'primary2'"
+        [size]="'medium'">
+    </svg-icon>
     </span>
 </div>
 `;

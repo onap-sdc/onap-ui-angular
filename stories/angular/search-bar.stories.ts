@@ -33,9 +33,9 @@ storiesOf('Form elements|Searchbar', module)
         },
         template: `
         <sdc-search-bar
-            [placeholder]="_placeholder"
+            [placeHolder]="_placeholder"
             [debounceTime]="_debounceTime"
-            [(searchQuery)]="_searchQuery"
+            [(value)]="_searchQuery"
             [testId]="_testId"
             (searchQueryEvent)="onChange($event)">
         </sdc-search-bar>
