@@ -28,9 +28,6 @@ export class ValidationComponent implements AfterContentInit {
     constructor() {
         this.disabled = false;
         this.classes = 'sdc-validation';
-        if (this.validateElement){
-          this.validateElement.validationActive = true;
-        }
     }
 
     ngAfterContentInit(): void {
@@ -50,6 +47,9 @@ export class ValidationComponent implements AfterContentInit {
         // init validateElement.valid.
         const value = this.validateElement.getValue();
         this.validateElement.notifier.next(value);
+        if (this.validateElement){
+          this.validateElement.validationActive = true;
+        }
     }
 
     public validate = (): boolean => {
