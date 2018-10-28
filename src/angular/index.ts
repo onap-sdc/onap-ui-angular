@@ -39,7 +39,6 @@ import { SimplePopupMenuModule } from "./simple-popup-menu/simple-popup-menu.mod
         AccordionModule,
         EllipsisModule,
         SimplePopupMenuModule,
-        MultilineEllipsisModule,
         EllipsisModule,
         SimplePopupMenuModule,
         CommonDirectiveModule],
@@ -62,7 +61,6 @@ import { SimplePopupMenuModule } from "./simple-popup-menu/simple-popup-menu.mod
         AccordionModule,
         EllipsisModule,
         SimplePopupMenuModule,
-        MultilineEllipsisModule,
         SimplePopupMenuModule,
         CommonDirectiveModule
     ]
