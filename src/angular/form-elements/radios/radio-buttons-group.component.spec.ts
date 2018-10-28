@@ -2,7 +2,7 @@ import { TestBed, async } from '@angular/core/testing';
 import { RadioGroupComponent } from "./radio-buttons-group.component";
 import { FormsModule } from "@angular/forms";
 import { IRadioButtonModel } from "./radio-button.model";
-import { AnimationDirectivesModule } from "../../animations/animation-directives.module";
+import {CommonDirectiveModule} from "../../utils/common-directive.module";
 
 
 describe("Radio Buttons unit-tests", ()=>{
@@ -14,7 +14,7 @@ describe("Radio Buttons unit-tests", ()=>{
             ],
             imports:[
                 FormsModule,
-                AnimationDirectivesModule
+                CommonDirectiveModule
             ]
         }).compileComponents();
 

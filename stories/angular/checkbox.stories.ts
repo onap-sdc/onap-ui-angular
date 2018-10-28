@@ -4,7 +4,7 @@ import { withNotes } from '@storybook/addon-notes';
 import { action, configureActions } from '@storybook/addon-actions';
 import { moduleMetadata } from '@storybook/angular';
 import { CheckboxComponent } from '../../src/angular/components';
-import { RippleClickAnimationDirective } from '../../src/angular/animations/ripple-click.animation.directive';
+import { RippleClickAnimationDirective } from '../../src/angular/utils/animations/ripple-click.animation.directive';
 
 storiesOf('Form elements|Checkbox', module)
   .addDecorator(withKnobs)

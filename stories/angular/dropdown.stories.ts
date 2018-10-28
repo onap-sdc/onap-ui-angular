@@ -3,7 +3,7 @@ import { withKnobs, text, number, boolean, array, select, color, date, button, o
 import { withNotes } from '@storybook/addon-notes';
 import { action, configureActions } from '@storybook/addon-actions';
 import { moduleMetadata } from '@storybook/angular';
-import { RippleClickAnimationDirective } from '../../src/angular/animations/ripple-click.animation.directive';
+import { RippleClickAnimationDirective } from '../../src/angular/utils/animations/ripple-click.animation.directive';
 import { DropDownTypes, IDropDownOption, DropDownOptionType } from '../../src/angular/form-elements/dropdown/dropdown-models';
 import { DropDownTriggerDirective } from '../../src/angular/form-elements/dropdown/dropdown-trigger.directive';
 import {DropdownModule} from "../../src/angular/form-elements/dropdown/dropdown.module";
@@ -94,8 +94,7 @@ storiesOf('Form elements|Dropdown', module)
   .addDecorator(
     moduleMetadata({
       declarations: [
-        RippleClickAnimationDirective,
-        DropDownTriggerDirective
+        RippleClickAnimationDirective
       ],
       imports: [
         DropdownModule,
