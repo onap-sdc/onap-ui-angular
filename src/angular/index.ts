@@ -16,7 +16,7 @@ import { TagCloudModule } from './tag-cloud/tag-cloud.module';
 import { TabsModule } from "./tabs/tabs.module";
 import { LoaderModule } from "./loader/loader.module";
 import { AccordionModule } from "./accordion/accordion.module";
-import { MultilineEllipsisModule } from "./multiline-ellipsis/multiline-ellipsis.module";
+import { EllipsisModule } from "./ellipsis/ellipsis.module";
 import { SimplePopupMenuModule } from "./simple-popup-menu/simple-popup-menu.module";
 
 
@@ -39,7 +39,7 @@ import { SimplePopupMenuModule } from "./simple-popup-menu/simple-popup-menu.mod
         TabsModule,
         LoaderModule,
         AccordionModule,
-        MultilineEllipsisModule,
+        EllipsisModule,
         SimplePopupMenuModule
     ],
     exports: [
@@ -60,7 +60,7 @@ import { SimplePopupMenuModule } from "./simple-popup-menu/simple-popup-menu.mod
         TabsModule,
         LoaderModule,
         AccordionModule,
-        MultilineEllipsisModule,
+        EllipsisModule,
         SimplePopupMenuModule
     ]
 })

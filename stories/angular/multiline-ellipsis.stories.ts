@@ -3,7 +3,7 @@ import { withKnobs, text, number, boolean, array, select, color, date, button } 
 import { withNotes } from '@storybook/addon-notes';
 import { action, configureActions } from '@storybook/addon-actions';
 import { moduleMetadata } from '@storybook/angular';
-import { MultilineEllipsisModule } from '../../src/angular/multiline-ellipsis/multiline-ellipsis.module';
+import { EllipsisModule } from '../../src/angular/ellipsis/ellipsis.module';
 import { ButtonsModule } from '../../src/angular/buttons/buttons.module';
 import { ButtonComponent } from '../../src/angular/buttons/button.component';
 
@@ -13,10 +13,10 @@ let stories = storiesOf('Multiline ellipsis', module)
   .addDecorator(
     moduleMetadata({
       declarations: [
-        
+
       ],
       imports: [
-        MultilineEllipsisModule,
+        EllipsisModule,
         ButtonsModule
       ]
     })
@@ -70,7 +70,7 @@ let stories = storiesOf('Multiline ellipsis', module)
                 (hasEllipsisChanged)="this.hasEllipsis = $event"
                 (hasEllipsisChanged)="hasEllipsisChanged($event)"
                 >{{ this.showSortText ? _shortText : _longText }}
-            </multiline-ellipsis>` 
+            </multiline-ellipsis>`
         }
         },
         { notes: `<h2>` + notesTitle + `</h2>` + notesText + `<br>Use the KNOBS tab to change values.`
