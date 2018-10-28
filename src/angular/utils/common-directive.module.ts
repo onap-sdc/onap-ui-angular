@@ -1,12 +1,15 @@
 import {NgModule} from "@angular/core";
 import {ClickOutsideDirective} from "./clickoutside.directive";
+import {RippleClickAnimationDirective} from "./animations/ripple-click.animation.directive";
 
 @NgModule({
   declarations: [
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    RippleClickAnimationDirective
   ],
   exports: [
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    RippleClickAnimationDirective
   ],
   providers:[]
 })

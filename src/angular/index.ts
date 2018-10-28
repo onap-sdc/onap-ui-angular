@@ -4,7 +4,6 @@ import { ButtonsModule } from "./buttons/buttons.module";
 import { ModalModule } from "./modals/modal.module";
 import { NotificationModule } from "./notifications/notification.module";
 import { PopupMenuModule } from "./popup-menu/popup-menu.module";
-import { AnimationDirectivesModule } from "./animations/animation-directives.module";
 import { InfiniteScrollModule } from "./infinite-scroll/infinite-scroll.module";
 import { TileModule } from "./tiles/tile.module";
 import { ChecklistModule } from "./checklist/checklist.module";
@@ -22,7 +21,6 @@ import { SimplePopupMenuModule } from "./simple-popup-menu/simple-popup-menu.mod
 
 @NgModule({
     imports: [
-        AnimationDirectivesModule,
         ModalModule,
         NotificationModule,
         FormElementsModule,
@@ -40,10 +38,9 @@ import { SimplePopupMenuModule } from "./simple-popup-menu/simple-popup-menu.mod
         LoaderModule,
         AccordionModule,
         MultilineEllipsisModule,
-        SimplePopupMenuModule
-    ],
+        SimplePopupMenuModule,
+        CommonDirectiveModule],
     exports: [
-        AnimationDirectivesModule,
         ModalModule,
         NotificationModule,
         FormElementsModule,
@@ -61,7 +58,8 @@ import { SimplePopupMenuModule } from "./simple-popup-menu/simple-popup-menu.mod
         LoaderModule,
         AccordionModule,
         MultilineEllipsisModule,
-        SimplePopupMenuModule
+        SimplePopupMenuModule,
+        CommonDirectiveModule
     ]
 })
 export class SdcUiComponentsModule {}
@@ -71,6 +69,7 @@ export { SdcUiComponentsNg1Module } from './ng1.module';
 import * as SdcUiComponents from './components';
 import * as SdcUiServices from './services';
 import * as SdcUiCommon from './common/index';
+import {CommonDirectiveModule} from "./utils/common-directive.module";
 
 export { SdcUiComponents };
 export { SdcUiServices };

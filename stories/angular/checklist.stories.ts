@@ -4,7 +4,7 @@ import { withNotes } from '@storybook/addon-notes';
 import { action } from '@storybook/addon-actions';
 import { moduleMetadata } from '@storybook/angular';
 import { CheckboxComponent, ChecklistComponent } from '../../src/angular/components';
-import { RippleClickAnimationDirective } from '../../src/angular/animations/ripple-click.animation.directive';
+import { RippleClickAnimationDirective } from '../../src/angular/utils/animations/ripple-click.animation.directive';
 import { ChecklistModel } from '../../src/angular/checklist/models/Checklist';
 import { ChecklistItemModel } from '../../src/angular/checklist/models/ChecklistItem';
 import { FormElementsModule } from '../../src/angular/form-elements/form-elements.module';

@@ -15,6 +15,7 @@ import {CommonDirectiveModule} from "../../../utils/common-directive.module";
         BrowserAnimationsModule,
         CommonModule
     ],
+    entryComponents: [DropdownResultsComponent],
     exports: [
         DropdownResultsComponent
     ],

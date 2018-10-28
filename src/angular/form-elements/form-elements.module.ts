@@ -3,7 +3,6 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {CheckboxComponent} from "./checkbox/checkbox.component";
 import {RadioGroupComponent} from "./radios/radio-buttons-group.component";
-import {AnimationDirectivesModule} from '../animations/animation-directives.module';
 import {DropDownTriggerDirective} from "./dropdown/dropdown-trigger.directive";
 import {SvgIconModule} from "../svg-icon/svg-icon.module";
 import {ValidationModule} from './validation/validation.module';
@@ -12,13 +11,14 @@ import {CalculateTestIdPipe} from "../utils/calculate-test-id.pipe";
 import {DropdownModule} from "./dropdown/dropdown.module";
 import {DropdownResultsModule} from "./dropdown/dropdown-result/dropdown-result.module";
 import {InputModule} from "./text-elements/input/input.module";
+import {CommonDirectiveModule} from "../utils/common-directive.module";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    AnimationDirectivesModule,
+    CommonDirectiveModule,
     SvgIconModule,
     InputModule,
     DropdownResultsModule,

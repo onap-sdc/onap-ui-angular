@@ -4,7 +4,7 @@ import { withNotes } from '@storybook/addon-notes';
 import { action, configureActions } from '@storybook/addon-actions';
 import { moduleMetadata } from '@storybook/angular';
 import { CheckboxComponent, InputComponent } from '../../src/angular/components';
-import { RippleClickAnimationDirective } from '../../src/angular/animations/ripple-click.animation.directive';
+import { RippleClickAnimationDirective } from '../../src/angular/utils/animations/ripple-click.animation.directive';
 import { FormElementsModule } from '../../src/angular/form-elements/form-elements.module';
 
 storiesOf('Form elements|Input', module)
