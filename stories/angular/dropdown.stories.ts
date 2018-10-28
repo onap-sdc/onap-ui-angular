@@ -94,8 +94,7 @@ storiesOf('Form elements|Dropdown', module)
   .addDecorator(
     moduleMetadata({
       declarations: [
-        RippleClickAnimationDirective,
-        DropDownTriggerDirective
+        RippleClickAnimationDirective
       ],
       imports: [
         DropdownModule,

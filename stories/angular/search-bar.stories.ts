@@ -5,6 +5,7 @@ import { action, configureActions } from '@storybook/addon-actions';
 import { moduleMetadata } from '@storybook/angular';
 import { SearchBarComponent, InputComponent } from '../../src/angular/components';
 import { FormElementsModule } from '../../src/angular/form-elements/form-elements.module';
+import {SearchModule} from "../../src/angular/search/search.module";
 
 storiesOf('Form elements|Searchbar', module)
   .addDecorator(withKnobs)
@@ -12,9 +13,10 @@ storiesOf('Form elements|Searchbar', module)
   .addDecorator(
     moduleMetadata({
       declarations: [
-        SearchBarComponent
+
       ],
       imports: [
+          SearchModule,
           FormElementsModule
       ]
     })

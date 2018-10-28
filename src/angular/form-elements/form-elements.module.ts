@@ -25,7 +25,6 @@ import {InputModule} from "./text-elements/input/input.module";
     DropdownModule
   ],
   declarations: [
-
     CheckboxComponent,
     RadioGroupComponent,
     DropDownTriggerDirective,
