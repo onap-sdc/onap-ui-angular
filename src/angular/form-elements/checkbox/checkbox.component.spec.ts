@@ -1,7 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { CheckboxComponent } from "./checkbox.component";
-import { AnimationDirectivesModule } from "../../animations/animation-directives.module";
 import { FormsModule } from "@angular/forms";
+import {CommonDirectiveModule} from "../../utils/common-directive.module";
 
 describe("Checbox Tests", ()=>{
     let component: CheckboxComponent;
@@ -12,7 +12,7 @@ describe("Checbox Tests", ()=>{
             ],
             imports:[
                 FormsModule,
-                AnimationDirectivesModule
+                CommonDirectiveModule
             ]
         }).compileComponents();
         const fixture = TestBed.createComponent(CheckboxComponent);
