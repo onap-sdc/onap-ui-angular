@@ -5,7 +5,7 @@ import { SearchModule } from "./../search/search.module";
 import { AutocompletePipe } from "./autocomplete.pipe";
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {DropdownResultsModule} from "../form-elements/dropdown/dropdown-result/dropdown-result.module";
+import {FormElementsModule} from "../form-elements/form-elements.module";
 
 @NgModule({
     declarations: [
@@ -14,7 +14,7 @@ import {DropdownResultsModule} from "../form-elements/dropdown/dropdown-result/d
 
     ],
     imports: [
-        DropdownResultsModule,
+        FormElementsModule,
         BrowserModule,
         BrowserAnimationsModule,
         SearchModule,
