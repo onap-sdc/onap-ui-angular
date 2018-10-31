@@ -8,6 +8,7 @@ import { DropDownTypes, IDropDownOption, DropDownOptionType } from '../../src/an
 import { DropDownTriggerDirective } from '../../src/angular/form-elements/dropdown/dropdown-trigger.directive';
 import {DropdownModule} from "../../src/angular/form-elements/dropdown/dropdown.module";
 import {InputModule} from "../../src/angular/form-elements/text-elements/input/input.module";
+import {CommonDirectiveModule} from "../../src/angular/utils/common-directive.module";
 
 const dropdownTypes = Object.values(DropDownTypes);
 const options1: IDropDownOption[] = [
@@ -94,11 +95,11 @@ storiesOf('Form elements|Dropdown', module)
   .addDecorator(
     moduleMetadata({
       declarations: [
-        RippleClickAnimationDirective
       ],
       imports: [
         DropdownModule,
-        InputModule
+        InputModule,
+        CommonDirectiveModule
       ]
     })
   )

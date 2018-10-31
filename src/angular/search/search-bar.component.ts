@@ -8,7 +8,8 @@ import { SearchBaseComponent } from './search-base.component';
 })
 export class SearchBarComponent extends SearchBaseComponent{
 
-    @HostBinding('class') classes = 'sdc-search-bar'; 
+    @HostBinding('class') classes = 'sdc-search-bar';
+
     public searchButtonClick = (): void => {
         this.searchItem();
     }

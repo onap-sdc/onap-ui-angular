@@ -8,9 +8,4 @@ import { SearchBaseComponent } from './search-base.component';
 })
 export class FilterBarComponent extends SearchBaseComponent{
 
-    @HostBinding('class') classes = 'sdc-filter-bar';
-
-    public searchTextChange = ($event): void => {
-        this.searchItem($event);
-    }
 }

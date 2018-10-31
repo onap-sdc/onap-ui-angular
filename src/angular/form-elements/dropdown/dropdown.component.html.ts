@@ -6,11 +6,13 @@ export const template = `
               [required]="required"
               [size]="size"
               [label]="label"
+              [isIconClickable]="true"
+              [righIconName]="'caret1-down-o'"
               (click)="toggleDropdown($event)"
               (valueChange)="filterOptions(this.filterValue)"
               [placeHolder]="this.selectedOption?.label || this.selectedOption?.value || placeHolder">
       </sdc-input>
-      <svg-icon class="sdc-dropdown__icon" name="caret1-down-o" mode="secondary" size="small"></svg-icon>
+      <!--<svg-icon class="sdc-dropdown__icon" name="caret1-down-o" mode="secondary" size="small"></svg-icon>-->
 </div>
 <dropdown-results *ngIf="show" [options]="options" [isGroupDesign]="isGroupDesign" [selectedOption]="selectedOption" (onItemSelected)="selectOption($event)"></dropdown-results>
 `;

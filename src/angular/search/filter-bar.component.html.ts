@@ -1,5 +1,5 @@
 export const filterBarTemplate = `
-<div  [attr.data-tests-id]="testId" [class.active]="searchQuery && searchQuery.length" >
+<div class="sdc-filter-bar" [attr.data-tests-id]="testId" [class.active]="searchQuery && searchQuery.length" >
       <sdc-input 
                  [label]="label"
                  [size]="size"

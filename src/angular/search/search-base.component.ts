@@ -16,7 +16,7 @@ export class SearchBaseComponent extends BaseTextElementComponent {
     }
 
     public searchItem = ($event?): void => {
-      this.searchQueryEvent.emit($event ? $event : this.value);
+      this.baseEmitter.emit($event ? $event : this.value);
     }
 
     private clearSearchQuery = (): void => {
