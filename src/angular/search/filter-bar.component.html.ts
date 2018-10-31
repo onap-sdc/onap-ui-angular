@@ -9,7 +9,7 @@ export const filterBarTemplate = `
                  [righIconName]="value? 'close': 'search-o'"
                  (onRighIconClicked)="value ? clearSearchQuery() : undefined"
                  [isIconClickable] ="value? true: false"
-                 (valueChange)="searchItem($event)"
+                 (valueChange)="searchItem()"
                  [testId]="testId + '-input'">
       </sdc-input>
 </div>

@@ -8,8 +8,6 @@ import {BaseTextElementComponent} from "../form-elements/text-elements/base-text
 })
 export class SearchBaseComponent extends BaseTextElementComponent {
 
-    @Output() public searchQueryEvent: EventEmitter<string> = new EventEmitter<string>();
-
     constructor() {
       super();
       this.debounceTime = 200;

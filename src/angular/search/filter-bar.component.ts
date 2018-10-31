@@ -8,4 +8,5 @@ import { SearchBaseComponent } from './search-base.component';
 })
 export class FilterBarComponent extends SearchBaseComponent{
 
+
 }
