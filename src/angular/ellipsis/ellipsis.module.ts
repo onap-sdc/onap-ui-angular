@@ -8,8 +8,7 @@ import {CharsEllipsisComponent} from './chars-ellipsis.component';
     CharsEllipsisComponent],
   imports: [CommonModule],
   exports: [MultilineEllipsisComponent, CharsEllipsisComponent],
-  entryComponents: [MultilineEllipsisComponent,
-    CharsEllipsisComponent]
+  entryComponents: [MultilineEllipsisComponent, CharsEllipsisComponent]
 })
 export class EllipsisModule {
 }

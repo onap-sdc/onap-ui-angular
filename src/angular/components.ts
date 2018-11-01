@@ -52,8 +52,9 @@ export { SvgIconLabelComponent } from "./svg-icon/svg-icon-label.component";
 // Accordion
 export { AccordionComponent } from './accordion/accordion.component';
 
-// Multiline Ellipsis
+// Ellipsis
 export { MultilineEllipsisComponent } from './ellipsis/multiline-ellipsis.component';
+export { CharsEllipsisComponent } from './ellipsis/chars-ellipsis.component';
 
 // AutoComplete
 export { AutoCompleteComponent } from './autocomplete/autocomplete.component';
