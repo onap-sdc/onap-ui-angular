@@ -7,7 +7,8 @@ import { CharsEllipsisComponent } from './chars-ellipsis.component';
   declarations: [MultilineEllipsisComponent,
                 CharsEllipsisComponent],
     imports: [CommonModule],
-	exports: [MultilineEllipsisComponent],
+  exports: [MultilineEllipsisComponent,
+            CharsEllipsisComponent],
   entryComponents: [MultilineEllipsisComponent,
                     CharsEllipsisComponent]
 })
