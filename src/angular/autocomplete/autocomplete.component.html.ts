@@ -5,7 +5,7 @@ export const template = `
         [label]="label"
         [value]="searchQuery"
         [testId]="testId + '-filter-bar'"
-        (searchQueryEvent)="onSearchQueryChanged($event)">
+        (valueChange)="onSearchQueryChanged($event)">
     </sdc-filter-bar>
     
     <dropdown-results *ngIf="autoCompleteResults.length" [options]="autoCompleteResults" (onItemSelected)="onItemSelected($event)"></dropdown-results>

@@ -1,5 +1,5 @@
 export const filterBarTemplate = `
-<div  [attr.data-tests-id]="testId" [class.active]="searchQuery && searchQuery.length" >
+<div class="sdc-filter-bar" [attr.data-tests-id]="testId" [class.active]="searchQuery && searchQuery.length" >
       <sdc-input 
                  [label]="label"
                  [size]="size"
@@ -9,7 +9,7 @@ export const filterBarTemplate = `
                  [righIconName]="value? 'close': 'search-o'"
                  (onRighIconClicked)="value ? clearSearchQuery() : undefined"
                  [isIconClickable] ="value? true: false"
-                 (valueChange)="searchItem($event)"
+                 (valueChange)="searchItem()"
                  [testId]="testId + '-input'">
       </sdc-input>
 </div>

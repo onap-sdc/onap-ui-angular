@@ -17,7 +17,7 @@ import { LoaderModule } from "./loader/loader.module";
 import { AccordionModule } from "./accordion/accordion.module";
 import { EllipsisModule } from "./ellipsis/ellipsis.module";
 import { SimplePopupMenuModule } from "./simple-popup-menu/simple-popup-menu.module";
-
+import {CommonDirectiveModule} from "./utils/common-directive.module";
 
 @NgModule({
     imports: [
@@ -39,7 +39,6 @@ import { SimplePopupMenuModule } from "./simple-popup-menu/simple-popup-menu.mod
         AccordionModule,
         EllipsisModule,
         SimplePopupMenuModule,
-        EllipsisModule,
         SimplePopupMenuModule,
         CommonDirectiveModule],
     exports: [
@@ -72,7 +71,7 @@ export { SdcUiComponentsNg1Module } from './ng1.module';
 import * as SdcUiComponents from './components';
 import * as SdcUiServices from './services';
 import * as SdcUiCommon from './common/index';
-import {CommonDirectiveModule} from "./utils/common-directive.module";
+
 
 export { SdcUiComponents };
 export { SdcUiServices };
