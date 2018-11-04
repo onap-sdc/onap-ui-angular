@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, HostBinding } from "@angular/core";
 import {template} from "./chars-ellipsis.components.html"
 
 @Component({
@@ -7,8 +7,11 @@ import {template} from "./chars-ellipsis.components.html"
 })
 
 export class CharsEllipsisComponent {
+    @HostBinding('attr.data-tests-id') dataTestId: string;
+
     @Input() public text: string;
     @Input() public maxChars: number;
+    @Input() public testId: string;
     private collapsed: boolean;
     private elipsisText: string;
     private dispalyText: string;
@@ -25,6 +28,7 @@ export class CharsEllipsisComponent {
         else {
             this.dispalyText = this.text;
         }
+        this.dataTestId = this.testId;
     }
 
     toggleText (): void {
