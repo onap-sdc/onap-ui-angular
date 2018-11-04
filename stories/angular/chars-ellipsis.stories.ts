@@ -24,17 +24,18 @@ let stories = storiesOf('Chars ellipsis', module)
       const _shortText = text('Short text', 'Short text - No ellipsis!');
       const _longText = text('Long text','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et molestie erat, sit amet rutrum purus. Mauris tristique efficitur felis, rutrum scelerisque enim sodales eu. Cras tristique ipsum a elementum auctor. Donec et elit id sapien tempus posuere. Nulla condimentum semper nisi, ac convallis augue dignissim nec. Nunc vestibulum nisi metus, ac rutrum enim consectetur nec. Vivamus volutpat ac risus aliquet iaculis.\nVestibulum et ex egestas, scelerisque enim et, vehicula nisi. Aenean posuere ornare dolor, in laoreet turpis mattis in. Fusce sodales blandit ornare. Donec porta eros vel tellus consequat, a ultricies augue ullamcorper. Vestibulum dolor diam, auctor ac magna quis, aliquet tincidunt odio. Nulla eu cursus metus. Maecenas laoreet in risus vel suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis facilisis orci rhoncus pharetra pretium. Nam blandit arcu lobortis eros luctus lobortis. Integer gravida iaculis finibus.')
       const _maxChars = number('Max chars', 55);
+      const _testId = text('Test id', 'chars-ellipsis-test-id')
 
         return {
             props: {
-              _shortText, _longText, _maxChars
+              _shortText, _longText, _maxChars, _testId
             },
             template: `
             <div style="font-size: 12px;">Text is shorter then maxChars:</div><br>
-            <chars-ellipsis [text]="_shortText" [maxChars]="_maxChars"></chars-ellipsis><br><br>
+            <chars-ellipsis [text]="_shortText" [maxChars]="_maxChars" [testId]="_testId"></chars-ellipsis><br><br>
             <div style="font-size: 12px;">Text is longer then maxChars (click on more link to see the all text):</div><br>
             <div style="width: 450px">
-              <chars-ellipsis [text]="_longText" [maxChars]="_maxChars"></chars-ellipsis>
+              <chars-ellipsis [text]="_longText" [maxChars]="_maxChars" [testId]="_testId"></chars-ellipsis>
             <div>
             `
         }
