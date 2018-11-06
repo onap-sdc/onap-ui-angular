@@ -66,8 +66,6 @@ import {CommonDirectiveModule} from "./utils/common-directive.module";
 })
 export class SdcUiComponentsModule {}
 
-export { SdcUiComponentsNg1Module } from './ng1.module';
-
 import * as SdcUiComponents from './components';
 import * as SdcUiServices from './services';
 import * as SdcUiCommon from './common/index';

@@ -1,4 +1,4 @@
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 import { IValidatableComponent } from './validatable.interface';
 
 export abstract class ValidatableComponent implements IValidatableComponent {
