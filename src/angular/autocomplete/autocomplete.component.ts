@@ -3,7 +3,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { AutocompletePipe } from "./autocomplete.pipe";
 import { template } from "./autocomplete.component.html";
 import { HttpClient, HttpParams } from '@angular/common/http';
-import 'rxjs/add/operator/map';
+import { map } from 'rxjs/operators';
 import {IDropDownOption} from "../form-elements/dropdown/dropdown-models";
 
 @Component({
@@ -94,11 +94,11 @@ export class AutoCompleteComponent implements OnInit {
                     const params = new HttpParams();
                     params.append('searchQuery', this.searchQuery);
                     this.http.get(this.dataUrl, {params})
-                        .map((response) => {
+                        .pipe(map((response) => {
                             this.data = JSON.parse(JSON.stringify(response));
                             this.handleLocalData();
                             this.autoCompleteResults = this.complexData;
-                        }).subscribe();
+                        })).subscribe();
                 } else {
                     this.autoCompleteResults = this.autocompletePipe.transform(this.complexData, this.searchQuery);
                 }
