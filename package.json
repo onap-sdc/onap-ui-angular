@@ -33,7 +33,7 @@
     "@ngrx/store": "^6.0.1",
     "angular-base64-upload": "^0.1.23",
     "core-js": "^2.5.7",
-    "onap-ui-common": "^1.0.69",
+    "onap-ui-common": "^1.0.71",
     "rxjs": "^6.2.0",
     "rxjs-compat": "^6.2.0",
     "zone.js": "^0.8.26"

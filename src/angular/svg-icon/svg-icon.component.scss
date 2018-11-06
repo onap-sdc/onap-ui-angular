@@ -38,6 +38,7 @@
     display: inline-flex;
     width: 24px;
     height: 24px;
+    box-sizing: content-box;
 
     & > svg {
         width: 100%;
@@ -86,28 +87,33 @@
     }
 
     &.size-x_small {
-        width: 12px;
-        height: 12px;
+      width: 8px;
+      height: 8px;
     }
 
     &.size-small {
-        width: 16px;
-        height: 16px;
+      width: 12px;
+      height: 12px;
     }
 
     &.size-medium {
-        width: 24px;
-        height: 24px;
+      width: 16px;
+      height: 16px;
     }
 
     &.size-large {
-        width: 36px;
-        height: 36px;
+      width: 24px;
+      height: 24px;
     }
 
     &.size-x_large {
-        width: 48px;
-        height: 48px;
+      width: 36px;
+      height: 36px;
+    }
+
+    &.size-x_x_large {
+      width: 48px;
+      height: 48px;
     }
 
     &.bg-type-circle {
