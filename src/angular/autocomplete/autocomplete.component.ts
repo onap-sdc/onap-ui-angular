@@ -33,7 +33,7 @@ export class AutoCompleteComponent implements OnInit {
     @Input() public testId: string;
 
     public searchQuery: string;
-    private complexData: any[] = [];
+    protected complexData: any[] = [];
     public autoCompleteResults: any[] = [];
     private isItemSelected: boolean = false;
 
@@ -41,13 +41,14 @@ export class AutoCompleteComponent implements OnInit {
     }
 
     public ngOnInit(): void {
+      console.log("NG ON INIT CALLL", this.data);
         if (this.data) {
             this.handleLocalData();
         }
         this.searchQuery = "";
     }
 
-    private handleLocalData = (): void => {
+    public handleLocalData = (): void => {
         // Convert the data (simple | complex) to unified complex data with key value.
         // In case user supplied dataSchema, this is complex data
         if (!this.dataSchema) {
@@ -57,21 +58,24 @@ export class AutoCompleteComponent implements OnInit {
         }
     }
 
-    private convertSimpleData = (): void => {
+     public convertSimpleData = (): void => {
         this.complexData = [];
         this.data.forEach((item: any) => {
             this.complexData.push({label: item, value: item});
         });
+
+      console.log("SIMPLE DATA", this.complexData);
     }
 
-    private convertComplexData = (): void => {
+    protected convertComplexData = (): void => {
         this.complexData = [];
         this.data.forEach((item: any) => {
             this.complexData.push({label: item[this.dataSchema.label], value: item[this.dataSchema.value]});
         });
+      console.log("COMPLEX DATA", this.complexData);
     }
 
-    private onItemSelected = (selectedItem: IDropDownOption): void => {
+    protected onItemSelected = (selectedItem: IDropDownOption): void => {
         this.searchQuery = selectedItem.value;
         this.isItemSelected = true;
         this.autoCompleteResults = [];
@@ -79,6 +83,8 @@ export class AutoCompleteComponent implements OnInit {
     }
 
     public onSearchQueryChanged = (searchText: string): void => {
+      console.log("onSearchQueryChanged searchText",searchText);
+      console.log("onSearchQueryChanged searchQuery",this.searchQuery);
         if (searchText !== this.searchQuery) {
             this.searchQuery = searchText;
             if (!this.searchQuery) {
@@ -99,9 +105,10 @@ export class AutoCompleteComponent implements OnInit {
             }
             this.isItemSelected = false;
         }
+        console.log("AUTOCOMPLETE RESULT", this.autoCompleteResults);
     }
 
-    private onClearSearch = (): void => {
+    protected onClearSearch = (): void => {
         this.autoCompleteResults = [];
         if (this.isItemSelected) {
             this.itemSelected.emit();

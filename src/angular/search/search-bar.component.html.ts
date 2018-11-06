@@ -3,7 +3,8 @@ export const searchBartemplate = `
     <sdc-input class="sdc-input-wrapper"
                [placeHolder]="placeHolder"
                [debounceTime]="debounceTime"
-               (valueChange)="searchItem()"
+               (valueChange)="searchItem($event)"
+               [size]="size"
                [righIconName]="search-o"
                [(value)]="value"></sdc-input>
     <span class="search-button" (click)="searchButtonClick()">
@@ -13,7 +14,7 @@ export const searchBartemplate = `
           [backgroundShape]="'rectangle'"
           [backgroundColor]="'silver'"
           [mode]="'primary2'"
-          [size]="'medium'">
+          [size]="size">
       </svg-icon>
     </span>
 </div>
