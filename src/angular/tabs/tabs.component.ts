@@ -13,9 +13,10 @@ export class TabsComponent implements AfterContentInit {
     @HostBinding('class') classes = 'sdc-tabs sdc-tabs-header';
     @ContentChildren(TabComponent) public tabs: QueryList<TabComponent>;
     @Input() public testId: string;
+    @Input() public iconsSize: string;
     @Output() public selectedTab: EventEmitter<TabComponent> = new EventEmitter<TabComponent>();   
 
-    public _size = Size.medium;
+    public _size = this.iconsSize ? this.iconsSize : Size.medium;
 
     public selectTab(tab: TabComponent) {
         this.selectedTab.emit(tab);
