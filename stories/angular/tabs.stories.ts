@@ -5,6 +5,9 @@ import { action, configureActions } from '@storybook/addon-actions';
 import { moduleMetadata } from '@storybook/angular';
 import { TabsModule } from '../../src/angular/tabs/tabs.module';
 import { FormElementsModule } from '../../src/angular/form-elements/form-elements.module';
+import { Size } from "../../src/angular/common";
+
+const size = Object.keys(Size);
 
 let stories = storiesOf('Tabs', module)
   .addDecorator(withKnobs)
@@ -34,6 +37,7 @@ let stories = storiesOf('Tabs', module)
         const _active1 = boolean('Tab1 is active', true);
         const _active2 = boolean('Tab2 is active', false);
         const _tooltip2 = containsTitle ? text('Tab1 title', 'second tab') : null;
+        const _size = select('size', size, 'medium', '');
         const _testId = text('testId', 'tabs-test-id');
         const _selectTab = text('*(selectTab)', 'Event throws when select tab changed, see in Action logger tab.');
 
@@ -41,10 +45,10 @@ let stories = storiesOf('Tabs', module)
             props: {
                 selectTab: action('select tab changed'),
                 _title1, _titleIcon1, _active1, _tooltip2,
-                _title2, _titleIcon2, _active2, _selectTab, _testId
+                _title2, _titleIcon2, _active2, _size, _selectTab, _testId
             },
             template: `
-            <sdc-tabs (selectedTab)="selectTab($event)" [testId]="_testId">
+            <sdc-tabs (selectedTab)="selectTab($event)" [testId]="_testId" [iconsSize]="_size">
                 <sdc-tab [title]="_title1" [titleIcon]="_titleIcon1" [active]="_active1">This is tab 1</sdc-tab>
                 <sdc-tab [title]="_title2" [titleIcon]="_titleIcon2" [active]="_active2" [tooltipText]="_tooltip2">This is tab 2</sdc-tab>
             </sdc-tabs>
