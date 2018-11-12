@@ -37,7 +37,7 @@ let stories = storiesOf('Tabs', module)
         const _active1 = boolean('Tab1 is active', true);
         const _active2 = boolean('Tab2 is active', false);
         const _tooltip2 = containsTitle ? text('Tab1 title', 'second tab') : null;
-        const _size = select('size', size, 'medium', '');
+        const _size = select('iconsSize', size, 'medium', '');
         const _testId = text('testId', 'tabs-test-id');
         const _selectTab = text('*(selectTab)', 'Event throws when select tab changed, see in Action logger tab.');
 

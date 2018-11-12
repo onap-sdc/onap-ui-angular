@@ -7,7 +7,7 @@ export const template = `
             *ngIf="tab.titleIcon"
             [name]="tab.titleIcon"
             [mode]="tab.titleIconMode"
-            [size]="_size">
+            [size]="iconsSize">
         </svg-icon-label>
     </li>
 </ul>
