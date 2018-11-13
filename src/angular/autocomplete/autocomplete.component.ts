@@ -37,7 +37,7 @@ export class AutoCompleteComponent implements OnInit {
     public autoCompleteResults: any[] = [];
     private isItemSelected: boolean = false;
 
-    public constructor(private http: HttpClient, private autocompletePipe: AutocompletePipe) {
+    public constructor(protected http: HttpClient, protected autocompletePipe: AutocompletePipe) {
     }
 
     public ngOnInit(): void {
@@ -113,6 +113,7 @@ export class AutoCompleteComponent implements OnInit {
         if (this.isItemSelected) {
             this.itemSelected.emit();
         }
+        this.searchQuery = "";
     }
 }
 
