@@ -73,6 +73,7 @@ export class DropDownComponent extends BaseTextElementComponent implements OnCha
     }
 
     public selectOption = (option: IDropDownOption): void => {
+        this.closeListOptions();
         if (typeof option === 'string' && this.isSelectable(option)) {
             this.setSelected(option);
         } else if (this.isSelectable((option as IDropDownOption).value)) {
