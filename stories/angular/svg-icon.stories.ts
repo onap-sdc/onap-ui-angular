@@ -39,13 +39,6 @@ icons_categories.map((type) =>
       const _debug_icon = boolean('Debug icon', false);
       const _clickable = boolean('clickable', true);
 
-      if (type === 'resources_60' || type === 'services_60') {
-        _mode = select('mode', mode, 'white', '');
-        _size = select('size', size, 'x_large', '');
-        _backgroundShape = select('backgroundShape', background_shape, 'circle', '');
-        _backgroundColor = select('backgroundColor', background_color, 'primary', '');
-      }
-
       return {
         props: {
           _debug_icon, _mode, _size, _backgroundShape, _backgroundColor, _testId, _clickable
