@@ -28,7 +28,7 @@ let stories = storiesOf('Modal', module)
         FormElementsModule,
         ButtonsModule,
         BrowserAnimationsModule,
-        
+
       ],
       providers:[
           ModalService
@@ -44,104 +44,104 @@ let stories = storiesOf('Modal', module)
   //       props: {
   //         modalType
   //       },
-  //       template: 
+  //       template:
   //         `<b> ${modalType} Modal</b><br><br>
   //         <modal-consumer [action]="'open' + this.modalType +'Modal'"></modal-consumer>`
-        
-  //       } 
+
+  //       }
   //       },
   //       { notes: `<h2>` + modalType + ` modal</h2>
   //                 When click on view model ` + modalType + ` model will open`+
   //                 `<br>Source Code:` +
-  //                 `<br><b>this.modalService.open`+ modalType + `Modal('`+ modalType + ` modal title', '`+ modalType + 
+  //                 `<br><b>this.modalService.open`+ modalType + `Modal('`+ modalType + ` modal title', '`+ modalType +
   //                 ` modal content', '`+ modalType + `ModalTestId');</b>`
   //       }
-    
-  //     )   
+
+  //     )
   // });
 
   stories.add('Info', () => {
     return {
       props: {
       },
-      template: 
+      template:
         `<b> Info Modal</b><br><br>
         <modal-consumer [action]="'openInfoModal'"></modal-consumer>`
-      
-      } 
+
+      }
       },
       { notes: `<h2>Info modal</h2>
                 When click on view model Info model will open`+
                 `<br>Source Code:` +
                 `<br><b>this.modalService.openInfoModal('Info modal title', 'Info modal content', 'InfoModalTestId');</b>`
       }
-  
-  ) 
+
+  )
   stories.add('Warning modal', () => {
     return {
       props: {
       },
-      template: 
+      template:
         `<b> Warning Modal</b><br><br>
         <modal-consumer [action]="'openWarningModal'"></modal-consumer>`
-      
-      } 
+
+      }
       },
       { notes: `<h2>Warning modal</h2>
                 When click on view model warning model will open`+
                 `<br>Source Code:` +
                 `<br><b>this.modalService.openWarningModal('Warning modal title', 'Warning modal content', 'warningModalTestId');</b>`
       }
-  
+
   )
-  
+
   stories.add('Error modal', () => {
     return {
       props: {
       },
-      template: 
+      template:
         `<b> Error Modal</b><br><br>
         <modal-consumer [action]="'openErrorModal'"></modal-consumer>`
-      
-      } 
+
+      }
       },
       { notes: `<h2>Error modal</h2>
                 When click on view model error model will open`+
                 `<br>Source Code:` +
                 `<br><b>this.modalService.openErrorModal('Error modal title', 'Error modal content', 'errorModalTestId');</b>`
       }
-  
-  )  
+
+  )
 
   stories.add('Success modal', () => {
     return {
       props: {
       },
-      template: 
+      template:
         `<b>Success Modal</b><br><br>
         <modal-consumer [action]="'openSuccessModal'"></modal-consumer>`
-      
-      } 
+
+      }
       },
       { notes: `<h2>Info modal</h2>
                 When click on view model success model will open`+
                 `<br>Source Code:` +
                 `<br><b>this.modalService.openSuccessModal('Success modal title', 'Success modal content', 'successModalTestId');</b>`
       }
-  
-  )  
+
+  )
 
   stories.add('Modal Info with custom buttons', () => {
 
       return {
         props: {
         },
-        template: 
+        template:
           `<b> Info Modal with custom buttons</b><br><br>
           <modal-consumer [action]="'openInfoModalWithCustomButtons'"></modal-consumer>`
-        
+
         };
-        
+
     },
     { notes: `<h2> Info modal with custom buttons</h2>
               When click on view model Info with custom buttons model will open`+
@@ -155,18 +155,18 @@ let stories = storiesOf('Modal', module)
                   alert("Action has been confirmed");
                 };</b>`
     }
-  );     
+  );
 stories.add('Modal Warning with custom buttons', () => {
 
     return {
       props: {
       },
-      template: 
+      template:
         `<b> Warning Modal with custom buttons</b><br><br>
         <modal-consumer [action]="'openWarningModalWithCustomButtons'"></modal-consumer>`
-      
+
       };
-      
+
   },
   { notes: `<h2> Warning modal with custom buttons</h2>
             When click on view model Warning with custom buttons model will open`+
@@ -184,24 +184,24 @@ stories.add('Modal Warning with custom buttons', () => {
                 alert("Action has been applied, modal will not be close");
             }</b>`
   }
-);     
+);
 
 stories.add('Custom modal', () => {
 
     return {
       props: {
       },
-      template: 
+      template:
         `<b> Custom modal</b><br><br>
         <modal-consumer [action]="'openCustomModal1'"></modal-consumer>`
-      
+
       };
-      
+
   },
   { notes: `<h2> Custom modal</h2>
             When click on view custom model will open`+
             `<br>Source Code:` +
-            `<br>//create modal config object 
+            `<br>//create modal config object
             let modalConfig:IModalConfig = {
             size: ModalSize.small,
             title: 'Title',
@@ -210,15 +210,15 @@ stories.add('Custom modal', () => {
                       {text:"Save", size:"'x-small'", callback:this.customModalOnSave, closeModal:false},
                       {text:"Cancel", size:"'x-small'", closeModal:true}]
               };
-  
-            //open modal with dynamically created 'modalInnerContent' example component. Send data object with input 'name'. 
+
+            //open modal with dynamically created 'modalInnerContent' example component. Send data object with input 'name'.
             let myModal = this.modalService.openCustomModal(modalConfig, ModalInnerContent, {name: "Sample Content"});
-  
+
             private customModalOnSave = ():void => {
                   const saveButton: ModalButtonComponent = myModal.getButtonById("saveButton");
                   saveButton.show_spinner = true;
                   saveButton.spinner_position = Placement.right;
-  
+
                   // Show spinner for 2 seconds
                   console.log('Saving example, please wait ...');
                   window.setTimeout((button: ModalButtonComponent) => {
@@ -227,37 +227,54 @@ stories.add('Custom modal', () => {
                   }, 2000, saveButton);
             };</b>`
   }
-); 
+);
+stories.add('Custom modal title with icon', () => {
+  return {
+    props: {
+    },
+    template:
+      `<b>Custom modal title with icon</b><br><br>
+      <modal-consumer [action]="'openCustomModalWithTitleIcon'"></modal-consumer>`
+
+    }
+    },
+    { notes: `<h2>Info modal</h2>
+              When click on view model custom modal title with icon will open`+
+              `<br>Source Code:` +
+              `<br><b>this.modalService.openCustomModal(modalConfig, ModalInnerContent, {name: "Sample Content"});</b>`
+    }
+
+);
 stories.add('Custom modal with custom buttons', () => {
 
     return {
       props: {
       },
-      template: 
+      template:
         `<b> Custom modal</b><br><br>
         <modal-consumer [action]="'openCustomModal2'"></modal-consumer>`
-      
+
       };
-      
+
   },
   { notes: `<h2> Custom modal</h2>
             When click on view custom model with custom buttons will open`+
             `<br>Source Code:` +
             `<br></b>`
   }
-); 
+);
 
 stories.add('Multiple modals', () => {
 
     return {
       props: {
       },
-      template: 
+      template:
         `<b>Multiple modals</b><br><br>
         <modal-consumer [action]="'openCustomModal3'"></modal-consumer>`
-      
+
       };
-      
+
   },
   { notes: `<h2> Multiple modals</h2>
             When click on view custom model with Multiple modals will open`+
