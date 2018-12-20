@@ -56,7 +56,7 @@ export class MultilineEllipsisComponent implements OnInit, AfterViewInit {
 	}
 
 	private getLineHeight() {
-		return parseFloat(window.getComputedStyle(this.elmContainer.nativeElement)['line-height']);
+		return window.getComputedStyle(this.elmContainer.nativeElement)['line-height'];
 	}
 
 }
