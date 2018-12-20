@@ -1,4 +1,4 @@
-import { Component, OnChanges, AfterViewChecked, ViewChild, ElementRef, Input, Output, SimpleChanges, EventEmitter } from "@angular/core";
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Input, Output, EventEmitter } from "@angular/core";
 import { template } from './multiline-ellipsis.component.html';
 
 declare const window: any;
@@ -8,7 +8,7 @@ declare const window: any;
 	template: template
 })
 
-export class MultilineEllipsisComponent implements OnChanges, AfterViewChecked {
+export class MultilineEllipsisComponent implements OnInit, AfterViewInit {
 
 	@Input() public lines: number;
 	@Input() public lineHeight: string;
@@ -29,18 +29,17 @@ export class MultilineEllipsisComponent implements OnChanges, AfterViewChecked {
 		this.hasEllipsisChanged = new EventEmitter<boolean>();
 	}
 
-	public ngOnChanges(changes: SimpleChanges) {
-		this.prepareStyles()
+	ngOnInit() {
+		this.prepareStyles();
 	}
 
-	public ngAfterViewChecked() {
-		const hasEllipsis = (this.elmContainer.nativeElement.offsetHeight < this.elmContent.nativeElement.offsetHeight);
-		if (hasEllipsis !== this.hasEllipsis) {
-			this.hasEllipsis = hasEllipsis;
-			setTimeout(() => {
-				this.hasEllipsisChanged.emit(this.hasEllipsis);
-			});
-		}
+	ngAfterViewInit() {
+		this.emitEllipsisStatus();
+	}
+
+	public emitEllipsisStatus() {
+		this.hasEllipsis = (this.elmContainer.nativeElement.offsetHeight < this.elmContent.nativeElement.offsetHeight);
+		this.hasEllipsisChanged.emit(this.hasEllipsis);
 	}
 
 	private prepareStyles() {
@@ -57,15 +56,7 @@ export class MultilineEllipsisComponent implements OnChanges, AfterViewChecked {
 	}
 
 	private getLineHeight() {
-		let lineHeight: number = parseFloat(window.getComputedStyle(this.elmContainer.nativeElement)['line-height']);
-		if (!lineHeight) {
-			const oneLetterElm = window.document.createElement('div');
-			oneLetterElm.innerText = '.';
-			this.elmContainer.nativeElement.append(oneLetterElm);
-			lineHeight = oneLetterElm.clientHeight;
-			this.elmContainer.nativeElement.removeChild(oneLetterElm);
-		}
-		return `${lineHeight}px`;
+		return parseFloat(window.getComputedStyle(this.elmContainer.nativeElement)['line-height']);
 	}
 
 }
