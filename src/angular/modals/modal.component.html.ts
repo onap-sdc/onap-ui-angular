@@ -5,7 +5,16 @@ export const template = `
 
         <div class="sdc-modal__header sdc-{{type}}__header">
             <div class="sdc-modal__icon" *ngIf="type!='custom'" [innerHtml]="svgIconContentSafeHtml"></div>
-            <div *ngIf="title" class="title" >{{ title }}</div>
+
+            <div *ngIf="title" class="title" >
+            {{ title }}
+            <svg-icon
+              *ngIf="titleIcon"
+              [name]="titleIcon.iconName"
+              [mode]="titleIcon.iconMode"
+              [size]="titleIcon.iconSize">
+            </svg-icon>
+            </div>
             <sdc-modal-close-button #modalCloseButton [testId]="'close' | calculateTestId : testId" [modalInstanceRef]="instanceRef"></sdc-modal-close-button>
         </div>
 

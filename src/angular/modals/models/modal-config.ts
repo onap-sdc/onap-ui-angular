@@ -3,6 +3,7 @@ import { IButtonComponent } from "../../buttons/ibutton.interface";
 export interface IModalConfig {
     size?: string; // xl|l|md|sm|xsm
     title?: string;
+    titleIcon?: TitleIconDetails;
     message?: string;
     buttons?: IModalButtonComponent[];
     testId?: string;
@@ -13,6 +14,12 @@ export interface IModalButtonComponent extends IButtonComponent {
     id?: string;
     callback?: () => void;
     closeModal?: boolean;
+}
+
+export interface TitleIconDetails {
+    iconName?: string;
+    iconMode?: string;
+    iconSize?: string;
 }
 
 export enum ModalType {
@@ -31,3 +38,5 @@ export enum ModalSize {
     small = "sm",
     xsmall = "xsm"
 }
+
+

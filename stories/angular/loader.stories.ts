@@ -3,13 +3,14 @@ import { withKnobs, text, number, boolean, array, select, color, date, button } 
 import { withNotes } from '@storybook/addon-notes';
 import { action, configureActions } from '@storybook/addon-actions';
 import { moduleMetadata } from '@storybook/angular';
-import { LoaderComponent, ButtonComponent, SvgIconComponent } from '../../src/angular/components';
+import { LoaderComponent, ButtonComponent } from '../../src/angular/components';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LoaderService } from '../../src/angular/loader/loader.service';
 import { LoaderSize } from '../../src/angular/loader/loader.component';
 import {InputModule} from "../../src/angular/form-elements/text-elements/input/input.module";
+import { SvgIconModule } from '../../src/angular/svg-icon/svg-icon.module';
 
 storiesOf('Loader', module)
   .addDecorator(withKnobs)
@@ -19,13 +20,13 @@ storiesOf('Loader', module)
       declarations: [
         LoaderComponent,
         ButtonComponent,
-        SvgIconComponent
       ],
       imports: [
           CommonModule,
         InputModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        SvgIconModule
       ],
       providers: [
           LoaderService
@@ -76,6 +77,7 @@ storiesOf('Loader', module)
     const _size = select('size', Object.values(LoaderSize), LoaderSize.large);
     const _name = text('name', 'RelativeLoader');
     const _active = boolean('active', false);
+    const _relative = boolean('relative', true);
 
       return {
         props: {
@@ -87,21 +89,23 @@ storiesOf('Loader', module)
                 loader.deactivate();
                 action('Loader deactivated')();
             },
-            _size, _name, _active
+            _size, _name, _active, _relative
         },
         template: `
-        <h2>Loader visible: {{_active}}</h2>
-        <sdc-loader #loader1 [size]="_size" [name]="_name" [(active)]="_active">
-            <div style="border:1px solid black; padding:20px 100px;">
-                <sdc-input label="Please Enter Value" required="true" [maxLength]="5"></sdc-input>
-                <sdc-input label="Please Enter Value" required="true" [maxLength]="5"></sdc-input>
-                <sdc-input label="Please Enter Value" required="true" [maxLength]="5"></sdc-input>
-                <sdc-input label="Please Enter Value" required="true" [maxLength]="5"></sdc-input>
-            </div>
-        </sdc-loader >
-        <div style="margin:10px 0px;">
-            <sdc-button text="Show loader" (click)="activateLogger(loader1)"></sdc-button>
-            <sdc-button text="Hide loader" (click)="deactivateLogger(loader1)"></sdc-button>
+        <div>
+          <h2>Loader visible: {{_active}}</h2>
+          <sdc-loader #loader1 [size]="_size" [name]="_name" [(active)]="_active" [relative]="_relative">
+              <div style="border:1px solid black; padding:20px 100px;">
+                  <sdc-input label="Please Enter Value" required="true" [maxLength]="5"></sdc-input>
+                  <sdc-input label="Please Enter Value" required="true" [maxLength]="5"></sdc-input>
+                  <sdc-input label="Please Enter Value" required="true" [maxLength]="5"></sdc-input>
+                  <sdc-input label="Please Enter Value" required="true" [maxLength]="5"></sdc-input>
+              </div>
+          </sdc-loader >
+          <div style="margin:10px 0px;">
+              <sdc-button text="Show loader" (click)="activateLogger(loader1)"></sdc-button>
+              <sdc-button text="Hide loader" (click)="deactivateLogger(loader1)"></sdc-button>
+          </div>
         </div>
         `
       }

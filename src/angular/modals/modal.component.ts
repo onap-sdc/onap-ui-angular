@@ -2,9 +2,10 @@ import { Component, Input, ViewContainerRef, ViewChild, ComponentRef, Renderer, 
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ModalButtonComponent } from './modal-button.component';
 import { ModalCloseButtonComponent } from './modal-close-button.component';
-import { ModalType } from './models/modal-config';
+import { ModalType, TitleIconDetails } from './models/modal-config';
 import { template } from './modal.component.html';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Size, Mode } from '../common/enums';
 
 @Component({
     selector: 'sdc-modal',
@@ -25,6 +26,7 @@ export class ModalComponent implements OnInit {
 
     @Input() size: string; 'xl|l|md|sm|xsm';
     @Input() title: string;
+    @Input() titleIcon: TitleIconDetails;
     @Input() message: string;
     @Input() buttons: ModalButtonComponent[];
     @Input() type: ModalType;
