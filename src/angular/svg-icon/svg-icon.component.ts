@@ -57,7 +57,7 @@ export class SvgIconComponent implements OnChanges {
         const _classes = ['svg-icon'];
         if (this.mode) { _classes.push('mode-' + this.mode); }
         if (this.size) { _classes.push('size-' + this.size); }
-        if (this.clickable) { _classes.push('clickable'); }
+        if (this.clickable) { !this.disabled && _classes.push('clickable'); }
         if (this.svgIconCustomClassName) { _classes.push(this.svgIconCustomClassName); }
         if (this.className) { _classes.push(this.className); }
         if (this.backgroundShape) { _classes.push('bg-type-' + this.backgroundShape); }

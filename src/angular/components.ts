@@ -74,3 +74,11 @@ export { SearchBarComponent } from './search/search-bar.component';
 
 // Tooltip
 export { TooltipDirective } from "./tooltip/tooltip.directive";
+
+
+// Files
+export { FileUploadComponent } from "./file-upload/file-upload.component";
+
+
+// Files
+export { FileOpenerComponent } from "./utils/file-opener/file-opener.component";
