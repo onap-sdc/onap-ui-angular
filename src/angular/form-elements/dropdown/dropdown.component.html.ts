@@ -12,7 +12,6 @@ export const template = `
               (valueChange)="filterOptions(this.filterValue)"
               [placeHolder]="this.selectedOption?.label || this.selectedOption?.value || placeHolder">
       </sdc-input>
-      <!--<svg-icon class="sdc-dropdown__icon" name="caret1-down-o" mode="secondary" size="small"></svg-icon>-->
+      <dropdown-results *ngIf="show" [options]="options" [isGroupDesign]="isGroupDesign" [selectedOption]="selectedOption" (onItemSelected)="selectOption($event)"></dropdown-results>
 </div>
-<dropdown-results *ngIf="show" [options]="options" [isGroupDesign]="isGroupDesign" [selectedOption]="selectedOption" (onItemSelected)="selectOption($event)"></dropdown-results>
 `;

@@ -41,7 +41,6 @@ export class AutoCompleteComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-      console.log("NG ON INIT CALLL", this.data);
         if (this.data) {
             this.handleLocalData();
         }
@@ -63,8 +62,6 @@ export class AutoCompleteComponent implements OnInit {
         this.data.forEach((item: any) => {
             this.complexData.push({label: item, value: item});
         });
-
-      console.log("SIMPLE DATA", this.complexData);
     }
 
     protected convertComplexData = (): void => {
@@ -72,7 +69,6 @@ export class AutoCompleteComponent implements OnInit {
         this.data.forEach((item: any) => {
             this.complexData.push({label: item[this.dataSchema.label], value: item[this.dataSchema.value]});
         });
-      console.log("COMPLEX DATA", this.complexData);
     }
 
     protected onItemSelected = (selectedItem: IDropDownOption): void => {
@@ -105,7 +101,6 @@ export class AutoCompleteComponent implements OnInit {
             }
             this.isItemSelected = false;
         }
-        console.log("AUTOCOMPLETE RESULT", this.autoCompleteResults);
     }
 
     protected onClearSearch = (): void => {

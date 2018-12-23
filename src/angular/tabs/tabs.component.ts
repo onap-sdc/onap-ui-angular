@@ -11,9 +11,11 @@ import { template } from "./tabs.component.html";
 export class TabsComponent implements AfterContentInit {
 
     @HostBinding('class') classes = 'sdc-tabs sdc-tabs-header';
+    @HostBinding('class.vertical') verticalClass: boolean;
     @ContentChildren(TabComponent) public tabs: QueryList<TabComponent>;
     @Input() public testId: string;
     @Input() public iconsSize: Size = Size.medium;
+    @Input() public isVertical: boolean = false;
     @Output() public selectedTab: EventEmitter<TabComponent> = new EventEmitter<TabComponent>();
 
     public selectTab(tab: TabComponent) {
@@ -28,6 +30,10 @@ export class TabsComponent implements AfterContentInit {
         tab.active = true;
         tab.titleIconMode = Mode.primary;
     }
+
+  public ngOnInit() {
+    this.verticalClass = this.isVertical;
+  }
 
     public ngAfterContentInit() {
         // get all active tabs

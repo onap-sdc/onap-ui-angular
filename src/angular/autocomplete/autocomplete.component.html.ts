@@ -1,5 +1,5 @@
 export const template = `
-<div [attr.data-tests-id]="testId">
+<div class="sdc-autocomplete-container" [attr.data-tests-id]="testId">
     <sdc-filter-bar
         [placeHolder]="placeHolder"
         [label]="label"
