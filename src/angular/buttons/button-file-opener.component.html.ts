@@ -1,16 +1,13 @@
 export const template = `
-<div class="sdc-button sdc-button__{{ type }} sdc-button__file-opener btn-{{ size }} {{ iconPositionClass }}"
+<div class="sdc-button sdc-button__{{ type }} btn-{{ size }} {{ iconPositionClass }}"
      [attr.data-tests-id]="testId"
      >
     {{ text }}
-    <input
-        type="file"
-        [attr.data-tests-id]="'file' + testId"
-        [accept]="allowedExtensions"
-        [disabled] = "disabled"
-        (change)="onFileSelect($event)"
-    />
+    <file-opener 
+      [extensions]="extensions"
+       [disabled]="disabled" 
+       [testId]="testId" 
+       (fileUpload)="fileUploaded($event)"> 
+  </file-opener>
 </div>
 `;
-
-// base-sixty-four-input

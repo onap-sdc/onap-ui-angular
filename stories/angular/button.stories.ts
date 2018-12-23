@@ -6,6 +6,7 @@ import { SvgIconModule } from '../../src/angular/svg-icon/svg-icon.module';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, number, boolean, array, select, color, date, button } from '@storybook/addon-knobs';
 import { withNotes } from '@storybook/addon-notes';
+import {ButtonsModule} from "../../src/angular/buttons/buttons.module";
 
 const iconMode = ['primary', 'secondary', 'success', 'error', 'warning', 'info', 'white']
 const buttonTypes = ['primary', 'secondary', 'link', 'success', 'error', 'warning', 'info'];
@@ -30,11 +31,9 @@ let stories = storiesOf('Form elements|Buttons', module)
 .addDecorator(withNotes)
 .addDecorator(
   moduleMetadata({
-    declarations: [
-      ButtonComponent,
-      ButtonFileOpenerComponent
-    ],
+    declarations: [],
     imports: [
+      ButtonsModule,
       SvgIconModule
     ]
   })

@@ -18,6 +18,8 @@ import { AccordionModule } from "./accordion/accordion.module";
 import { EllipsisModule } from "./ellipsis/ellipsis.module";
 import { SimplePopupMenuModule } from "./simple-popup-menu/simple-popup-menu.module";
 import {CommonDirectiveModule} from "./utils/common-directive.module";
+import {FileUploadModule} from "./file-upload/file-upload.module";
+import {FileOpenerModule} from "./utils/file-opener/file-opener.module";
 
 @NgModule({
     imports: [
@@ -40,8 +42,11 @@ import {CommonDirectiveModule} from "./utils/common-directive.module";
         EllipsisModule,
         SimplePopupMenuModule,
         SimplePopupMenuModule,
-        CommonDirectiveModule],
+        CommonDirectiveModule,
+        FileUploadModule,
+        FileOpenerModule],
     exports: [
+
         ModalModule,
         NotificationModule,
         FormElementsModule,
@@ -61,7 +66,9 @@ import {CommonDirectiveModule} from "./utils/common-directive.module";
         EllipsisModule,
         SimplePopupMenuModule,
         SimplePopupMenuModule,
-        CommonDirectiveModule
+        CommonDirectiveModule,
+        FileUploadModule,
+        FileOpenerModule
     ]
 })
 export class SdcUiComponentsModule {}
@@ -69,6 +76,7 @@ export class SdcUiComponentsModule {}
 import * as SdcUiComponents from './components';
 import * as SdcUiServices from './services';
 import * as SdcUiCommon from './common/index';
+
 
 
 export { SdcUiComponents };
