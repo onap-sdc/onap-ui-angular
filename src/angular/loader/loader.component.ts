@@ -38,12 +38,8 @@ export class LoaderComponent implements OnInit, OnDestroy {
         if (this.name !== undefined) {
             this.loaderService.register(this.name, this);
         }
-
+        this.setLoaderPlace();
     }
-    public ngAfterViewInit() : void {
-      this.setLoaderPlace();
-    }
-
 
     public ngOnDestroy(): void {
         if (this.name !== undefined) {
