@@ -12,7 +12,7 @@ import { ButtonComponent } from "../buttons/button.component";
         [ngClass]="disabled ? 'disabled' : ''"
         [rippleOnAction]="!disabled && rippleAnimationAction"
         [attr.data-tests-id]="testId"
-        (click)="!disabled && closeModal()"
+        (click)="!disabled && closeModal('close')"
         >
         <svg-icon name="close" [mode]="disabled? 'secondary' : 'info'" size="small"></svg-icon>
     </div>
@@ -30,8 +30,8 @@ export class ModalCloseButtonComponent extends ButtonComponent {
         super();
     }
 
-    public closeModal = (): void => {
-        this.modalInstanceRef.instance.closeModal();
+    public closeModal = (btnName : string): void => {
+        this.modalInstanceRef.instance.closeModal(btnName);
     }
 
 }

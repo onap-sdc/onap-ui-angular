@@ -14,14 +14,14 @@
     "pretty": true,
     "stripInternal": true,
     "skipLibCheck": true,
-    "outDir": "dist/components",
+    "outDir": "dist",
     "rootDir": "./src/angular"
   },
   "files": [
     "./src/angular/index.ts"
   ],
   "angularCompilerOptions": {
-    "genDir": "dist/components",
+    "genDir": "dist",
     "debug": false,
     "skipTemplateCodegen": true,
     "skipMetadataEmit": false,
