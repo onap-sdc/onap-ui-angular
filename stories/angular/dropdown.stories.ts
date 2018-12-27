@@ -112,19 +112,17 @@ storiesOf('Form elements|Dropdown', module)
       const _required = boolean('required', false);
       const _size = number('size', 'medium');
       const _selectedOption = object('selectedOption', {});
-      const _type = select('type', dropdownTypes, DropDownTypes.Regular);
       const _onChange = text('*(onChange)', 'Event throws when dropdown changed, see in Action logger tab.');
 
       return {
         props: {
             onChange: action('Dropdown value changed '),
-            _label, _placeHolder, _disabled, _required, _testId, _options, _size, _selectedOption, _type
+            _label, _placeHolder, _disabled, _required, _testId, _options, _size, _selectedOption
         },
         template: `
         <sdc-dropdown 
             [label]="_label" 
             [placeHolder]="_placeHolder"
-            [type]="_type"
             [disabled]="_disabled"
             [required]="_required"
             [size]="_size"
@@ -151,19 +149,17 @@ storiesOf('Form elements|Dropdown', module)
     const _required = boolean('required', false);
     const _size = number('size', 20);
     const _selectedOption = object('selectedOption', {});
-    const _type = select('type', dropdownTypes, DropDownTypes.Regular);
     const _onChange = text('*(onChange)', 'Event throws when dropdown changed, see in Action logger tab.');
 
     return {
       props: {
           onChange: action('Dropdown value changed '),
-          _label, _placeHolder, _disabled, _required, _testId, _options, _size, _selectedOption, _type
+          _label, _placeHolder, _disabled, _required, _testId, _options, _size, _selectedOption
       },
       template: `
       <sdc-dropdown 
           [label]="_label" 
           [placeHolder]="_placeHolder"
-          [type]="_type"
           [disabled]="_disabled"
           [required]="_required"
           [size]="_size"
@@ -189,19 +185,17 @@ storiesOf('Form elements|Dropdown', module)
     const _required = boolean('required', false);
     const _size = number('size', 20);
     const _selectedOption = object('selectedOption', { label: 'Second Option Label', value: 'secondOptionValue'});
-    const _type = select('type', dropdownTypes, DropDownTypes.Regular);
     const _onChange = text('*(onChange)', 'Event throws when dropdown changed, see in Action logger tab.');
 
     return {
       props: {
           onChange: action('Dropdown value changed '),
-          _label, _placeHolder, _disabled, _required, _testId, _options, _size, _selectedOption, _type
+          _label, _placeHolder, _disabled, _required, _testId, _options, _size, _selectedOption
       },
       template: `
       <sdc-dropdown 
           [label]="_label" 
           [placeHolder]="_placeHolder"
-          [type]="_type"
           [disabled]="_disabled"
           [required]="_required"
           [size]="_size"
@@ -215,46 +209,6 @@ storiesOf('Form elements|Dropdown', module)
   },
   { notes: `<h2>Checkbox</h2>
           Full example of checkbox with groups pre selected option.
-          Use the KNOBS tab to change values.`
-  }
-)
-
-.add('Insert text (auto)', () => {
-    const _label = text('label', 'Simple dropdown');
-    const _placeHolder = text('placeHolder', 'Sample placeholder');
-    const _disabled = boolean('disabled', false);
-    const _options = object('options', options1);
-    const _testId = text('testId', 'dropdown-test-id');
-    const _required = boolean('required', false);
-    const _size = number('size', 20);
-    const _selectedOption = object('selectedOption', {});
-    const _type = select('type', dropdownTypes, DropDownTypes.Auto);
-    const _onChange = text('*(onChange)', 'Event throws when dropdown changed, see in Action logger tab.');
-
-    return {
-      props: {
-          onChange: action('Dropdown value changed '),
-          _label, _placeHolder, _disabled, _required, _testId, _options, _size, _selectedOption, _type
-      },
-      template: `
-      <sdc-dropdown
-          #dropDown1
-          [label]="_label" 
-          [placeHolder]="_placeHolder"
-          [type]="_type"
-          [disabled]="_disabled"
-          [required]="_required"
-          [size]="_size"
-          [options]="_options" 
-          [selectedOption]="_selectedOption"
-          (changed)="onChange($event)"
-          >
-      </sdc-dropdown>
-      `
-    }
-  },
-  { notes: `<h2>Checkbox</h2>
-          Full example of checkbox (auto mode).
           Use the KNOBS tab to change values.`
   }
 )

@@ -26,10 +26,7 @@ storiesOf('File Upload', module)
   .add('File Upload', () => {
       const _label = text('label', 'File Upload label');
       const _placeholder = text('placeholder', 'File Upload placeholder');
-      // const _searchQuery = text('searchQuery', '');
       const _testId = text('testId', 'file-upload-test-id');
-      // const _searchQueryOutput = text('*(searchQuery)', 'Event throws when search query changed');
-      // const _searchQueryChange = text('*(searchQueryEvent)', 'Event throws when search query changed, see in Action logger tab.');
 
       return {
         props: {

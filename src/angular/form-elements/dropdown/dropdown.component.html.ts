@@ -5,11 +5,12 @@ export const template = `
               [value]="this.selectedOption.value"
               [required]="required"
               [size]="size"
+              [isViewMode]="true"
               [label]="label"
               [isIconClickable]="true"
               [righIconName]="'caret1-down-o'"
               (click)="toggleDropdown($event)"
-              (valueChange)="filterOptions(this.filterValue)"
+              (valueChange)="onChange($event)"
               [placeHolder]="this.selectedOption?.label || this.selectedOption?.value || placeHolder">
       </sdc-input>
       <dropdown-results *ngIf="show" [options]="options" [isGroupDesign]="isGroupDesign" [selectedOption]="selectedOption" (onItemSelected)="selectOption($event)"></dropdown-results>
