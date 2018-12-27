@@ -3,7 +3,7 @@ import {fileUploadTemplate} from "./file-upload.component.html";
 import {BaseTextElementComponent} from "../form-elements/text-elements/base-text-element.component";
 
 @Component({
-  selector: "sdc-file-upload",
+  selector: "onap-file-upload",
   template: fileUploadTemplate
 })
 

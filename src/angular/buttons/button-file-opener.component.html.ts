@@ -3,11 +3,11 @@ export const template = `
      [attr.data-tests-id]="testId"
      >
     {{ text }}
-    <file-opener 
+    <onap-file-opener 
       [extensions]="extensions"
        [disabled]="disabled" 
        [testId]="testId" 
        (fileUpload)="fileUploaded($event)"> 
-  </file-opener>
+  </onap-file-opener>
 </div>
 `;

@@ -37,14 +37,14 @@ storiesOf('File Upload', module)
           _label,  _placeholder,  _testId
         },
         template: `
-        <sdc-file-upload
+        <onap-file-upload
             [placeHolder]="_placeholder"
             [label]="_label"
             [debounceTime]="_debounceTime"
             [(value)]="_searchQuery"
             [testId]="_testId"
             (searchQueryEvent)="onChange($event)">
-        </sdc-file-upload>
+        </onap-file-upload>
         `
       }
     },

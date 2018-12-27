@@ -8,7 +8,7 @@ export class FileObject {
 }
 
 @Component({
-  selector: "file-opener",
+  selector: "onap-file-opener",
   template: `<input class="file-opener-input"
                     type="file"
                     [attr.data-tests-id]="'file' + testId"
