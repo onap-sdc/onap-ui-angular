@@ -19,6 +19,7 @@ export class BaseTextElementComponent extends ValidatableComponent implements On
     @Input() public debounceTime: number;
     @Input() public size:  Size;
     @Input() public testId: string;
+    @Input() public isViewMode: boolean;
 
     public control: FormControl;
 

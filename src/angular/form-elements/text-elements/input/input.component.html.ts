@@ -4,7 +4,7 @@ export const template = `
     <div class="sdc-input-wrapper">
         <input
             class="sdc-input__input {{classNames}} {{size}}"
-            [ngClass]="{'error': (!valid && dirty), 'disabled':disabled}"
+            [ngClass]="{'error': (!valid && dirty), 'disabled':disabled, 'isViewMode': isViewMode}"
             [attr.name]="name ? name : null"
             [placeholder]="placeHolder"
             [(ngModel)]="value"
@@ -12,7 +12,7 @@ export const template = `
             [minlength]="minLength"
             [type]="type"
             [formControl]="control"
-            [attr.disabled]="disabled ? 'disabled' : null"
+            [attr.disabled]="(disabled || isViewMode) ? 'disabled' : null"
             (input)="onKeyPress($event.target.value)"
             [attr.data-tests-id]="testId"
         />
