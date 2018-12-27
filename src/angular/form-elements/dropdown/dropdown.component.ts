@@ -66,8 +66,14 @@ export class DropDownComponent extends BaseTextElementComponent implements OnIni
     }
 
     public onChange = (dropdownOption: IDropDownOption)=> {
-      this.selectOption(dropdownOption);
-      this.baseEmitter.emit(dropdownOption);
+      if(dropdownOption) {
+        this.selectOption(dropdownOption);
+        this.baseEmitter.emit(dropdownOption);
+      }
+    }
+
+    public closeListOptions = () => {
+      this.show = false;
     }
 
 }
