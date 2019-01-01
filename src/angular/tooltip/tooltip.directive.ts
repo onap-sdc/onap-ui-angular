@@ -112,7 +112,7 @@ export class TooltipDirective implements OnInit {
     }
 
     /**
-     * Adds placement css class and sets tooltip position in style
+     * Adds placement css class and sets tooltip popOverPosition in style
      */
     private setPosition() {
         const tooltipPos: IPlacementData = this.getPlacementData();
@@ -188,7 +188,7 @@ export class TooltipDirective implements OnInit {
     }
 
     /**
-     * Returns valid tooltip position data
+     * Returns valid tooltip popOverPosition data
      * @param {TooltipPlacement} placement
      * @param {TooltipPlacement} additionalPlacements
      * @returns {IPlacementData}
@@ -224,7 +224,7 @@ export class TooltipDirective implements OnInit {
     }
 
     /**
-     * Returns tooltip position data
+     * Returns tooltip popOverPosition data
      * @param {TooltipPlacement} placement (left, top, right, bottom)
      * @returns {IPlacementData}
      */
@@ -241,7 +241,7 @@ export class TooltipDirective implements OnInit {
     }
 
     /**
-     * Returns tooltip position data (center / middle arrow)
+     * Returns tooltip popOverPosition data (center / middle arrow)
      * @param {TooltipPlacement} placement (left, top, right, bottom)
      * @returns {IPlacementData}
      */
@@ -283,7 +283,7 @@ export class TooltipDirective implements OnInit {
     }
 
     /**
-     * Returns tooltip position data (left / top arrow)
+     * Returns tooltip popOverPosition data (left / top arrow)
      * @param {TooltipPlacement} placement (left, top, right, bottom)
      * @returns {IPlacementData}
      */
@@ -325,7 +325,7 @@ export class TooltipDirective implements OnInit {
     }
 
     /**
-     * Returns tooltip position data (right / bottom arrow)
+     * Returns tooltip popOverPosition data (right / bottom arrow)
      * @param {TooltipPlacement} placement (left, top, right, bottom)
      * @returns {IPlacementData}
      */
@@ -367,7 +367,7 @@ export class TooltipDirective implements OnInit {
     }
 
     /**
-     * Checks if tooltip position is valid
+     * Checks if tooltip popOverPosition is valid
      * @param {IPlacementData} pos
      * @returns {boolean}
      */
