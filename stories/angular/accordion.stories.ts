@@ -41,7 +41,7 @@ storiesOf('Accordion', module)
         `
       }})
 
-  .add('Accordion arrow popOverPosition', () => {
+  .add('Accordion arrow position', () => {
     const _title = text('title', 'Accordion header');
     const _arrow_direction = select('arrow-direction', positions, 'left', '');
 
