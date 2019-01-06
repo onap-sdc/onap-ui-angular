@@ -10,7 +10,7 @@ export interface IPoint {
 @Component({
   selector: 'onap-popover',
   template: template,
-  styleUrls: ['./popover.component.scss']
+  // styleUrls: ['./popover.component.scss']
 
 })
 export class PopoverComponent implements OnInit{
@@ -49,10 +49,10 @@ export class PopoverComponent implements OnInit{
   //Will assist to make small changes in the X & Y axis, so the popover location will have a small space from the mouse
   //This space is also required for the arrow that needs its own space.
   private offset = {
-    top: { x: 20, y:-20 },
-    left: { x: -20, y: 30 },
-    bottom: { x: 0, y: 20 },
-    right: { x: 20, y: -30 }
+    top: { x: 20, y:-30 },
+    left: { x: -30, y: 30 },
+    bottom: { x: 0, y: 30 },
+    right: { x: 30, y: -30 }
   };
 
 

@@ -23,7 +23,7 @@ let stories = storiesOf('Popover', module)
     })
   );
 
-createMenuListStory(stories, 'Click on button - content only', 'simple', '','Simple popover with content only, opens when click on a button.', 'left');
+createMenuListStory(stories, 'Click on button - content only', 'simple', '','Simple popover ', 'left');
 createMenuListStory(stories, 'Click on button - Title and content', 'simple', 'Hello! i’m a title','Simple popover with content and title, opens when click on a button.','left');
 createMenuListStory(stories, 'Click on button - with Inner Component', 'complex', 'Hello! i’m a title','Popover with inner component, content and title, opens when click on a button.', 'bottom');
 

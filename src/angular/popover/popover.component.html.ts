@@ -3,7 +3,6 @@ export const template = `
       <div class="outerContainer">
         <div class="closeButton"><svg-icon [name]="'close'" [clickable]="true" [disabled]="false" (click)="closePopover()"></svg-icon></div>
         <div class="innerContainer">
-          <div class="popover-arrow {{location}}-location"></div>
           <div class="title" *ngIf="title.length  > 0">{{title}}</div>
           <div class="content">{{content}}</div>
           <div #popoverDynamicInnerContent></div>
@@ -11,5 +10,9 @@ export const template = `
       </div>
   </div>
 `
+
+
+
+
 
 
