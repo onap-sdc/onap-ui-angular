@@ -20,6 +20,7 @@ import { SimplePopupMenuModule } from "./simple-popup-menu/simple-popup-menu.mod
 import {CommonDirectiveModule} from "./utils/common-directive.module";
 import {FileUploadModule} from "./file-upload/file-upload.module";
 import {FileOpenerModule} from "./utils/file-opener/file-opener.module";
+import { PopoverModule } from "./popover/popover.module";
 
 @NgModule({
     imports: [
@@ -41,10 +42,12 @@ import {FileOpenerModule} from "./utils/file-opener/file-opener.module";
         AccordionModule,
         EllipsisModule,
         SimplePopupMenuModule,
-        SimplePopupMenuModule,
         CommonDirectiveModule,
         FileUploadModule,
-        FileOpenerModule],
+        FileOpenerModule,
+        PopoverModule
+        ],
+
     exports: [
 
         ModalModule,
@@ -65,10 +68,10 @@ import {FileOpenerModule} from "./utils/file-opener/file-opener.module";
         AccordionModule,
         EllipsisModule,
         SimplePopupMenuModule,
-        SimplePopupMenuModule,
         CommonDirectiveModule,
         FileUploadModule,
-        FileOpenerModule
+        FileOpenerModule,
+        PopoverModule
     ]
 })
 export class SdcUiComponentsModule {}
@@ -77,21 +80,6 @@ import * as SdcUiComponents from './components';
 import * as SdcUiServices from './services';
 import * as SdcUiCommon from './common/index';
 
-
-
 export { SdcUiComponents };
 export { SdcUiServices };
 export { SdcUiCommon };
-
-
-
-
-// let components = SdcUiComponents;
-// let services = SdcUiServices;
-// let common = SdcUiCommon
-
-// export const SdcUi = {
-//     components,
-//     services,
-//     common
-// };

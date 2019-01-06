@@ -26,7 +26,7 @@ let stories = storiesOf('Menu', module)
   let containsRelative = true;
   let containsClassName = true;
   createMenuListStory(stories, "Menu list All options", containsPosition, containsRelative, containsClassName, "Menu list", "Full example of menu list.");
-  createMenuListStory(stories, "Menu list with position", containsPosition, !containsRelative, !containsClassName, "Menu list", "Full example of menu list with position.");
+  createMenuListStory(stories, "Menu list with popOverPosition", containsPosition, !containsRelative, !containsClassName, "Menu list", "Full example of menu list with popOverPosition.");
   createMenuListStory(stories, "Menu list with relative", !containsPosition, containsRelative, !containsClassName, "Menu list", "Full example of menu list with relative.");
   createMenuListStory(stories, "Menu list with class", !containsPosition, !containsRelative, containsClassName, "Menu list", "Full example of menu list with class.");
 
@@ -41,14 +41,14 @@ let stories = storiesOf('Menu', module)
         const _open = containsPosition ? boolean('Menu list open', undefined): false;
         const _testId = text('testId', 'popup-menu-test-id');
         const _openChange = text('*(openChange)', 'Event throws when menu is open or close, see in Action logger tab.');
-        const _positionChange = text('*(positionChange)', 'Event throws when position changed, see in Action logger tab.');
+        const _positionChange = text('*(positionChange)', 'Event throws when popOverPosition changed, see in Action logger tab.');
 
         return {
             props: {
                 selectedItemValue: '',
                 selectedItemColor: '',
                 openChanged: action('Menu open status is'),
-                positionChanged: action('Menu position changed to'),
+                positionChanged: action('Menu popOverPosition changed to'),
                 showSelectedItem: (itemPlace, color, selectedItem)=> {
                     selectedItem.innerText = itemPlace;
                     selectedItem.style.color = color;

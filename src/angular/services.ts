@@ -14,3 +14,6 @@ export { LoaderService } from './loader/loader.service';
 // Notifications
 export { NotificationsService } from "./notifications/services/notifications.service";
 
+//PopOver
+export { PopoverService } from "./popover/popover.service"
+
