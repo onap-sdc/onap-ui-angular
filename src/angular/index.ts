@@ -20,6 +20,8 @@ import { SimplePopupMenuModule } from "./simple-popup-menu/simple-popup-menu.mod
 import {CommonDirectiveModule} from "./utils/common-directive.module";
 import {FileUploadModule} from "./file-upload/file-upload.module";
 import {FileOpenerModule} from "./utils/file-opener/file-opener.module";
+import { ValidationMessageModule } from "./validation-message/validation-message.module";
+
 
 @NgModule({
     imports: [
@@ -44,7 +46,8 @@ import {FileOpenerModule} from "./utils/file-opener/file-opener.module";
         SimplePopupMenuModule,
         CommonDirectiveModule,
         FileUploadModule,
-        FileOpenerModule],
+        FileOpenerModule,
+        ValidationMessageModule],
     exports: [
 
         ModalModule,
@@ -68,7 +71,8 @@ import {FileOpenerModule} from "./utils/file-opener/file-opener.module";
         SimplePopupMenuModule,
         CommonDirectiveModule,
         FileUploadModule,
-        FileOpenerModule
+        FileOpenerModule,
+        ValidationMessageModule
     ]
 })
 export class SdcUiComponentsModule {}
