@@ -82,3 +82,7 @@ export { FileUploadComponent } from "./file-upload/file-upload.component";
 
 // Files
 export { FileOpenerComponent } from "./utils/file-opener/file-opener.component";
+
+
+// Validation Message
+export { ValidationMessageComponent } from "./validation-message/validation-message.component";
