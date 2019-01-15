@@ -5,6 +5,7 @@ import { moduleMetadata } from '@storybook/angular';
 import { FormElementsModule } from '../../src/angular/form-elements/form-elements.module';
 import { ValidationMessageComponent } from '../../src/angular/validation-message/validation-message.component';
 import { validateStyleParams } from '@angular/animations/browser/src/util';
+import { InputComponent } from '../../src/angular/components';
 
 let stories = storiesOf('Validation Message', module)
 .addDecorator(withKnobs)
@@ -31,17 +32,14 @@ function createStory(stories, title, notesTitle, notesText){
       return {
           props: {
             _disabled, _message, _testId,
-            onValueChanged: (value: any) => {
-              console.log(value);
-              value.dirty = true;
-              value.valid = _disabled || value.value == "If you change the text, it will be invalid";
+            onValueChanged: (input: InputComponent) => {
+              input.dirty = !_disabled;
+              input.valid = (input.value == "If you change the text, it will be invalid");
             }
           },
           template: `
-          
             <sdc-input #myInput type="text" value="If you change the text, it will be invalid" (valueChange)=onValueChanged(myInput)></sdc-input>
-            <sdc-validation-message [message]="_message" [disabled]="_disabled || myInput.valid" [testId]="_testId"></sdc-validation-message>
-          
+            <sdc-validation-message *ngIf="!myInput.valid" [message]="_message" [disabled]="_disabled" [testId]="_testId"></sdc-validation-message>
           `
       }
       },
