@@ -47,7 +47,7 @@ import { ValidationMessageModule } from "./validation-message/validation-message
         CommonDirectiveModule,
         FileUploadModule,
         FileOpenerModule,
-        PopoverModule
+        PopoverModule,
         ValidationMessageModule],
     exports: [
 
