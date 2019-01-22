@@ -15,6 +15,7 @@ export class SvgIconLabelComponent extends SvgIconComponent {
     @Input() public labelPlacement: Placement;
     @Input() public labelClassName: string;
     @Input() public size: Size;
+    @Input() public testId: string;
 
     constructor(protected domSanitizer: DomSanitizer) {
         super(domSanitizer);

@@ -21,6 +21,8 @@ import {CommonDirectiveModule} from "./utils/common-directive.module";
 import {FileUploadModule} from "./file-upload/file-upload.module";
 import {FileOpenerModule} from "./utils/file-opener/file-opener.module";
 import { PopoverModule } from "./popover/popover.module";
+import { ValidationMessageModule } from "./validation-message/validation-message.module";
+
 
 @NgModule({
     imports: [
@@ -45,9 +47,8 @@ import { PopoverModule } from "./popover/popover.module";
         CommonDirectiveModule,
         FileUploadModule,
         FileOpenerModule,
-        PopoverModule
-        ],
-
+        PopoverModule,
+        ValidationMessageModule],
     exports: [
 
         ModalModule,
@@ -71,7 +72,8 @@ import { PopoverModule } from "./popover/popover.module";
         CommonDirectiveModule,
         FileUploadModule,
         FileOpenerModule,
-        PopoverModule
+        PopoverModule,
+        ValidationMessageModule
     ]
 })
 export class SdcUiComponentsModule {}
