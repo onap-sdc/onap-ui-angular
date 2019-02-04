@@ -123,6 +123,10 @@ let stories = storiesOf('Validation', module)
       return {
       props: {
         options:[
+          {
+            "label": "Please select an option",
+            "value": ""
+          },
             {
               "label": "First Option Label",
               "value": "firstOptionValue"
@@ -143,9 +147,8 @@ let stories = storiesOf('Validation', module)
           }
       },
       template: `
-      <sdc-dropdown #mydropdown label="Hi I am a label" placeHolder="Please choose option" [options]="options" 
-            (changed)="onChange(validation.validate())"></sdc-dropdown>
-      <sdc-validation #validation [validateElement]="mydropdown" (validityChanged)="onChange($event)">
+      <sdc-dropdown #mydropdown label="Hi I am a label" [options]="options" [selectedOption]="options[0]"></sdc-dropdown>
+      <sdc-validation [validateElement]="mydropdown" (validityChanged)="onChange($event)">
           <sdc-required-validator message="Field is required!"></sdc-required-validator>
           <sdc-custom-validator message="Please select the third option" [callback]="isThirdOption"></sdc-custom-validator>
       </sdc-validation>
