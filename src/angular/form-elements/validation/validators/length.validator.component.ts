@@ -20,12 +20,13 @@ export class LengthValidatorComponent extends ValidatorComponent implements IVal
     public validate(value: any): boolean {
         if(this.minLength){
             this.isValid = value && value.toString().length >= this.minLength;
-            return this.isValid;
+            if(!this.isValid) return false;
         }
         if(this.maxLength){
             this.isValid = !value || value.toString().length <= this.maxLength;
             return this.isValid;
         }
+        return true;
     }
 
 }

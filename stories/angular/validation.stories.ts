@@ -58,10 +58,9 @@ let stories = storiesOf('Validation', module)
         const _validationDisabled = containValidationDisabled ? boolean('Validation disabled', false): false;
         const _requiredMessage = containRequiredValid ? text('Required Validator message', 'Field is required!'): 'Field is required!';
         const _regexMessage = containRegexValid ? text('Regex Validator message', 'This is not a number!'): 'This is not a number!';
-        const _minLength = minLength ? text('Min Length', minLength): 2;
-        const _minLengthMessage = minLength ? text('Min Length Validator message', 'Minimum length is ' + minLength): 'Value must be longer!';
+        const _minLength = minLength ? text('Min Length', minLength): 0;
         const _maxLength = maxLength ? text('Max Length', maxLength): 10;
-        const _maxLengthMessage = maxLength ? text('Max Length Validator message', 'Maximum length is ' + maxLength): 'Value must be shorter!';
+        const _lengthMessage = maxLength ? text('Length Validator message', 'Length must be between ' + minLength + ' and ' + maxLength): 'Value must be shorter!';
         const _customMessage = containCustomValid ? text('custom Validator message', 'The number should be 100'): 'The number should be 100';
         const _pattern = containRegexValid ? text('Regex Validator pattern', RegexPatterns.numbers): RegexPatterns.numbers;
 
@@ -78,14 +77,13 @@ let stories = storiesOf('Validation', module)
           props: {
               displayRequiredValid: containRequiredValid || containValidationDisabled || containValidatorsDisabled,
               displayRegexValid: containRegexValid || containValidatorsDisabled,
-              displayMinLengthValid: minLength  || containValidationDisabled,
-              displayMaxLengthValid: maxLength || containValidationDisabled,
+              displayLengthValid: minLength || maxLength || containValidationDisabled,
               displayCustomValid: containCustomValid || containValidatorsDisabled,
               onChange: action('validation valids'),
               isValueHundred: (value: any) => {
                 return (Number(value) === 100) ? true : false;
             },
-              _validationDisabled, _requiredMessage, _regexMessage, _minLength, _minLengthMessage, _maxLength, _maxLengthMessage, _customMessage, _pattern,
+              _validationDisabled, _requiredMessage, _regexMessage, _minLength, _maxLength, _lengthMessage, _customMessage, _pattern,
               requiredValidDisabled, regexValidDisabled, lengthValidDisabled, customValidDisabled, _testId
           },
           template: `
@@ -94,8 +92,7 @@ let stories = storiesOf('Validation', module)
               [testId]="_testId">
               <sdc-required-validator  *ngIf="this.displayRequiredValid" [message]="_requiredMessage" [disabled]="requiredValidDisabled"></sdc-required-validator>
               <sdc-regex-validator *ngIf="this.displayRegexValid" [message]="_regexMessage" [pattern]="_pattern" [disabled]="regexValidDisabled"></sdc-regex-validator>
-              <sdc-length-validator *ngIf="this.displayMinLengthValid" [minLength]="_minLength" [message]="_minLengthMessage" [disabled]="lengthValidDisabled"></sdc-length-validator>
-              <sdc-length-validator *ngIf="this.displayMaxLengthValid" [maxLength]="_maxLength" [message]="_maxLengthMessage" [disabled]="lengthValidDisabled"></sdc-length-validator>
+              <sdc-length-validator *ngIf="this.displayLengthValid" [minLength]="_minLength" [maxLength]="_maxLength" [message]="_lengthMessage" [disabled]="lengthValidDisabled"></sdc-length-validator>
               <sdc-custom-validator *ngIf="this.displayCustomValid" [message]="_customMessage" [callback]="isValueHundred" [disabled]="customValidDisabled"></sdc-custom-validator>
           </sdc-validation>
           `
