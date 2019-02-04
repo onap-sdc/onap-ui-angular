@@ -60,7 +60,9 @@ export class DropDownComponent extends BaseTextElementComponent implements OnIni
 
     public toggleDropdown = (event?): void => {
         if (event) { event.stopPropagation(); }
-        this.show = !this.show;
+        if (!this.disabled) {
+            this.show = !this.show;
+        }
     }
 
     private isSelectable = (dropDownOption: IDropDownOption): boolean => {
