@@ -7,6 +7,7 @@ import { RequiredValidatorComponent } from './validators/required.validator.comp
 import { RegexValidatorComponent } from './validators/regex.validator.component';
 import { CustomValidatorComponent } from './validators/custom.validator.component';
 import { ValidationGroupComponent } from './validation-group.component';
+import { LengthValidatorComponent } from "./validators/length.validator.component";
 
 @NgModule({
     imports: [
@@ -19,6 +20,7 @@ import { ValidationGroupComponent } from './validation-group.component';
         ValidationComponent,
         RegexValidatorComponent,
         RequiredValidatorComponent,
+        LengthValidatorComponent,
         CustomValidatorComponent,
         ValidationGroupComponent
     ],
@@ -26,6 +28,7 @@ import { ValidationGroupComponent } from './validation-group.component';
         ValidationComponent,
         RegexValidatorComponent,
         RequiredValidatorComponent,
+        LengthValidatorComponent,
         CustomValidatorComponent,
         ValidationGroupComponent
     ]
