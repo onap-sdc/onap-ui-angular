@@ -6,6 +6,7 @@ export const template = `
               [required]="required"
               [size]="size"
               [isViewMode]="true"
+              [testId]="testId"
               [label]="label"
               [isIconClickable]="true"
               [righIconName]="'caret1-down-o'"

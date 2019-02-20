@@ -111,6 +111,7 @@ export class ModalComponent implements OnInit {
             default:
                 this.svgIconContentSafeHtml = this.domSanitizer.bypassSecurityTrustHtml(this.noSvg);
         }
+
     }
 
     public modalToggled = (toggleEvent: any) => {
