@@ -1,8 +1,9 @@
-import { Component, EventEmitter, Input, Output, OnInit, ElementRef, ViewChild, AfterViewInit, HostListener, Renderer } from '@angular/core';
-import { IDropDownOption, DropDownOptionType, DropDownTypes } from "./dropdown-models";
+import { Component, EventEmitter, Input, Output, OnInit, ViewChild } from '@angular/core';
+import { IDropDownOption, DropDownOptionType } from "./dropdown-models";
 import { template } from './dropdown.component.html';
 import {Size} from "../../common/enums";
 import {BaseTextElementComponent} from "../text-elements/base-text-element.component";
+import { InputComponent } from '../text-elements/input/input.component';
 
 @Component({
     selector: 'sdc-dropdown',
@@ -10,6 +11,7 @@ import {BaseTextElementComponent} from "../text-elements/base-text-element.compo
 })
 export class DropDownComponent extends BaseTextElementComponent implements OnInit {
 
+    @ViewChild('dropdownInput') public dropdownInput: InputComponent;
     @Output('changed') changeEmitter:EventEmitter<IDropDownOption> = new EventEmitter<IDropDownOption>();
     @Input() options: IDropDownOption[];
     @Input() selectedOption: IDropDownOption;
@@ -51,25 +53,22 @@ export class DropDownComponent extends BaseTextElementComponent implements OnIni
           this.show = false;
           this.changeEmitter.next(this.selectedOption);
         }
-        this.valueChanged(selectedOption);
+        this.valueChanged(this.getValue());
+        this.dropdownInput.dirty = this.dirty;
+        this.dropdownInput.valid = this.valid;
     }
 
     public toggleDropdown = (event?): void => {
         if (event) { event.stopPropagation(); }
-        this.show = !this.show;
+        if (!this.disabled) {
+            this.show = !this.show;
+        }
     }
 
     private isSelectable = (dropDownOption: IDropDownOption): boolean => {
         const option: IDropDownOption = this.options.filter(o => o.value === dropDownOption.value)[0];
         if (!option) { return false; }
         return !this.unselectableOptions.filter(optionType => optionType === option.type)[0];
-    }
-
-    public onChange = (dropdownOption: IDropDownOption)=> {
-      if(dropdownOption) {
-        this.selectOption(dropdownOption);
-        this.baseEmitter.emit(dropdownOption);
-      }
     }
 
     public closeListOptions = () => {

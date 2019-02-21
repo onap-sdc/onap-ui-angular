@@ -71,7 +71,7 @@ storiesOf('Accordion', module)
       const _arrow_direction = select('arrow-direction', positions, 'left', '');
       const _css_class = text('css_class', 'sdc-accordion-custom-class');
       const _testId = text('testId', 'accordion-test-id');
-  
+
       return {
         props: {
           _title, _arrow_direction, _css_class,  _testId
@@ -125,7 +125,7 @@ storiesOf('Accordion', module)
           </sdc-accordion>
           `
         }})
-        
+
   .add('Accordion full', () => {
       const _title = text('title', 'Accordion header');
       const _arrow_direction = select('arrow-direction', positions, 'left', '');
@@ -156,4 +156,4 @@ storiesOf('Accordion', module)
           </p>
         </sdc-accordion>
         `
-      }});      
+      }});
