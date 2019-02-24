@@ -1,6 +1,6 @@
 import { Component, Input, AfterContentInit, ContentChildren, QueryList, HostBinding, EventEmitter, Output } from '@angular/core';
 import { TabComponent } from './children/tab.component';
-import { Mode, Size } from './../common/enums';
+import { Mode, Size, TabsStyle } from './../common/enums';
 import { template } from "./tabs.component.html";
 
 @Component({
@@ -16,6 +16,7 @@ export class TabsComponent implements AfterContentInit {
     @Input() public testId: string;
     @Input() public iconsSize: Size = Size.medium;
     @Input() public isVertical: boolean = false;
+    @Input() public tabStyle: TabsStyle = TabsStyle.panel;
     @Output() public selectedTab: EventEmitter<TabComponent> = new EventEmitter<TabComponent>();
 
     public selectTab(tab: TabComponent) {
@@ -45,4 +46,7 @@ export class TabsComponent implements AfterContentInit {
         }
     }
 
+    public checkTabStyle() {
+      return this.tabStyle == TabsStyle.tables;
+    }
 }
