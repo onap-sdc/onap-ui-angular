@@ -1,6 +1,6 @@
 export const template = `
 <div class="tag-item" [ngClass]="{'view-only':isViewOnly}" 
-  sdc-tooltip [tooltip-text]="text" [tooltip-placement]="3">
+  >
    <span class="max-characters">{{text}}</span>
     <span class="delete-item" *ngIf="!isViewOnly" (click)="clickOnDelete.emit(index)" [attr.data-tests-id]="dataTestIdDelete">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
