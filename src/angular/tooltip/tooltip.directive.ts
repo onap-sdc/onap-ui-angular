@@ -38,14 +38,18 @@ export class TooltipDirective implements OnInit {
 
     @HostListener('mouseenter')
     public onMouseEnter() {
-        this.show();
-        this.activateScrollEvent();
+      if(this.text || this.template) {
+          this.show();
+          this.activateScrollEvent();
+      }
     }
 
     @HostListener('mouseleave')
     public onMouseLeave() {
-        this.hide();
-        this.deactivateScrollEvent();
+      if(this.text || this.template) {
+          this.hide();
+          this.deactivateScrollEvent();
+      }
     }
 
     ngOnInit(): void {
@@ -136,11 +140,11 @@ export class TooltipDirective implements OnInit {
     }
 
     private setCssClass(isAdd: boolean, suffix: string = '') {
-        this.renderer.setElementClass(this.tooltip, this.cssClass + suffix, isAdd);
+          this.renderer.setElementClass(this.tooltip, this.cssClass + suffix, isAdd);
 
-        if (this.customCssClass) {
-            this.renderer.setElementClass(this.tooltip, this.customCssClass + suffix, isAdd);
-        }
+          if (this.customCssClass) {
+              this.renderer.setElementClass(this.tooltip, this.customCssClass + suffix, isAdd);
+          }
     }
 
     /**

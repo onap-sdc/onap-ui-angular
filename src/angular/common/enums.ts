@@ -66,3 +66,7 @@ export enum RegexPatterns {
     numbers = '^\\d+$',
     numberOrEmpty = '^\\d*$'
 }
+export enum TabsStyle {
+    panel = 'sdc-tab',
+    tables = 'sdc-table-tab'
+}
