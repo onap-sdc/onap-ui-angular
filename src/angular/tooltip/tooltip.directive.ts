@@ -20,6 +20,7 @@ export class TooltipDirective implements OnInit {
     @Input('tooltip-arrow-offset') public arrowOffset: number = 10;
     @Input('tooltip-arrow-placement') public arrowPlacement: ArrowPlacement = ArrowPlacement.LeftTop;
     @Input('tooltip-offset') public tooltipOffset: number = 3;
+    @Input('tooltip-hide-onclick') public hideOnClick: boolean = false;
 
     private cssClass: string = 'sdc-tooltip'; // default css class
     private tooltip: any; // tooltip html element
@@ -48,6 +49,13 @@ export class TooltipDirective implements OnInit {
         this.deactivateScrollEvent();
     }
 
+    @HostListener('click')
+    public onClick() {
+        if(this.hideOnClick) {
+            this.onMouseLeave();
+        }
+    }
+    
     ngOnInit(): void {
         this.initScrollEvent();
     }

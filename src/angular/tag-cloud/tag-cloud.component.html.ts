@@ -8,16 +8,7 @@ export const template = `
                [ngClass]="{'error': uniqueError}"
                [testId]="testId + '-input'"></sdc-input>
     <div class="add-button" (click)="newTagItem && insertItemToList()" [ngClass]="{'disabled': !newTagItem || uniqueError}">
-        <span class="plus-icon" [attr.data-tests-id]="testId + '-add-item'">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
-              <defs>
-                <path id="add-a" d="M15,7 L9,7 L9,1 C9,0.4 8.6,0 8,0 C7.4,0 7,0.4 7,1 L7,7 L1,7 C0.4,7 0,7.4 0,8 C0,8.6 0.4,9 1,9 L7,9 L7,15 C7,15.6 7.4,16 8,16 C8.6,16 9,15.6 9,15 L9,9 L15,9 C15.6,9 16,8.6 16,8 C16,7.4 15.6,7 15,7"/>
-              </defs>
-              <g fill="none" fill-rule="evenodd" transform="translate(4 4)">
-                <use xlink:href="#add-a"/>
-              </g>
-            </svg>
-        </span>
+        <svg-icon [name]="'plus'" [type]="'common'" className="plus-icon" [size]="'xlarge'" [testId]="testId + '-add-item'" [backgroundShape]="'rectangle'"></svg-icon>
     </div>
 </div>
 <div class="sdc-list-container">
@@ -26,7 +17,9 @@ export const template = `
                    [index]="i"
                    [testId]="testId"
                    [isViewOnly]="isViewOnly && (isViewOnly === true || isViewOnly.indexOf(i) > -1)"
-                   (clickOnDelete)="deleteItemFromList($event)"></sdc-tag-item>
+                   (clickOnDelete)="deleteItemFromList($event)"
+                   sdc-tooltip [tooltip-text]="text" [tooltip-placement]="3" [tooltip-hide-onclick]="true"
+                   ></sdc-tag-item>
 </div>
 <div class="error-message" *ngIf="uniqueError">{{uniqueErrorMessage}}</div>
 `;
