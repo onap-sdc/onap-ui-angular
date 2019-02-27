@@ -20,4 +20,9 @@ export class TagItemComponent {
         this.dataTestId = this.testId + '-' + this.text;
         this.dataTestIdDelete = this.dataTestId + '-delete'
     }
+
+    public deleteItem = (index:number) => {
+        //need settimeout so tooltip click will be processed first, before item is deleted.
+        setTimeout(() => this.clickOnDelete.emit(index), 0);
+    }
 }
