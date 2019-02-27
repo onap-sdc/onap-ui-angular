@@ -113,6 +113,27 @@ let stories = storiesOf('Modal', module)
 
   )
 
+  stories.add('Error Detail modal', () => {
+    return {
+      props: {},
+      template:
+        `<b> Error Detail Modal</b><br><br>
+        <modal-consumer [action]="'openErrorDetailModal'"></modal-consumer>`
+
+      }
+    },
+      { notes: `<h2>Error Detail modal</h2>
+                When click on view model error modal with additional details will open`+
+                `<br>Source Code:` +
+                `<br/><br/><b>const additionalDetails =  {
+                  "Error Code" : "SVC131232", 
+                  "Status Code": "404",
+                  "Transaction ID": "TransID123"
+                };</b>` +
+                `<br><b>this.modalService.openErrorDetailModal('Error modal title', 'Error modal content', 'errorModalTestId', additionalDetails);</b>`
+      }
+  )
+
   stories.add('Success modal', () => {
     return {
       props: {

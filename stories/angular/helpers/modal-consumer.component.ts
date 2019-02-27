@@ -40,6 +40,16 @@ export class ModalConsumerComponent {
         this.modalService.openErrorModal("Error modal title", MODAL_CONTENT, 'errorModalTestId');
     }
 
+    private openErrorDetailModal = (): void => {
+        const additionalDetails =  {
+            "Error Code" : "SVC131232", 
+            "Status Code": "404",
+            "Transaction ID": "TransID123"
+        };
+
+        this.modalService.openErrorDetailModal("Error modal title", "Error modal content", "errorDetailTestID", additionalDetails);
+    }
+
     private openSuccessModal = (): void => {
         this.modalService.openSuccessModal("Success modal title", MODAL_CONTENT, 'successModalTestId');
     }
