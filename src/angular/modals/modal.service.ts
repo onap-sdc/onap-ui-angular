@@ -4,6 +4,7 @@ import { CreateDynamicComponentService } from "../utils/create-dynamic-component
 import { IModalConfig, ModalType, ModalSize, IModalButtonComponent } from "./models/modal-config";
 import { ButtonType } from '../common/enums';
 import { ModalButtonComponent } from './modal-button.component';
+import { ErrorDetailModalComponent } from './error-detail-modal/error-detail-modal.component';
 
 @Injectable()
 export class ModalService {
@@ -36,6 +37,22 @@ export class ModalService {
 
     public openErrorModal = (title: string, message: string, testId: string, buttons?: ModalButtonComponent[]): ModalComponent => {
         return this.getBaseModal(ModalType.error, title, message, testId, buttons);
+    };
+
+    public openErrorDetailModal = (title: string, message: string, testId: string, errorDetails?:any, buttons?: ModalButtonComponent[]): ModalComponent => {
+
+        const modalConfig = {
+            size: ModalSize.small,
+            title: title,
+            testId: testId,
+            buttons: buttons ? buttons : [{ text: 'OK', type: ButtonType.error, closeModal: true }],
+            type: ModalType.error
+        } as IModalConfig;
+
+        return this.openCustomModal(modalConfig, ErrorDetailModalComponent, {
+            errorMessage: message,
+            additionalDetails: errorDetails
+        });
     };
 
     public openSuccessModal = (title: string, message: string, testId: string, buttons?: ModalButtonComponent[]): ModalComponent => {

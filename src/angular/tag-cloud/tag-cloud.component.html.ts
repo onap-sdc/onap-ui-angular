@@ -18,7 +18,7 @@ export const template = `
                    [testId]="testId"
                    [isViewOnly]="isViewOnly && (isViewOnly === true || isViewOnly.indexOf(i) > -1)"
                    (clickOnDelete)="deleteItemFromList($event)"
-                   sdc-tooltip [tooltip-text]="text" [tooltip-placement]="3" [tooltip-hide-onclick]="true"
+                   sdc-tooltip [tooltip-text]="item" [tooltip-placement]="3" [tooltip-hide-onclick]="true"
                    ></sdc-tag-item>
 </div>
 <div class="error-message" *ngIf="uniqueError">{{uniqueErrorMessage}}</div>
