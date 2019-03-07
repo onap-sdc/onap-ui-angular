@@ -45,8 +45,4 @@ export class TabsComponent implements AfterContentInit {
             this.selectTab(this.tabs.first);
         }
     }
-
-    public checkTabStyle() {
-      return this.tabStyle == TabsStyle.tables;
-    }
 }

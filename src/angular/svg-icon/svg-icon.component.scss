@@ -244,6 +244,9 @@
     &.mode-warning {
         @include color-icon-label($yellow);
     }
+    &.mode-white {
+      @include color-icon-label($white);
+    }
 
     &.mode-info {
         @include color-icon-label($text-black);
