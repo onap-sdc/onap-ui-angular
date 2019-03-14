@@ -14,7 +14,7 @@ import { ButtonComponent } from "../buttons/button.component";
         [attr.data-tests-id]="testId"
         (click)="!disabled && closeModal('close')"
         >
-        <svg-icon name="close" [mode]="disabled? 'secondary' : 'info'" size="small"></svg-icon>
+        <svg-icon name="close" [mode]="disabled? 'secondary' : 'info'" size="medium"></svg-icon>
     </div>
     `
 })

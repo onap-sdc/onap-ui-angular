@@ -42,7 +42,7 @@ export class ModalService {
     public openErrorDetailModal = (title: string, message: string, testId: string, errorDetails?:any, buttons?: ModalButtonComponent[]): ModalComponent => {
 
         const modalConfig = {
-            size: ModalSize.small,
+            size: ModalSize.medium,
             title: title,
             testId: testId,
             buttons: buttons ? buttons : [{ text: 'OK', type: ButtonType.error, closeModal: true }],

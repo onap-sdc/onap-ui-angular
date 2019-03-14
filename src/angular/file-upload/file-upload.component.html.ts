@@ -3,14 +3,15 @@ export const fileUploadTemplate = `
         <sdc-input class="file-upload-input"
           [label]="label"
           [size]="'large'"
-          [isViewMode]="true"
+          [isViewMode]="!disabled"
           [placeHolder]="placeHolder || 'Uploade File'"
           [required]="required"
           [(value)]="value"
           [testId]="testId"
+          [disabled]="disabled"
           [righIconName]="value && 'close'"
           (onRighIconClicked)="value ? onClear() : undefined"
-          [isIconClickable] ="value? true: false">
+          [isIconClickable] ="!disabled && value? true: false">
         </sdc-input>
         <sdc-required-validator message="File is required"></sdc-required-validator>
       
