@@ -54,8 +54,8 @@ let stories = storiesOf('Tabs', module)
             },
             template: `
             <sdc-tabs (selectedTab)="selectTab($event)" [testId]="_testId" [iconsSize]="_size" [isVertical]="_isVertical" [tabStyle]="tapStyle">
-                <sdc-tab [title]="_title1" [titleIcon]="_titleIcon1" [active]="_active1" [testId]="'title1'">This is tab 1</sdc-tab>
-                <sdc-tab [title]="_title2" [titleIcon]="_titleIcon2" [active]="_active2" [tooltipText]="_tooltip2" [testId]="'title2'">This is tab 2</sdc-tab>
+                <sdc-tab [title]="_title1" [titleIcon]="_titleIcon1" [active]="_active1"   [tooltipText]="'first tab'" [testId]="'title1'">This is tab 1</sdc-tab>
+                <sdc-tab [title]="_title2" [titleIcon]="_titleIcon2" [active]="_active2" [tooltipText]="'second tab'" [testId]="'title2'">This is tab 2</sdc-tab>
             </sdc-tabs>
             `
         }
