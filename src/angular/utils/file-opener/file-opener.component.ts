@@ -15,8 +15,7 @@ export class FileObject {
                     [accept]="allowedExtensions"
                     [disabled]="disabled"
                     (change)="onFileSelect($event)"
-  />`,
-  styleUrls: ['./file-opener.component.scss']
+  />`
 })
 export class FileOpenerComponent implements AfterViewInit {
 
