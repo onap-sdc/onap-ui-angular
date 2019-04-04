@@ -45,6 +45,10 @@ export class TagCloudComponent {
     }
 
     private validateTag = (): void => {
-        this.uniqueError = this.list && this.list.indexOf(this.newTagItem) > -1;
+        if(this.isUniqueList) {
+            this.uniqueError = this.list && this.list.indexOf(this.newTagItem) > -1;
+        } else {
+            this.uniqueError = false;
+        }
     }
 }

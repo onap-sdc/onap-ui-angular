@@ -14,6 +14,6 @@ export const template = `
               (click)="toggleDropdown($event)"
               [placeHolder]="this.selectedOption?.label || this.selectedOption?.value || placeHolder">
       </sdc-input>
-      <dropdown-results *ngIf="show" [options]="options" [isGroupDesign]="isGroupDesign" [selectedOption]="selectedOption" (onItemSelected)="selectOption($event)"></dropdown-results>
+      <dropdown-results *ngIf="show" [options]="allOptions" [isGroupDesign]="isGroupDesign" [selectedOption]="selectedOption" (onItemSelected)="selectOption($event)"></dropdown-results>
 </div>
 `;
