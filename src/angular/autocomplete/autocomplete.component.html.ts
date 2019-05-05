@@ -1,7 +1,7 @@
 export const template = `
 <div class="sdc-autocomplete-container" [attr.data-tests-id]="testId">
     <sdc-filter-bar
-        [placeHolder]="placeHolder"
+        [placeHolder]="placeholder"
         [label]="label"
         [value]="searchQuery"
         [testId]="testId + '-filter-bar'"
