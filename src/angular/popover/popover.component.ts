@@ -58,8 +58,8 @@ export class PopoverComponent implements OnInit{
 
   private _position: IPoint = {x: 0, y: 0};
   private notFirstClick = false;
-  private displayPopOverRightOrBottom = {};
-  private dispalyPopOverLeftOrTop = {};
+  public displayPopOverRightOrBottom = {};
+  public dispalyPopOverLeftOrTop = {};
 
 
 
