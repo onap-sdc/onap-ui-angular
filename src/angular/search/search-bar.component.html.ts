@@ -5,6 +5,7 @@ export const searchBartemplate = `
                [debounceTime]="debounceTime"
                (valueChange)="searchItem($event)"
                [size]="size"
+               [testId]="testId + '-input'"
                [(value)]="value"></sdc-input>
     <span class="search-button" (click)="searchButtonClick()">
       <svg-icon 
