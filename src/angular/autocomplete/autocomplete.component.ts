@@ -28,6 +28,7 @@ export class AutoCompleteComponent implements OnInit {
     @Input() public dataSchema: IDropDownOption;
     @Input() public dataUrl: string;
     @Input() public label: string;
+    @Input() public initialValue: string;
     @Input() public placeholder: string;
     @Output() public itemSelected: EventEmitter<any> = new EventEmitter<any>();
     @Input() public testId: string;
@@ -44,7 +45,7 @@ export class AutoCompleteComponent implements OnInit {
         if (this.data) {
             this.handleLocalData();
         }
-        this.searchQuery = "";
+        this.searchQuery = this.initialValue || "";
     }
 
     public handleLocalData = (): void => {
