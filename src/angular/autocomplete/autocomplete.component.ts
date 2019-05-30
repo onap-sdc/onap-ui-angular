@@ -87,9 +87,8 @@ export class AutoCompleteComponent implements OnInit {
                 this.onClearSearch();
             } else {
                 if (this.dataUrl) {
-                    const params = new HttpParams();
-                    params.append('searchQuery', this.searchQuery);
-                    this.http.get(this.dataUrl, {params})
+                    const params = {'searchQuery': this.searchQuery};
+                    this.http.get(this.dataUrl, {params: params})
                         .pipe(map((response) => {
                             this.data = JSON.parse(JSON.stringify(response));
                             this.handleLocalData();
