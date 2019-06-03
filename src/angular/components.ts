@@ -11,6 +11,7 @@ export { DropdownResultsComponent } from "./form-elements/dropdown/dropdown-resu
 export { CheckboxComponent } from "./form-elements/checkbox/checkbox.component";
 export { RadioGroupComponent } from "./form-elements/radios/radio-buttons-group.component";
 export { TextareaComponent } from "./form-elements/text-elements/textarea/textarea.component";
+export { NumberInputComponent } from "./form-elements/text-elements/number-input/number-input.component";
 
 // Buttons
 export { ButtonComponent } from "./buttons/button.component";
