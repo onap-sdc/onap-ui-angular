@@ -23,12 +23,12 @@ export class NumberInputComponent extends BaseTextElementComponent {
     }
 
     public clickUp = () => {
-        this.value = this.validateValue(this.value + this.step);        
+        this.value = this.validateValue(Number(this.value) + this.step);        
         this.valueChanged(this.value);
     }
 
     public clickDown = () => {
-        this.value = this.validateValue(this.value - this.step);
+        this.value = this.validateValue(Number(this.value) - this.step);
         this.valueChanged(this.value);
     }
 
