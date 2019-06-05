@@ -11,6 +11,7 @@ export const template = `
             [max]="maxValue"
             [min]="minValue"
             [type]="'number'"
+            (input)="onKeyPress()"
             (keyup)="validateMax($event.target.value)"
             (blur)="validateMin($event.target.value)"
             [formControl]="control"

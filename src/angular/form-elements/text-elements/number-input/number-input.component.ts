@@ -18,18 +18,14 @@ export class NumberInputComponent extends BaseTextElementComponent {
         super();
     }
 
-    ngOnInit() {
-        this.value = Number(this.value);
-    }
-
     public clickUp = () => {
         this.value = this.validateValue(Number(this.value) + this.step);        
-        this.valueChanged(this.value);
+        this.onKeyPress();
     }
 
     public clickDown = () => {
         this.value = this.validateValue(Number(this.value) - this.step);
-        this.valueChanged(this.value);
+        this.onKeyPress();
     }
 
     private validateValue = (newValue: number):number => {
@@ -52,6 +48,11 @@ export class NumberInputComponent extends BaseTextElementComponent {
             this.value = this.minValue;
             return true;
         }
+    }
+
+    public onKeyPress(){
+        this.value = Number(this.value);
+        this.valueChanged(this.value);
     }
 
 }
