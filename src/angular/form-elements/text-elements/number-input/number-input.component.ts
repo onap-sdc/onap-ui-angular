@@ -51,7 +51,9 @@ export class NumberInputComponent extends BaseTextElementComponent {
     }
 
     public onKeyPress(){
-        this.value = Number(this.value);
+        if (this.value) {
+          this.value = Number(this.value);
+        }
         this.valueChanged(this.value);
     }
 
