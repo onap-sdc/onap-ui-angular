@@ -25,7 +25,7 @@ export const fileUploadTemplate = `
            [mode]="'primary2'"
            [backgroundShape]="'rectangle'">
           </svg-icon>
-          <onap-file-opener (fileUpload)="fileUploaded($event)" [extensions]="extensions" [disabled] = "disabled"></onap-file-opener>
+          <onap-file-opener (fileUpload)="fileUploaded($event)" [extensions]="extensions" [convertToBase64]="convertToBase64" [disabled] = "disabled"></onap-file-opener>
       </span>
    </div>
 `;

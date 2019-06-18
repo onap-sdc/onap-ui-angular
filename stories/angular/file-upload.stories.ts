@@ -27,26 +27,29 @@ storiesOf('File Upload', module)
       const _label = text('label', 'File Upload label');
       const _placeholder = text('placeholder', 'File Upload placeholder');
       const _testId = text('testId', 'file-upload-test-id');
+      const _extensions = text('extensions', 'pdf,zip');
+      const _convertToBase64 = boolean('convertToBase64', false);
 
       return {
         props: {
-          onChange: action('Search query value changed '),
-          _label,  _placeholder,  _testId
+          onChange: action('File Upload value changed '),
+          _label,  _placeholder,  _testId, _extensions, _convertToBase64
         },
         template: `
         <onap-file-upload
             [placeHolder]="_placeholder"
             [label]="_label"
-            [debounceTime]="_debounceTime"
-            [(value)]="_searchQuery"
             [testId]="_testId"
-            (searchQueryEvent)="onChange($event)">
+            [extensions]="_extensions"
+            [convertToBase64]="_convertToBase64"
+            (fileUpload)="onChange($event)">
         </onap-file-upload>
         `
       }
     },
-    { notes: `<h2>Filterbar</h2>
-            The filter bar component text is updated (after debounce time, default 200 miliseconds) while user write something.
+    { notes: `<h2>File Upload</h2>
+            Extensions is a comma separated list of allowed extensions.
+            ConvertToBase64 indicates whether the file should be emitted in base64 format. This value is false by default.
             Use the KNOBS tab to change values.`
     }
   )
