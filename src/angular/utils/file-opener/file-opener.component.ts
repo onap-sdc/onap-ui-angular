@@ -22,6 +22,7 @@ export class FileOpenerComponent implements AfterViewInit {
   @Input() public extensions: string;
   @Input() public disabled: boolean;
   @Input() public testId: boolean;
+  @Input() public convertToBase64: boolean;
   @Output() public fileUpload: EventEmitter<any>;
   @HostBinding('class.file-opener') true;
 
@@ -39,6 +40,14 @@ export class FileOpenerComponent implements AfterViewInit {
 
   public onFileSelect(e): void {
     var file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
+    if(this.convertToBase64) {
+      this.useFileReader(file);
+    } else {
+      this.fileUpload.emit(file);
+    }
+  }
+
+  private useFileReader = (file) => {
     var reader = new FileReader();
     this.fileObject.filesize = file.size;
     this.fileObject.filetype = file.type;
