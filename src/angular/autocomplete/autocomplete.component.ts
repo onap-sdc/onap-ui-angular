@@ -33,7 +33,7 @@ export class AutoCompleteComponent implements OnInit {
     @Output() public itemSelected: EventEmitter<any> = new EventEmitter<any>();
     @Input() public testId: string;
 
-    public searchQuery: string;
+    public searchQuery: string = '';
     protected complexData: any[] = [];
     public autoCompleteResults: any[] = [];
     private isItemSelected: boolean = false;
@@ -45,7 +45,10 @@ export class AutoCompleteComponent implements OnInit {
         if (this.data) {
             this.handleLocalData();
         }
-        this.searchQuery = this.initialValue || "";
+        if (this.initialValue) {
+          this.searchQuery = this.initialValue;
+          this.isItemSelected = true;
+        }
     }
 
     public handleLocalData = (): void => {
