@@ -13,6 +13,7 @@ export const template = `
             [type]="'number'"
             (input)="onKeyPress()"
             (keyup)="validateMax($event.target.value)"
+            (keydown)="onKeyDown($event)"
             (blur)="validateMin($event.target.value)"
             [formControl]="control"
             [attr.disabled]="(disabled || isViewMode) ? 'disabled' : null"
