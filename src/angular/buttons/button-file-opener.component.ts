@@ -16,6 +16,7 @@ export class FileObject {
 export class ButtonFileOpenerComponent extends ButtonComponent  {
 
     @Input() public extensions: string;
+    @Input() public convertToBase64: boolean = false;
     @Output() public fileUpload: EventEmitter<any> = new EventEmitter<any>();
     @HostBinding('class.sdc-button-file-opener') true;
 

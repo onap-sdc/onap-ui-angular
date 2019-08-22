@@ -6,7 +6,8 @@ export const template = `
     <onap-file-opener 
       [extensions]="extensions"
        [disabled]="disabled" 
-       [testId]="testId" 
+       [testId]="testId"
+       [convertToBase64]="convertToBase64"
        (fileUpload)="fileUploaded($event)"> 
   </onap-file-opener>
 </div>
