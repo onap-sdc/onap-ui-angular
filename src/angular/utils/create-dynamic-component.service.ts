@@ -1,5 +1,4 @@
-import { Injectable, Type, ApplicationRef, ComponentFactoryResolver, ComponentRef, EmbeddedViewRef, Injector } from '@angular/core';
-import { ViewContainerRef } from '@angular/core/src/linker/view_container_ref';
+import { Injectable, Type, ApplicationRef, ComponentFactoryResolver, ComponentRef, EmbeddedViewRef, Injector, ViewContainerRef } from '@angular/core';
 
 @Injectable()
 export class CreateDynamicComponentService {
