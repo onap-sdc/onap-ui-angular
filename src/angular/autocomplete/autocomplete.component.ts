@@ -32,6 +32,8 @@ export class AutoCompleteComponent implements OnInit {
     @Input() public placeholder: string;
     @Output() public itemSelected: EventEmitter<any> = new EventEmitter<any>();
     @Input() public testId: string;
+    @Input() public defaultRightIcon: string = 'search-o';
+    @Input() public disabled: boolean;
 
     public searchQuery: string = '';
     protected complexData: any[] = [];
@@ -83,8 +85,6 @@ export class AutoCompleteComponent implements OnInit {
     }
 
     public onSearchQueryChanged = (searchText: string): void => {
-      console.log("onSearchQueryChanged searchText",searchText);
-      console.log("onSearchQueryChanged searchQuery",this.searchQuery);
         if (searchText !== this.searchQuery) {
             this.searchQuery = searchText;
             if (!this.searchQuery) {
@@ -106,12 +106,20 @@ export class AutoCompleteComponent implements OnInit {
         }
     }
 
+    public onRightItemClicked() {
+        if (this.disabled) {
+            return;
+        }
+        this.autoCompleteResults = this.autocompletePipe.transform(this.complexData, this.searchQuery);
+    }
+
     protected onClearSearch = (): void => {
         this.autoCompleteResults = [];
         if (this.isItemSelected) {
             this.itemSelected.emit();
         }
-        this.searchQuery = "";
+        this.searchQuery = '';
     }
+
 }
 
