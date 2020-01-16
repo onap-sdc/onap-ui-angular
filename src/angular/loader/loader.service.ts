@@ -1,4 +1,4 @@
-import { Injectable, Type, ComponentRef } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { LoaderComponent } from './loader.component';
 
 @Injectable()
