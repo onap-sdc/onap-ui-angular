@@ -35,12 +35,14 @@ storiesOf('AutoComplete', module)
     const _data = array('data', sampleData, ',');
     const _event = text('(itemSelected)', 'Event thrown when item selected');
     const _value = text('initialValue', 'red');
+    const _defaultRightIcon = text('defaultRightIcon', 'search-o');
+    const _disabled = boolean('disabled', false);
     const _testId = text('testId', 'autocomplete-test-id');
 
       return {
         props: {
             itemSelected: action('Item was selected '),
-            _label, _placeholder, _data, _event, _value, _testId
+            _label, _placeholder, _data, _event, _value, _testId, _defaultRightIcon, _disabled
         },
         template: `
         <div class='storybook-component-wrapper'>
@@ -52,6 +54,8 @@ storiesOf('AutoComplete', module)
                 [initialValue]="_value"
                 [testId]="_testId"
                 (itemSelected)="itemSelected($event)"
+                [defaultRightIcon]="_defaultRightIcon"
+                [disabled]="_disabled"
                 >
             </sdc-autocomplete>
         </div>
