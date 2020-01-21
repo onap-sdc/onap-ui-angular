@@ -18,7 +18,8 @@ import {CommonDirectiveModule} from "../utils/common-directive.module";
         BrowserModule,
         BrowserAnimationsModule,
         SearchModule,
-        CommonModule
+        CommonModule,
+        CommonDirectiveModule
     ],
     exports: [
         AutoCompleteComponent,
