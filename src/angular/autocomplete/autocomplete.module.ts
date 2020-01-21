@@ -6,12 +6,12 @@ import { AutocompletePipe } from "./autocomplete.pipe";
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormElementsModule} from "../form-elements/form-elements.module";
+import {CommonDirectiveModule} from "../utils/common-directive.module";
 
 @NgModule({
     declarations: [
         AutoCompleteComponent,
-        AutocompletePipe,
-
+        AutocompletePipe
     ],
     imports: [
         FormElementsModule,

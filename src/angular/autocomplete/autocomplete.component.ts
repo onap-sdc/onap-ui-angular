@@ -31,10 +31,12 @@ export class AutoCompleteComponent implements OnInit {
     @Input() public initialValue: string;
     @Input() public placeholder: string;
     @Output() public itemSelected: EventEmitter<any> = new EventEmitter<any>();
+    @Output() public clearInput: EventEmitter<any> = new EventEmitter<any>();
     @Input() public testId: string;
     @Input() public defaultRightIcon: string = 'search-o';
     @Input() public disabled: boolean;
 
+    public clickOutside: boolean = false;
     public searchQuery: string = '';
     protected complexData: any[] = [];
     public autoCompleteResults: any[] = [];
@@ -119,6 +121,19 @@ export class AutoCompleteComponent implements OnInit {
             this.itemSelected.emit();
         }
         this.searchQuery = '';
+        this.clearInput.emit();
+    }
+
+    public onClickOutside(){
+        this.clickOutside = true;
+    }
+
+    public onClickInside(){
+        this.clickOutside = false;
+        if (this.disabled) {
+            return;
+        }
+        this.autoCompleteResults = this.autocompletePipe.transform(this.complexData, this.searchQuery);
     }
 
 }
