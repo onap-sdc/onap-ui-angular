@@ -61,6 +61,9 @@ export { CharsEllipsisComponent } from './ellipsis/chars-ellipsis.component';
 export { AutoCompleteComponent } from './autocomplete/autocomplete.component';
 export { AutocompletePipe } from './autocomplete/autocomplete.pipe';
 
+// ComboBox
+export { ComboBoxComponent } from './autocomplete/combo-box.component';
+
 // Filter
 export { FilterBarComponent } from './search/filter-bar.component';
 
