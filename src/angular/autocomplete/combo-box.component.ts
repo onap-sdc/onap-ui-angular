@@ -58,8 +58,8 @@ export class ComboBoxComponent extends SearchBaseComponent implements OnInit {
         if (selectedItem.value === this.noResultsMessage) {
             return;
         }
-        this.itemSelected.emit(this.selectedValue);
         this.handleExitSearchMode(selectedItem.value);
+        this.itemSelected.emit(selectedItem.value);
     }
 
     onSearchQueryChanged = (searchText: string): void => {
