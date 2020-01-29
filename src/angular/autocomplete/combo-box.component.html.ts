@@ -20,9 +20,3 @@ export const template = `
     <dropdown-results *ngIf="autoCompleteResults.length" [options]="autoCompleteResults" (onItemSelected)="onItemSelected($event)"></dropdown-results>
 </div>
 `;
-
-
-//
-// <dropdown-results *ngIf="autoCompleteResults.length && !clickOutside"
-// (click)="onClickInside()"
-
