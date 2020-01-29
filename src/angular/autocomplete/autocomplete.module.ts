@@ -5,16 +5,18 @@ import { SearchModule } from "./../search/search.module";
 import { AutocompletePipe } from "./autocomplete.pipe";
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {FormElementsModule} from "../form-elements/form-elements.module";
 import {CommonDirectiveModule} from "../utils/common-directive.module";
+import {ComboBoxComponent} from "./combo-box.component";
+import {InputModule} from "../form-elements/text-elements/input/input.module";
 
 @NgModule({
     declarations: [
         AutoCompleteComponent,
+        ComboBoxComponent,
         AutocompletePipe
     ],
     imports: [
-        FormElementsModule,
+        InputModule,
         BrowserModule,
         BrowserAnimationsModule,
         SearchModule,
@@ -23,6 +25,7 @@ import {CommonDirectiveModule} from "../utils/common-directive.module";
     ],
     exports: [
         AutoCompleteComponent,
+        ComboBoxComponent,
         AutocompletePipe
     ]
 })

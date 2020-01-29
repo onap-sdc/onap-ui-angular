@@ -83,7 +83,7 @@ export class AutoCompleteComponent implements OnInit {
         this.searchQuery = selectedItem.value;
         this.isItemSelected = true;
         this.autoCompleteResults = [];
-        this.itemSelected.emit(selectedItem.label);
+        this.itemSelected.emit(selectedItem.value);
     }
 
     public onSearchQueryChanged = (searchText: string): void => {
