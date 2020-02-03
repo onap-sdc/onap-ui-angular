@@ -33,7 +33,7 @@ export class ComboBoxComponent extends SearchBaseComponent implements OnInit {
     @Input() public testId: string;
     @Input() public defaultRightIcon: string = 'caret1-down-o';
     @Input() public disabled: boolean;
-    @Input() public noResultsMessage: string = 'No matches..';
+    @Input() public noResultsMessage: string = 'No matches';
 
     @ViewChild('comboBoxInput') public input: InputComponent;
 
@@ -51,7 +51,6 @@ export class ComboBoxComponent extends SearchBaseComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.input.isViewMode = true;
     }
 
     onItemSelected = (selectedItem: IDropDownOption): void => {
@@ -78,24 +77,28 @@ export class ComboBoxComponent extends SearchBaseComponent implements OnInit {
     }
 
     onClickInside() {
-        if (this.isCloseClicked){
-            this.isCloseClicked = false;
-            return;
-        }
-        if (this.isSearchMode === false) {
-            this.handleEnterSearchMode();
+        if (!this.disabled) {
+            if (this.isCloseClicked) {
+                this.isCloseClicked = false;
+                return;
+            }
+            if (this.isSearchMode === false) {
+                this.handleEnterSearchMode();
+            }
         }
     }
 
     onRightIconClicked() {
-        this.isRightButtonClicked = true;
-        if (this.defaultRightIcon === 'close') {
-            this.rightIconClickedEmitter.emit('close');
-            this.isCloseClicked = true;
-            this.handleExitSearchMode();
-        } else {
-            this.rightIconClickedEmitter.emit('select');
-            this.handleEnterSearchMode();
+        if (!this.disabled) {
+            this.isRightButtonClicked = true;
+            if (this.defaultRightIcon === 'close') {
+                this.rightIconClickedEmitter.emit('close');
+                this.isCloseClicked = true;
+                this.handleExitSearchMode();
+            } else {
+                this.rightIconClickedEmitter.emit('select');
+                this.handleEnterSearchMode();
+            }
         }
     }
 
