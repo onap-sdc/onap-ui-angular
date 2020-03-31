@@ -138,7 +138,7 @@ export class ComboBoxComponent extends SearchBaseComponent implements OnInit {
 
     calculateComboBoxResults(data, query) {
         const tmp = this.autocompletePipe.transform(data, query);
-        if (tmp.length === 0) {
+        if (tmp && tmp.length === 0) {
             tmp.push({ label: this.noResultsMessage, value: this.noResultsMessage });
         }
         return tmp;
