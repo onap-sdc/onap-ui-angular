@@ -180,7 +180,8 @@ storiesOf('Form elements|Dropdown', module)
     const _label = text('label', 'Simple dropdown');
     const _placeHolder = text('placeHolder', 'Sample placeholder');
     const _disabled = boolean('disabled', false);
-    const _options = object('options', options2);
+    const _options2 = array('options', ['option1', 'opt2', 'opt3']);
+    // const _options = object('options', options2);
     const _testId = text('testId', 'dropdown-test-id');
     const _required = boolean('required', false);
     const _size = number('size', 20);
@@ -190,7 +191,7 @@ storiesOf('Form elements|Dropdown', module)
     return {
       props: {
           onChange: action('Dropdown value changed '),
-          _label, _placeHolder, _disabled, _required, _testId, _options, _size, _selectedOption
+          _label, _placeHolder, _disabled, _required, _testId, _options2, _size, _selectedOption
       },
       template: `
       <sdc-dropdown 
@@ -199,7 +200,7 @@ storiesOf('Form elements|Dropdown', module)
           [disabled]="_disabled"
           [required]="_required"
           [size]="_size"
-          [options]="_options" 
+          [options]="_options2" 
           [selectedOption]="_selectedOption"
           (changed)="onChange($event)"
           >

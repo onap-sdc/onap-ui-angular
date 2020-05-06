@@ -11,6 +11,7 @@ export { DropdownResultsComponent } from "./form-elements/dropdown/dropdown-resu
 export { CheckboxComponent } from "./form-elements/checkbox/checkbox.component";
 export { RadioGroupComponent } from "./form-elements/radios/radio-buttons-group.component";
 export { TextareaComponent } from "./form-elements/text-elements/textarea/textarea.component";
+export { NumberInputComponent } from "./form-elements/text-elements/number-input/number-input.component";
 
 // Buttons
 export { ButtonComponent } from "./buttons/button.component";
@@ -59,6 +60,9 @@ export { CharsEllipsisComponent } from './ellipsis/chars-ellipsis.component';
 // AutoComplete
 export { AutoCompleteComponent } from './autocomplete/autocomplete.component';
 export { AutocompletePipe } from './autocomplete/autocomplete.pipe';
+
+// ComboBox
+export { ComboBoxComponent } from './autocomplete/combo-box.component';
 
 // Filter
 export { FilterBarComponent } from './search/filter-bar.component';

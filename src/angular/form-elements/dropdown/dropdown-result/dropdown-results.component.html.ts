@@ -2,7 +2,8 @@ export const template = `
   <ul *ngIf="options" class="dropdown-results dropdown-results__animation-open" [ngClass]="{
               'sdc-dropdown__options-list--headless': headless
               }">
-    <li class="sdc-dropdown__option" *ngFor="let option of options" [ngClass]="{
+    <li class="sdc-dropdown__option" [attr.data-tests-id]="option.value"
+        *ngFor="let option of options" [ngClass]="{
                               'selected': option == selectedOption,
                               'sdc-dropdown__option--group':isGroupDesign,
                               'sdc-dropdown__option--header': option.type && option.type === DropDownOptionType.Header,

@@ -8,6 +8,7 @@ import { SearchModule } from '../../src/angular/search/search.module';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DropdownResultsModule} from "../../src/angular/form-elements/dropdown/dropdown-result/dropdown-result.module";
+import {CommonDirectiveModule} from "../../src/angular/utils/common-directive.module";
 
 storiesOf('AutoComplete', module)
   .addDecorator(withKnobs)
@@ -20,7 +21,8 @@ storiesOf('AutoComplete', module)
       imports: [
           SearchModule,
           BrowserAnimationsModule,
-          DropdownResultsModule
+          DropdownResultsModule,
+          CommonDirectiveModule
       ],
       providers: [
           HttpClient, HttpHandler, AutocompletePipe
@@ -34,12 +36,17 @@ storiesOf('AutoComplete', module)
     const _placeholder = text('placeholder', 'Simple data');
     const _data = array('data', sampleData, ',');
     const _event = text('(itemSelected)', 'Event thrown when item selected');
+    const _eventClear = text('(clearInput)', 'Event thrown when input cleared');
+    const _value = text('initialValue', 'red');
+    const _defaultRightIcon = text('defaultRightIcon', 'search-o');
+    const _disabled = boolean('disabled', false);
     const _testId = text('testId', 'autocomplete-test-id');
 
       return {
         props: {
             itemSelected: action('Item was selected '),
-            _label, _placeholder, _data, _event, _testId
+            clearInput: action('Input was cleared '),
+            _label, _placeholder, _data, _event, _value, _testId, _defaultRightIcon, _disabled, _eventClear
         },
         template: `
         <div class='storybook-component-wrapper'>
@@ -48,8 +55,12 @@ storiesOf('AutoComplete', module)
                 [placeholder]="_placeholder"
                 [label]="_label"
                 [data]="_data"
+                [initialValue]="_value"
                 [testId]="_testId"
                 (itemSelected)="itemSelected($event)"
+                [defaultRightIcon]="_defaultRightIcon"
+                [disabled]="_disabled"
+                (clearInput)="clearInput($event)"
                 >
             </sdc-autocomplete>
         </div>

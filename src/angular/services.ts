@@ -17,3 +17,6 @@ export { NotificationsService } from "./notifications/services/notifications.ser
 //PopOver
 export { PopoverService } from "./popover/popover.service"
 
+//CreateDynamicComponentService
+export { CreateDynamicComponentService } from "./utils/create-dynamic-component.service"
+

@@ -12,6 +12,7 @@ export class TagCloudComponent {
     @Input() public uniqueErrorMessage: string = "Unique error";
     @Input() public label: string;
     @Input() public placeholder: string;
+    @Input() public maxItems: number;
     @Output() public listChanged: EventEmitter<string[]> = new EventEmitter<string[]>();
     @Input() public testId: string;
     public newTagItem: string;
@@ -24,11 +25,13 @@ export class TagCloudComponent {
     }
 
     public insertItemToList = (): void => {
-        this.validateTag();
-        if (!this.uniqueError && this.newTagItem.length) {
-            this.list.push(this.newTagItem);
-            this.newTagItem = "";
-            this.listChanged.emit(this.list);
+        if(!this.maxItems || this.list.length < this.maxItems) {
+            this.validateTag();
+            if (!this.uniqueError && this.newTagItem.length) {
+                this.list.push(this.newTagItem);
+                this.newTagItem = "";
+                this.listChanged.emit(this.list);
+            }
         }
     }
 
@@ -42,6 +45,10 @@ export class TagCloudComponent {
     }
 
     private validateTag = (): void => {
-        this.uniqueError = this.list && this.list.indexOf(this.newTagItem) > -1;
+        if(this.isUniqueList) {
+            this.uniqueError = this.list && this.list.indexOf(this.newTagItem) > -1;
+        } else {
+            this.uniqueError = false;
+        }
     }
 }

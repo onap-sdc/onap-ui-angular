@@ -12,6 +12,7 @@ import {DropdownModule} from "./dropdown/dropdown.module";
 import {DropdownResultsModule} from "./dropdown/dropdown-result/dropdown-result.module";
 import {InputModule} from "./text-elements/input/input.module";
 import {CommonDirectiveModule} from "../utils/common-directive.module";
+import { NumberInputComponent } from "./text-elements/number-input/number-input.component";
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import {CommonDirectiveModule} from "../utils/common-directive.module";
     RadioGroupComponent,
     DropDownTriggerDirective,
     TextareaComponent,
+    NumberInputComponent,
     CalculateTestIdPipe
   ],
   exports: [
@@ -39,6 +41,7 @@ import {CommonDirectiveModule} from "../utils/common-directive.module";
     RadioGroupComponent,
     ValidationModule,
     DropdownModule,
+    NumberInputComponent,
     TextareaComponent,
     CalculateTestIdPipe,
     SvgIconModule

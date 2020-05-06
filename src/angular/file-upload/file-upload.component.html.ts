@@ -2,16 +2,16 @@ export const fileUploadTemplate = `
   <div class="file-upload">
         <sdc-input class="file-upload-input"
           [label]="label"
-          [value]="value"
           [size]="'large'"
-          [isViewMode]="true"
+          [isViewMode]="!disabled"
           [placeHolder]="placeHolder || 'Uploade File'"
           [required]="required"
           [(value)]="value"
-          [testId]="testId + '-file-upload'"
+          [testId]="testId"
+          [disabled]="disabled"
           [righIconName]="value && 'close'"
           (onRighIconClicked)="value ? onClear() : undefined"
-          [isIconClickable] ="value? true: false">
+          [isIconClickable] ="!disabled && value? true: false">
         </sdc-input>
         <sdc-required-validator message="File is required"></sdc-required-validator>
       
@@ -25,7 +25,7 @@ export const fileUploadTemplate = `
            [mode]="'primary2'"
            [backgroundShape]="'rectangle'">
           </svg-icon>
-          <onap-file-opener (fileUpload)="fileUploaded($event)" [extensions]="extensions" [disabled] = "disabled"></onap-file-opener>
+          <onap-file-opener (fileUpload)="fileUploaded($event)" [extensions]="extensions" [convertToBase64]="convertToBase64" [disabled] = "disabled"></onap-file-opener>
       </span>
    </div>
 `;

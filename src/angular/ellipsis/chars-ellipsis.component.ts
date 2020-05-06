@@ -14,7 +14,7 @@ export class CharsEllipsisComponent {
     @Input() public testId: string;
     private collapsed: boolean;
     private elipsisText: string;
-    private dispalyText: string;
+    public displayText: string;
 
     constructor() {
     }
@@ -26,13 +26,13 @@ export class CharsEllipsisComponent {
             this.toggleText();
         }
         else {
-            this.dispalyText = this.text;
+            this.displayText = this.text;
         }
         this.dataTestId = this.testId;
     }
 
     toggleText (): void {
-        this.dispalyText = this.collapsed ? this.elipsisText : this.text;
+        this.displayText = this.collapsed ? this.elipsisText : this.text;
     };
     clickMoreLessLink(){
         this.collapsed = !this.collapsed;

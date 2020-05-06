@@ -28,11 +28,16 @@ export class AutoCompleteComponent implements OnInit {
     @Input() public dataSchema: IDropDownOption;
     @Input() public dataUrl: string;
     @Input() public label: string;
+    @Input() public initialValue: string;
     @Input() public placeholder: string;
     @Output() public itemSelected: EventEmitter<any> = new EventEmitter<any>();
+    @Output() public clearInput: EventEmitter<any> = new EventEmitter<any>();
     @Input() public testId: string;
+    @Input() public defaultRightIcon: string = 'search-o';
+    @Input() public disabled: boolean;
 
-    public searchQuery: string;
+    public clickOutside: boolean = false;
+    public searchQuery: string = '';
     protected complexData: any[] = [];
     public autoCompleteResults: any[] = [];
     private isItemSelected: boolean = false;
@@ -44,7 +49,10 @@ export class AutoCompleteComponent implements OnInit {
         if (this.data) {
             this.handleLocalData();
         }
-        this.searchQuery = "";
+        if (this.initialValue) {
+          this.searchQuery = this.initialValue;
+          this.isItemSelected = true;
+        }
     }
 
     public handleLocalData = (): void => {
@@ -75,21 +83,18 @@ export class AutoCompleteComponent implements OnInit {
         this.searchQuery = selectedItem.value;
         this.isItemSelected = true;
         this.autoCompleteResults = [];
-        this.itemSelected.emit(selectedItem.label);
+        this.itemSelected.emit(selectedItem.value);
     }
 
     public onSearchQueryChanged = (searchText: string): void => {
-      console.log("onSearchQueryChanged searchText",searchText);
-      console.log("onSearchQueryChanged searchQuery",this.searchQuery);
         if (searchText !== this.searchQuery) {
             this.searchQuery = searchText;
             if (!this.searchQuery) {
                 this.onClearSearch();
             } else {
                 if (this.dataUrl) {
-                    const params = new HttpParams();
-                    params.append('searchQuery', this.searchQuery);
-                    this.http.get(this.dataUrl, {params})
+                    const params = {'searchQuery': this.searchQuery};
+                    this.http.get(this.dataUrl, {params: params})
                         .pipe(map((response) => {
                             this.data = JSON.parse(JSON.stringify(response));
                             this.handleLocalData();
@@ -103,12 +108,33 @@ export class AutoCompleteComponent implements OnInit {
         }
     }
 
+    public onRightItemClicked() {
+        if (this.disabled) {
+            return;
+        }
+        this.autoCompleteResults = this.autocompletePipe.transform(this.complexData, this.searchQuery);
+    }
+
     protected onClearSearch = (): void => {
         this.autoCompleteResults = [];
         if (this.isItemSelected) {
             this.itemSelected.emit();
         }
-        this.searchQuery = "";
+        this.searchQuery = '';
+        this.clearInput.emit();
     }
+
+    public onClickOutside(){
+        this.clickOutside = true;
+    }
+
+    public onClickInside(){
+        this.clickOutside = false;
+        if (this.disabled) {
+            return;
+        }
+        this.autoCompleteResults = this.autocompletePipe.transform(this.complexData, this.searchQuery);
+    }
+
 }
 

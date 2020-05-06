@@ -9,23 +9,28 @@ import { ModalCloseButtonComponent } from "./modal-close-button.component";
 import { SvgIconModule } from "../svg-icon/svg-icon.module";
 import { FormElementsModule } from "../form-elements/form-elements.module";
 import {CommonDirectiveModule} from "../utils/common-directive.module";
+import { ErrorDetailModalComponent } from "./error-detail-modal/error-detail-modal.component";
+import { AccordionModule } from "../accordion/accordion.module";
 
 @NgModule({
     declarations: [
         ModalComponent,
         ModalButtonComponent,
-        ModalCloseButtonComponent
+        ModalCloseButtonComponent,
+        ErrorDetailModalComponent
     ],
     imports: [
         CommonModule,
         ButtonsModule,
         CommonDirectiveModule,
         SvgIconModule,
-        FormElementsModule
+        FormElementsModule,
+        AccordionModule
     ],
     entryComponents: [
         ModalComponent,
-        ModalCloseButtonComponent
+        ModalCloseButtonComponent,
+        ErrorDetailModalComponent
     ],
     exports: [ModalButtonComponent],
     providers: [CreateDynamicComponentService, ModalService]
