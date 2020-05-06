@@ -1,6 +1,6 @@
 {
   "name": "onap-ui-angular",
-  "version": "5.4.0",
+  "version": "5.4.1",
   "author": "d2",
   "private": false,
   "main": "dist/index.umd.js",
@@ -59,7 +59,7 @@
     "global": "^4.3.2",
     "node-sass": "^4.9.2",
     "rimraf": "^2.6.2",
-    "rxjs": "^6.2.0",
+    "rxjs": "6.0.0",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
     "to-string-loader": "^1.1.5",
